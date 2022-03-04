@@ -1,25 +1,43 @@
-<script>
-    const drop_btn = document.querySelector(".toprightnav");
-    const profiledropdown = document.querySelector(".profiledropdown");
+<script context="module">
+    let drop_btn = (".toprightnav");
+    let profiledropdown = (".profiledropdown");
   
-    const menu_bar = document.querySelector(".menu-bar");
-    const help_drop = document.querySelector(".help-drop");
-    const setting_item = document.querySelector(".setting-item");
-    const help_item = document.querySelector(".help-item");
-    const help_btn = document.querySelector(".back-help-btn");
+    let menu_bar = (".menu-bar");
+    let help_drop = (".help-drop");
+    let setting_item = (".setting-item");
+    let help_item = (".help-item");
+    let help_btn = (".back-help-btn");
       
-    
+    function showdropdown() {
+      profiledropdown.classList.toggle("show");
+    }
+      
+
+            
+    function helpitem() {
+    menu_bar.style.marginLeft = "-400px";
+    setTimeout(()=>{
+    help_drop.style.display = "block";
+    }, 100);
+    };
+            
+    function helpbutton() {
+    help_drop.style.display = "none";
+    menu_bar.style.marginLeft = "0px";
+    };
   
     </script>
   
   
   
-  <button class="toprightnav" type="button" >
+  <button class="toprightnav" type="button" on:click={showdropdown}>
+
+      <img class="profileimage" src="../images/corgi.jpg" width="28px" height="28px">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">UNIVERSE</span>
       
       <svg role="img" height="16" width="16" class="Svg-ulyrgf-0 dIsYZz triangledropdown" viewBox="0 0 16 16"><path d="M13 10L8 4.206 3 10z"></path></svg>
   
-  <div class="profiledropdown">
+  <div class="profiledropdown" class:active={showdropdown} >
           <ul class="menu-bar">
   <li><a href="/login">
               <div class="icon">
@@ -36,7 +54,7 @@
                 <span class="fas fa-cog"></span></div>
   Settings<i class="fas fa-angle-right"></i>
             </a></li>
-  <li class="help-item"><a href="/login">
+  <li class="help-item" on:click|preventDefault={helpitem} ><a href="/login">
               <div class="icon">
                 <span class="fas fa-question-circle"></span></div>
   Help & support <i class="fas fa-angle-right"></i>
@@ -51,7 +69,7 @@
           
   
   <ul class="help-drop">
-  <li class="arrow back-help-btn"><span class="fas fa-arrow-left"></span>Help & support</li>
+  <li class="arrow back-help-btn" on:click|preventDefault={helpbutton}><span class="fas fa-arrow-left"></span>Help & support</li>
   <li><a href="/login">
               <div class="icon">
                 <span class="fas fa-question-circle"></span></div>

@@ -8,6 +8,7 @@ import { MemoryStore } from 'express-session';
 
 const app = express()
 
+
 const db = app.use(session({
     resave: false,
     saveUninitialized: true,
