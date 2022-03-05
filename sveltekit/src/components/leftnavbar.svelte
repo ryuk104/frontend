@@ -1,11 +1,13 @@
 <nav class="leftnavbar">
     <ul>
-        <div class="leftnavbarsymbols" > 
+        <div class="leftnavbarsymbols" >
+          
         </div>
   
         <div class="servers">
           <div>
             <div draggable="true" class="serverpicturebutton">
+              <img src=./static/image/image1.jpeg width="48px" hieght="48px">
             </div>
   
             <div draggable="true" class="serverpicturebutton">
@@ -26,7 +28,7 @@
 .leftnavbar {
   margin: 0;
   padding: 0;
-  background: #12181b;
+  background: #1a4b4e;
   height: 100%;
   align-items: center;
   position: absolute;

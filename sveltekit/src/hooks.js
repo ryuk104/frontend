@@ -1,5 +1,5 @@
 import * as cookie from 'cookie'
-import {MongoStore} from 'connect-mongo'
+import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
 

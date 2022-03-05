@@ -1,4 +1,15 @@
 <script context="module">
+  /*
+  if (!request.session || !request.sessionID || !request.session.user || !request.cookies.sid) {
+      const err = new Error("unatuh");
+      err.statusCode = 401;
+      res.redirect('/login')
+  } else {
+   res.redirect('/home') 
+  };
+
+console.log(req.sessionID)
+*/
     import Topnavbutton from "../components/Topnavbutton.svelte";
     import Leftnavbar from "../components/Leftnavbar.svelte"
 </script>
@@ -114,7 +125,7 @@
 
 <div class="instagramg" id="instagramg">
     <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image2.jpeg" wdith="400" height="400"> </article>
+    <article> <img class="instapics" src="../static/image/image2.png" wdith="400" height="400"> </article>
     <article> <img class="instapics" src="../static/image/image3.jpeg" wdith="400" height="400"> </article>
     <article> <img class="instapics" src="../static/image/image4.jpeg" wdith="400" height="400"> </article>
     <article> <img class="instapics" src="../static/image/image5.jpeg" wdith="400" height="400"> </article>
@@ -200,7 +211,7 @@ main {
   display: list-item;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 65%;
   transform: translate(-70%, -350%);
 } 
 

@@ -14,7 +14,12 @@
     }
 
     
-
+    if (request.session || request.session.cookie) {
+    res.redirect('/logedin')
+    }else{
+    res.redirect('login')
+}
+console.log(req.sessionID)
   
 </script>
 
