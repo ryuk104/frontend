@@ -10,12 +10,23 @@
 
 console.log(req.sessionID)
 */
+
+  
+
+
+
     import Topnavbutton from "../components/Topnavbutton.svelte";
-    import Leftnavbar from "../components/Leftnavbar.svelte"
+    import Leftnavbar from "../components/Leftnavbar.svelte";
+    import Chatchannel from "..//components/chatchannel.svelte"
+
+    
 </script>
+
+
 
 <Topnavbutton></Topnavbutton>
 <Leftnavbar></Leftnavbar>
+<Chatchannel></Chatchannel>
 
 <head lang="en" dir="ltr" > 
     <meta charset="utf-8">
@@ -32,49 +43,12 @@ console.log(req.sessionID)
         </div>
     </div>
     
+    <div>
+      <button class="notificationbutton">
+        NOTIFICATION
+      </button>
+    </div>
     
-    <nav class="chatchaneel">
-        <div>
-          <div class="quickacessheadspacearea"></div>
-          <div class="quickacess"> 
-    
-          <a class="channelprofile"> 
-            <div class="avatarpicture" role="img"> 
-              <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
-            </div>
-            <div class="friendsusername">Home</div>
-          </a>
-    
-          <a class="channelprofile" onclick="document.location.href='/message';"> 
-            <div class="avatarpicture" role="img"> 
-              <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
-            </div>
-            <div class="friendsusername">Message</div>
-          </a>
-    
-          <button class="channelprofile" type="button">
-            create tweet
-          </button>
-    
-          <hr>
-          </div>
-    
-          <a class="channelprofile"> 
-            <div class="avatarpicture" role="img"> 
-              <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
-            </div>
-            <div class="friendsusername">Quax</div>
-          </a>
-    
-          <a class="channelprofile"> 
-            <div class="avatarpicture" role="img"> 
-              <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" > 
-            </div>
-            <div class="friendsusername">Quax</div>
-          </a>
-    
-        </div>
-      </nav>
     
       <main class="maincontent" >
         <div class="stories">
@@ -132,6 +106,17 @@ console.log(req.sessionID)
     <article> <img class="instapics" src="../static/image/image6.jpeg" wdith="400" height="400"> </article>
     <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400"> </article>
 </div>
+
+<div >
+  <ul class="friendsactivivtylist">
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax</li>
+
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax Playing fortnite</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax Playing among us</li>
+
+  </ul>
+</div>
         
       
 
@@ -180,7 +165,7 @@ main {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-100%, -5%);
+  transform: translate(-20%, -5%);
   overflow-y:scroll;
   overflow-x: hidden;
 }
@@ -252,6 +237,70 @@ main {
   padding-top: 0;
   text-align: center;
   width: 64px;
+}
+
+.friendsactivivtylist{
+  background: #fff;
+  border: 1px solid #dbdbdb;
+  padding: 16px 0;
+  height: 380px;
+  width: 300px;
+  outline: 0;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: row;
+  display: list-item;
+  position: absolute;
+  top: 40%;
+  left: 80%;
+  border-radius: 20px;
+
+}
+
+.friendactivivty{
+  align-items: center;
+  align-self: center;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-align: center;
+  width: 64px;
+}
+
+.firendactvitypfp{
+  align-items: center;
+  align-self: center;
+  background: 0 0;
+  border: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0;
+  padding-top: 0;
+  text-align: center;
+  width: 50px;
+  border-radius: 40px;
+}
+
+.notificationbutton{
+  background-color: rgba(0,0,0,.7);
+  border-radius: 23px;
+  height: 42px;
+  min-width: 20px;
+  position: fixed;
+  border: 0;
+  cursor: pointer;
+  color: #fff;
+  float: right;
+  display: flex;
+  align-items: center;
+  top: 30px;
+  right: 205px;
+  z-index: 1;
 }
 </style>
 

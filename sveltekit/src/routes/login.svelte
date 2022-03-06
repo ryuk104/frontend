@@ -2,25 +2,36 @@
     let email;
     let password;
 
+    import { createEventDispatcher } from 'svelte'
+
+
+
 
     const submitlogin = async () => {
-        const login = await fetch("localhost:8080/api/auth/login", {
-            method: "POST",
-            body: JSON.stringify({
+        const response = await fetch("http://localhost:8080/api/auth/login", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Access-Control-Allow-Origin": "*",
+                "Host": "localhost",
+                "Accept": "*/*"
+            },
+            redirect: "follow",
+            body: ({
                 email,
                 password,
             }),
-        })
+        }).then(console.log(email, password,"working"))
     }
 
-    
+    /*
     if (request.session || request.session.cookie) {
     res.redirect('/logedin')
     }else{
     res.redirect('login')
 }
 console.log(req.sessionID)
-  
+*/
 </script>
 
 <div class="content">
@@ -38,7 +49,7 @@ console.log(req.sessionID)
             <input type="submit" class="logbtn" value="login" id="loginbutton" >
 
             <div class="bottom-text">
-                Don't have account? <a href="http://localhost:8080/signup/"> Sign up</a>
+                Don't have account? <a href="/signup"> Sign up</a>
             
             </div>
             <div class="bottom-text">

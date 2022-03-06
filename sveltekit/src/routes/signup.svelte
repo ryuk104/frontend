@@ -10,19 +10,22 @@
         const login = await fetch("http://localhost:8080/api/auth/signup", {
             method: "POST",
             mode: 'cors',
+            cache: "default",
+            credentials: "same-origin",
+            referrerPolicy: 'no-referrer', 
             headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Access-Control-Allow-Origin": "*"
             },
-            changeOrigin: true,
-            body: JSON.stringify({
+            redirect: "follow",
+            body: ({
                 username,
                 email,
                 password,
                 confirmpassword,
                 phonenumber
             }),
-        })
+        }).then(console.log(email, password,"working"))
     }
 </script>
 

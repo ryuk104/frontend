@@ -1,7 +1,6 @@
 export const post = (request) => {
-    const formbody = JSON.parse(request.body);
-    const email = formbody.email;
-    const password = formbody.password;
+    const email = form.body(email);
+    const password = form.body(password);
     
     return {
         status: 200,

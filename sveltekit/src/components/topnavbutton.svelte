@@ -8,10 +8,10 @@
     let help_item = (".help-item");
     let help_btn = (".back-help-btn");
       
+    
     function showdropdown() {
       profiledropdown.classList.toggle("show");
     }
-      
 
             
     function helpitem() {
@@ -25,6 +25,8 @@
     help_drop.style.display = "none";
     menu_bar.style.marginLeft = "0px";
     };
+
+    const username = "ryuk"
   
     </script>
   
@@ -37,7 +39,7 @@
       
       <svg role="img" height="16" width="16" class="Svg-ulyrgf-0 dIsYZz triangledropdown" viewBox="0 0 16 16"><path d="M13 10L8 4.206 3 10z"></path></svg>
   
-  <div class="profiledropdown" class:active={showdropdown} >
+  <div class="profiledropdown" class:toggle={showdropdown} >
           <ul class="menu-bar">
   <li><a href="/login">
               <div class="icon">
@@ -97,7 +99,7 @@
     border-radius: 23px;
     height: 42px;
     min-width: 20px;
-    position: relative;
+    position: fixed;
     border: 0;
     cursor: pointer;
     color: #fff;
@@ -107,6 +109,7 @@
     top: 30px;
     right: 40px;
     z-index: 1;
+
   }
   
   .dropdownusername {

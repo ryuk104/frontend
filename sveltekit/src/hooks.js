@@ -2,11 +2,16 @@ import * as cookie from 'cookie'
 import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
+import cors from 'cors'
 
 import { MemoryStore } from 'express-session';
 
 
+
+
+
 const app = express()
+
 
 
 const db = app.use(session({
@@ -15,7 +20,7 @@ const db = app.use(session({
     name: 'sid',
     secret: 'some secret',
     store: MongoStore.create({ 
-    mongoUrl: process.env.mongosessions }),
+    mongoUrl: 'mongodb+srv://ryuk:jz1234@sessions.mnty4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority' }),
     cookie: {
         maxage: 99 * 99,
         samesite: false,
@@ -23,7 +28,7 @@ const db = app.use(session({
         httpOnly: true
     }
 }))
-
+/*
 export async function getContext({headers}) {
     const cookies = cookie.parse(headers.cookie || '')
 
@@ -60,3 +65,4 @@ export function getSession({context}) {
         password: context.password
     }
 }
+*/

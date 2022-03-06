@@ -31,7 +31,7 @@
   background: #1a4b4e;
   height: 100%;
   align-items: center;
-  position: absolute;
+  position: fixed;
   width: 72px;
   flex-shrink: 0;
   display: flex;
@@ -66,23 +66,7 @@
 cursor: pointer;
 }
 
-.chatchaneel {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  overflow: hidden;
-  flex-direction: column;
-  box-sizing: border-box;
-  background-color: #2d3436;
-  background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%);
-  max-width: 225px;
-  position: absolute;
-  transform: translate(32%, 0%);
-  height: 100%;
-  width: 225px;
-  overflow-y: hidden;
-  float: left;
-}
+
 </style>
   
   
