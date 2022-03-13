@@ -8,6 +8,8 @@
         </form>
       </div>
 
+      <hr>
+
       <div class="quickacessheadspacearea"></div>
       <div class="quickacess"> 
 
@@ -79,7 +81,7 @@
   max-width: 224px;
   background-color: var(--gray4);
   height: 48px;
-  margin-bottom: 15px;
+  margin-top: 15px;
   cursor: pointer;
 }
 
@@ -98,6 +100,7 @@
     top: 20px;
     left: 10px;
     border-radius: 8px;
+    top: 3px;
 }
 
 

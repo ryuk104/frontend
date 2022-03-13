@@ -1,5 +1,6 @@
 <nav class="leftnavbar">
-    <ul>
+    <ul class="serverlist">
+      <img src=./static/image/logo2.png width="48px" hieght="48px">
         <div class="leftnavbarsymbols" >
           
         </div>
@@ -47,6 +48,7 @@
   grid-row-gap: 80px;
   padding-right: 40px;
   cursor: pointer;
+  bottom: 10px;
 }
 
 .serverpicture{
@@ -66,6 +68,17 @@
 cursor: pointer;
 }
 
+.serverlist {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  
+}
 
 </style>
   
