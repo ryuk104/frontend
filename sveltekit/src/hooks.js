@@ -2,7 +2,6 @@ import * as cookie from 'cookie'
 import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
-import cors from 'cors'
 
 import { MemoryStore } from 'express-session';
 

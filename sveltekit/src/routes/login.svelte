@@ -1,12 +1,31 @@
 <script context="module">
     let email;
     let password;
+    
+
+    const {sessions} = stores();
+    
 
     import { createEventDispatcher } from 'svelte'
+    import axios from 'axios'
 
+    const submitlogin = async () => {
+        axios({
+            method: 'post',
+            headers: { 'content-type': 'application/x-www-form-urlencoded' },
+            withCredentials: true, 
+            url: 'http://localhost:8080/auth/api/login',
+            auth: { 
+                email: email,
+                password: password
+            }
+        
+    })
+    return await result;
+}
+    
 
-
-
+    /*
     const submitlogin = async () => {
         const response = await fetch("http://localhost:8080/api/auth/login", {
             method: "POST", 
@@ -14,7 +33,7 @@
                 "Content-Type": "application/x-www-form-urlencoded",
                 "Access-Control-Allow-Origin": "*",
                 "Host": "localhost",
-                "Accept": "*/*"
+                "Accept": "
             },
             redirect: "follow",
             body: ({
@@ -24,6 +43,7 @@
         }).then(console.log(email, password,"working"))
     }
 
+*/
     /*
     if (request.session || request.session.cookie) {
     res.redirect('/logedin')
