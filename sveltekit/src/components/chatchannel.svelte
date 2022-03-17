@@ -13,16 +13,16 @@
       <div class="quickacessheadspacearea"></div>
       <div class="quickacess"> 
 
-      <a class="channelprofile"> 
+      <a class="channelprofile" href="http://"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
+          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Home</div>
       </a>
 
-      <a class="channelprofile" onclick="document.location.href='/message';"> 
+      <a class="channelprofile" href="d" onclick="document.location.href='/message';"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
+          <img src=../static/icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Message</div>
       </a>
@@ -34,16 +34,16 @@
       <hr>
       </div>
 
-      <a class="channelprofile"> 
+      <a class="channelprofile" href="img"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" > 
+          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Quax</div>
       </a>
 
-      <a class="channelprofile"> 
+      <a class="channelprofile" href="s"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" > 
+          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
         </div>
         <div class="friendsusername">Quax</div>
       </a>
@@ -61,7 +61,7 @@
   box-sizing: border-box;
   /* background-color: #2d3436; */
   /* background-image: linear-gradient(315deg, #2d3436 0%, #000000 74%); */
-  background-color: rgb(26, 62, 116);
+  background-color: #383F51;
   max-width: 225px;
   position: fixed;
   transform: translate(32%, 0%);
