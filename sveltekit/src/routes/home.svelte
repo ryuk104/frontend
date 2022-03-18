@@ -60,7 +60,7 @@ console.log(req.sessionID)
               <li class="storycontent" >
                 <button class="storeisbutton">
                   <div>
-                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture">
+                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram">
                   </div>
                   <div>Quax</div>
                 </button>
@@ -69,27 +69,27 @@ console.log(req.sessionID)
               <li class="storycontent" >
                 <button class="storeisbutton">
                   <div>
-                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture">
+                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram">
                   </div>
                   <div>Quax</div>
                 </button>
               </li>
               
-              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture"> </div> <div>Quax</div> </button> </li>
+              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram"> </div> <div>Quax</div> </button> </li>
     
-              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture"> </div> <div>Quax</div> </button> </li>
+              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram"> </div> <div>Quax</div> </button> </li>
     
-              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture"> </div> <div>Quax</div> </button> </li>
+              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram"> </div> <div>Quax</div> </button> </li>
     
-              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture"> </div> <div>Quax</div> </button> </li>
+              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram"> </div> <div>Quax</div> </button> </li>
     
-              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture"> </div> <div>Quax</div> </button> </li>
+              <li class="storycontent" > <button class="storeisbutton"> <div> <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram"> </div> <div>Quax</div> </button> </li>
     
     
               <li class="storycontent" >
                 <button class="storeisbutton">
                   <div>
-                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture">
+                    <img src="../static/image/image1.jpeg" width="56px" height="56px" class="storyprofilepicture" alt="gram">
                   </div>
                   <div>Quax</div>
                 </button>
@@ -101,22 +101,22 @@ console.log(req.sessionID)
 
 
 <div class="instagramg" id="instagramg">
-    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image2.png" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image3.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image4.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image5.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image6.jpeg" wdith="400" height="400"> </article>
-    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400"> </article>
+    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image2.png" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image3.jpeg" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image4.jpeg" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image5.jpeg" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image6.jpeg" wdith="400" height="400" alt="gram"> </article>
+    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
 </div>
 
 <div >
   <ul class="friendsactivivtylist">
-    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax</li>
 
-    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax Playing fortnite</li>
-    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax</li>
-    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg">quax Playing among us</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax Playing fortnite</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax</li>
+    <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax Playing among us</li>
 
   </ul>
 </div>
