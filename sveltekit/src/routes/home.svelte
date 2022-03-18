@@ -17,7 +17,9 @@ console.log(req.sessionID)
 
     import Topnavbutton from "../components/Topnavbutton.svelte";
     import Leftnavbar from "../components/Leftnavbar.svelte";
-    import Chatchannel from "..//components/chatchannel.svelte"
+    import Chatchannel from "../components/chatchannel.svelte";
+    import CustomeMenu from "..//components/customeMenu/CustomeMenu.svelte"
+
 
     
 </script>
@@ -27,6 +29,7 @@ console.log(req.sessionID)
 <Topnavbutton></Topnavbutton>
 <Leftnavbar></Leftnavbar>
 <Chatchannel></Chatchannel>
+<CustomeMenu></CustomeMenu>
 
 <head lang="en" dir="ltr" > 
     <meta charset="utf-8">

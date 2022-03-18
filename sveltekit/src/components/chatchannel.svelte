@@ -20,7 +20,7 @@ const fetchusers = async () => {
     <div>
 
       <div>
-        <form on:click="d.com">
+        <form >
           <input type="text" class="searchbar" placeholder="search people" name="search">
           
         </form>
