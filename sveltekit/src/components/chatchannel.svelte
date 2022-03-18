@@ -1,8 +1,26 @@
+<script>
+const fetchusers = async () => {
+        const login = await fetch("http://localhost:8080/api/user/getusers", {
+            method: "GET",
+            mode: 'cors',
+            cache: "default",
+            credentials: "same-origin",
+            referrerPolicy: 'no-referrer', 
+            headers: {
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Access-Control-Allow-Origin": "*"
+            },
+        });
+    }
+
+</script>
+
+
 <nav class="chatchaneel">
     <div>
 
       <div>
-        <form>
+        <form on:click="d.com">
           <input type="text" class="searchbar" placeholder="search people" name="search">
           
         </form>

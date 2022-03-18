@@ -1,6 +1,6 @@
 <nav class="leftnavbar">
     <ul class="serverlist">
-      <img src=./static/image/logo2.png width="48px" hieght="48px" alt="d">
+      <img src=./static/image/logo2.png width="48px" hieght="48px">
         <div class="leftnavbarsymbols" >
           
         </div>
@@ -8,7 +8,7 @@
         <div class="servers">
           <div>
             <div draggable="true" class="serverpicturebutton">
-              <img src=./static/image/image1.jpeg width="48px" hieght="48px" alt="d">
+              <img src=./static/image/image1.jpeg width="48px" hieght="48px">
             </div>
   
             <div draggable="true" class="serverpicturebutton">
@@ -22,6 +22,10 @@
   
       </div>
     </div>
+
+    <div class="settingbutton">
+      
+    </div>
   </nav>
   
 <style>
@@ -29,7 +33,7 @@
 .leftnavbar {
   margin: 0;
   padding: 0;
-  background: RGBA(56, 63, 81, .40);
+  background: #1a4b4e;
   height: 100%;
   align-items: center;
   position: fixed;
