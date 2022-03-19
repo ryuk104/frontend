@@ -1,4 +1,41 @@
 <script>
+
+// search bar
+
+
+function sendData(e){
+  let searchResults = ("searchResults");
+  let searchmatch = e.value.match(/^[a-zA-Z ]*/);
+  let searchmatch2 = e.value.match(/\s*/);
+
+  if (match2[0] === e.value){
+    searchResults.innerHTML = "";
+    return;
+  }
+  if (match[0] === e.value){
+    fetch('getSearch', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name: e.target.value})
+  }).then(res => res.json()).then(data => {
+    let payload = data.payload;
+    searchResults.innerHTML = "";
+    if(payload.length < 1){
+      searchResults.innerHTML = "No results found";
+      return;
+    }
+    payload.forEach((item, index) => {
+      if(index > 0) searchResults.innerHTML += "<hr>";
+      searchResults.innerHTML += `<a href="/profile/${item.id}">${item.name}</a>`;
+    })
+  });
+  return;
+  }
+  searchResults.innerHTML = '';
+}
+
+
+//usermetadata
 const fetchusers = async () => {
         const login = await fetch("http://localhost:8080/api/user/getusers", {
             method: "GET",

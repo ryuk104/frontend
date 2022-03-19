@@ -1,6 +1,16 @@
+<script>
+  import Setting from './/setting/setting.svelte'
+
+
+
+</script>
+
+
+
+
 <nav class="leftnavbar">
     <ul class="serverlist">
-      <img src=./static/image/logo2.png width="48px" hieght="48px">
+      <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
         <div class="leftnavbarsymbols" >
           
         </div>
@@ -8,7 +18,7 @@
         <div class="servers">
           <div>
             <div draggable="true" class="serverpicturebutton">
-              <img src=./static/image/image1.jpeg width="48px" hieght="48px">
+              <img src=./static/image/image1.jpeg width="48px" hieght="48px" alt="logo">
             </div>
   
             <div draggable="true" class="serverpicturebutton">
@@ -21,12 +31,15 @@
       <div>
   
       </div>
-    </div>
+  </div>
 
+
+    <Setting>
     <div class="settingbutton">
-      
+      <img src=./static/image/image1.jpeg width="48px" hieght="48px" alt="logo">
     </div>
-  </nav>
+    </Setting>
+</nav>
   
 <style>
 /* leftnavbar */

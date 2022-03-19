@@ -1,11 +1,7 @@
-<script context="module">
-  
-    // components for this layout
+<script >
+  import CardBarChart from "./Cards/CardBarChart.svelte";
+
     
-  
-    // pages for this layout
-    
-  
-    export let location;
-    export let admin = "";
-  </script>
+</script>
+
+<CardBarChart></CardBarChart>
