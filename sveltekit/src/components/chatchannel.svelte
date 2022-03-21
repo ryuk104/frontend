@@ -1,7 +1,24 @@
 <script>
 
-// search bar
+import { onMount } from 'svelte';
+	
+import { bookData } from '../testdb/User.js';		 
+import Userprofile from './searchbar/userprofile.svelte';
+import NoResults from './searchbar/userprofile.svelte';
 
+let searchTerm = "";
+let filteredBooks = [];
+
+
+const searchBooks = () => {	
+		return filteredBooks = bookData.filter(book => {
+			let username = book.username.toLowerCase();
+			return username.includes(searchTerm.toLowerCase())
+		});
+}
+
+// search bar
+let searchbar = "";
 
 function sendData(e){
   let searchResults = ("searchResults");
@@ -48,20 +65,54 @@ const fetchusers = async () => {
                 "Access-Control-Allow-Origin": "*"
             },
         });
-    }
+}
+
+function openbookshelf() {
+    const bookshelfs = document.querySelector('bookshelf');
+		bookshelfs.classList.toggle("show");
+};
 
 </script>
 
 
 <nav class="chatchaneel">
     <div>
+      <section id="query-section">
+        <div id="search-input-cont">
+        <input type="text" 
+               id="search-field" 
+               placeholder="Enter Search Term" 
+               autocomplete="off"
+               bind:value={searchTerm}
+               on:click={openbookshelf}
+               on:input={searchBooks}/>
+      </div> 
+      </section>
 
-      <div>
-        <form >
-          <input type="text" class="searchbar" placeholder="search people" name="search">
-          
-        </form>
-      </div>
+      <button on:click={openbookshelf}>
+        dasds
+      </button>
+
+      <main id="bookshelf" class="bookshelf">
+        {#if searchTerm && filteredBooks.length === 0}
+          <NoResults />		
+        {:else if filteredBooks.length > 0}
+          {#each filteredBooks as {username, profilepicture, desc}}
+            <Userprofile {username} 
+                  {profilepicture} 
+                  {desc}
+                  />
+          {/each}	
+        {:else}
+          {#each bookData as {username, profilepicture, desc}}
+                  <Userprofile {username} 
+                  {profilepicture} 
+                  {desc}
+                   />
+          {/each}	
+        {/if}
+      </main>	
+      
 
       <hr>
 
@@ -107,6 +158,50 @@ const fetchusers = async () => {
   </nav>
 
 <style>
+
+#search-input-cont {
+		width: 100%;
+    height: 80%;
+		display: flex;
+		align-items: center;
+		margin: 0 0 0 10px;
+	}
+
+	#search-field {
+		width: 100%;
+		font-size: 1.3rem;
+		border: 1px solid gray;
+		border-radius: 5px;
+		padding: 8px;
+		margin: 0 10px 0;
+	}
+	* {
+		box-sizing: border-box;
+	}
+	
+	#query-section {
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 2% 0;
+	}
+	
+	/* General Structure */
+  .bookshelf{
+    /*display: none; */
+  }
+
+	.bookshelf.show {
+		width: 100%;
+		margin: 10px;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center; 
+	}
+
 .chatchaneel {
   margin: 0;
   padding: 0;

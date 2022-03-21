@@ -1,4 +1,6 @@
-<script context="module">
+
+<script>
+  /*
     export async function load({session}) {
         if(!session.authenticated) {
             return {
@@ -24,27 +26,23 @@
     })
 */
 
-
 </script>
+
 <svelte:head>
     <title>UNIVERSE</title>
 </svelte:head>
-  
 
-<h1>Welcome to SvelteKit</h1>
-<p> hello {username} </p>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
+<body>
 
 <header>
-    <div class="logo">Quax</div>
+    <div class="logo">Uninet</div>
         <nav>
             <ul class="nav_links">
-                <li><a href="support.html">support</a></li>
-                <li><a href="login_page/safety">safety</a></li>
-                <li><a href="login_page/downloadpage.html">Download</a></li>
-                <li><a class="login-btn" href="login2.html">Sign In</a></li>
-                <li><a class="signup-btn" href="signup.html">Sign Up</a></li>
+                <li><a href="/support">support</a></li>
+                <li><a href="/safety">safety</a></li>
+                <li><a href="/download">Download</a></li>
+                <li><a class="login-btn" href="/login">Sign In</a></li>
+                <li><a class="signup-btn" href="/signup">Sign Up</a></li>
             </ul>
         </nav>
 </header>
@@ -57,9 +55,7 @@
 
 <footer class="footer-box" >
     <div class="footer-infobox">
-        <h4 style="padding:10px">Quax</h4>
-        <a href="https://twitter.com/Quax_duck" target=blank><img src="twitter.png" width="45px" height="45px" alt="logo"></a>
-        <a href="https://www.instagram.com/quax.duck/" target=blank><img src="insta.png" width="45px" height="45px" alt="logo"></a>
+        <h4>Uninet</h4>
     </div>
     <div class="footer-info">
         <div class="footer-first-row">
@@ -89,17 +85,17 @@
         </div>
    </div>
 </footer>
-
+</body>
 
 <style>
-    *{
+*{
   margin:0;
   padding:0;
   box-sizing: border-box;
 }
+
 body{
   background-color: #272727;
-  
 }
 
 li, a, button {
@@ -114,7 +110,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  left: 10px;
   padding: 25px 5%;
+  width: 100%;
 }
 .signup-btn{
   padding: 0px 15px;
@@ -134,48 +132,49 @@ header {
   border-spacing: 50px;
 }
 .logo {
-  padding-right: 50%;
   left: auto;
   font-size: 30px;
   font-family:sans-serif ;
   cursor: pointer;
   order:0;
-  margin-left: auto;
 }
 
 
+.nav_links {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  text-indent: 20px;
+  list-style-type: none;
 
+
+}
 
 .footer-box { 
 text-align:center;
 display:block ;
-background-color:lightblue;
+background-color:#18191A;
 overflow: hidden;
 position: absolute;
-bottom: 0px;
+bottom: 0%;
 width: 100%;
 }
 
 .footer-infobox {
-  border:10px;
   float: left;
-  padding: 12px;
   width: 400px;
   font-size:40px;
-  margin-left: 200px;
 }
 
 .footer-first-row {
-  border:10px;
   float: left;
   padding: 20px;
   width: 150px;
   font-size:40px;
-  margin:0 40px;
 }
 
 .footer-second-row {
-  border:10px;
   float: left;
   padding: 20px;
   width: 150px;
@@ -184,7 +183,6 @@ width: 100%;
 }
 
 .footer-thrid-row {
-  border:10px;
   float: left;
   padding: 20px;
   width: 150px;
@@ -193,7 +191,6 @@ width: 100%;
 }
 
 .footer-fourth-row {
-  border:10px;
   float: left;
   padding: 20px;
   width: 150px;

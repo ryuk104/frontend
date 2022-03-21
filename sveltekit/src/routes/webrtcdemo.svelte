@@ -1,16 +1,6 @@
 <script>
-import firebase from 'firebase/app';
-import 'firebase/firestore';
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCY5Atlr1m4TMupy8a4eu3b-nHVf7oSG4c",
-  authDomain: "quax-f99c5.firebaseapp.com",
-  projectId: "quax-f99c5",
-  storageBucket: "quax-f99c5.appspot.com",
-  messagingSenderId: "717400910334",
-  appId: "1:717400910334:web:c48050ab73b3faf9d378af",
-  measurementId: "G-9LDL3DQCST"
-};
+
 
 if (!firebase.apps.length) {
   firebase.initializeApp(firebaseConfig);

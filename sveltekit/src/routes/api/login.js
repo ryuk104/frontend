@@ -3,8 +3,8 @@ import axios from 'axios';
 
 
 export const post = () => {
-    const email = body(email);
-    const password = body(password);
+    let email = body(email);
+    let password = body(password);
 
     
     const submitlogin = async () => {
@@ -16,14 +16,16 @@ export const post = () => {
             auth: {
             email: email,
             password: password
+        } 
+    }); if (response.statusCode === 200) {
+        //create cokkie
+        return {
+            status: 200,
+            body: 'success',
+            headers: { 'set-cookie': 'session=${session?.user/.email}' }
+            
         }
-    })
-}
-
-    return {
-        status: 200,
-        
+    } else {
+        //send error
     }
-
-
-}
+}}

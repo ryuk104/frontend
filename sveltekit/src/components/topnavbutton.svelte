@@ -1,14 +1,34 @@
-<script context="module">
-    let drop_btn = (".toprightnav");
-    let profiledropdown = (".profiledropdown");
-  
-    let menu_bar = (".menu-bar");
-    let help_drop = (".help-drop");
-    let setting_item = (".setting-item");
-    let help_item = (".help-item");
-    let help_btn = (".back-help-btn");
+<script>
+    let drop_btn = document.querySelector(".top-right-nav");
+    let profiledropdown = document.querySelector(".profiledropdown");
+
+    let menu_bar = document.querySelector(".menu-bar");
+    let help_drop = document.querySelector(".help-drop");
+    let setting_item = document.querySelector(".setting-item");
+    let help_item = document.querySelector(".help-item");
+    let help_btn = document.querySelector(".back-help-btn");
       
     
+    drop_btn.onclick = (()=>{
+    profiledropdown.classList.toggle("show");
+    });
+
+            
+    help_item.onclick = (()=>{
+    menu_bar.style.marginLeft = "-400px";
+              setTimeout(()=>{
+                help_drop.style.display = "block";
+              }, 100);
+            });
+            
+            help_btn.onclick = (()=>{
+              help_drop.style.display = "none";
+              menu_bar.style.marginLeft = "0px";
+            });
+
+
+
+
     function showdropdown() {
       profiledropdown.classList.toggle("show");
     }
@@ -32,7 +52,7 @@
   
   
   
-  <button class="toprightnav" type="button" on:click={showdropdown}>
+  <button class="top-right-nav" type="button" on:click={showdropdown}>
 
       <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>
@@ -94,7 +114,7 @@
   </button>
   
   <style>
-    .toprightnav{
+    .top-right-nav{
     background-color: rgba(0,0,0,.7);
     border-radius: 23px;
     height: 42px;

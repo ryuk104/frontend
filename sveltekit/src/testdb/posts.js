@@ -1,0 +1,25 @@
+export const postsData = [{
+    "uid": "dsadhaudhuaish",
+    "username": "server",
+    "image": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "profilepicuture": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "desc": "CEO",
+    "comments": "",
+    "likes": "",
+  }, {
+    "uid": "dsadhaudhuaish",
+    "username": "server",
+    "image": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "profilepicuture": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "desc": "CEO",
+    "comments": "",
+    "likes": "",
+  },{
+    "uid": "dsadhaudhuaish",
+    "username": "server",
+    "image": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "profilepicuture": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
+    "desc": "CEO",
+    "comments": "",
+    "likes": "",
+  }]

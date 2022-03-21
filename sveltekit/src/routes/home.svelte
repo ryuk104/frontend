@@ -11,9 +11,7 @@
 console.log(req.sessionID)
 */
 
-  
-
-
+export const load = async ({ session }) => {};
 
     import Topnavbutton from "../components/Topnavbutton.svelte";
     import Leftnavbar from "../components/Leftnavbar.svelte";
