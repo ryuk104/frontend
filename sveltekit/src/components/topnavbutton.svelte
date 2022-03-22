@@ -1,50 +1,7 @@
 <script>
-    let drop_btn = document.querySelector(".top-right-nav");
-    let profiledropdown = document.querySelector(".profiledropdown");
-
-    let menu_bar = document.querySelector(".menu-bar");
-    let help_drop = document.querySelector(".help-drop");
-    let setting_item = document.querySelector(".setting-item");
-    let help_item = document.querySelector(".help-item");
-    let help_btn = document.querySelector(".back-help-btn");
-      
     
-    drop_btn.onclick = (()=>{
-    profiledropdown.classList.toggle("show");
-    });
-
-            
-    help_item.onclick = (()=>{
-    menu_bar.style.marginLeft = "-400px";
-              setTimeout(()=>{
-                help_drop.style.display = "block";
-              }, 100);
-            });
-            
-            help_btn.onclick = (()=>{
-              help_drop.style.display = "none";
-              menu_bar.style.marginLeft = "0px";
-            });
-
-
-
-
-    function showdropdown() {
-      profiledropdown.classList.toggle("show");
-    }
-
-            
-    function helpitem() {
-    menu_bar.style.marginLeft = "-400px";
-    setTimeout(()=>{
-    help_drop.style.display = "block";
-    }, 100);
-    };
-            
-    function helpbutton() {
-    help_drop.style.display = "none";
-    menu_bar.style.marginLeft = "0px";
-    };
+    
+  
 
     const username = "ryuk"
   
@@ -52,14 +9,14 @@
   
   
   
-  <button class="top-right-nav" type="button" on:click={showdropdown}>
+  <button class="top-right-nav" type="button" >
 
       <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>
       
       <svg role="img" height="16" width="16" class="Svg-ulyrgf-0 dIsYZz triangledropdown" viewBox="0 0 16 16"><path d="M13 10L8 4.206 3 10z"></path></svg>
   
-  <div class="profiledropdown" class:toggle={showdropdown} >
+  <div class="profiledropdown"  >
           <ul class="menu-bar">
   <li><a href="/login">
               <div class="icon">

@@ -1,12 +1,11 @@
 <script>
-  import { serverData } from '../testdb/Server.js';		 
-
-
-
+  
+  
+  import { serverData } from '../testdb/server.js';		 
   import Setting from './/setting/setting.svelte'
-  import Serverprofile from './server/serverprofile.svelte'
+  import Serverprofile from './/server/serverprofile.svelte'
 
-
+  let serverimage = serverData.serverimage;
 
 </script>
 
@@ -14,9 +13,10 @@
 
 
 <nav class="leftnavbar">
+  <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
   <ul class="applist">
     <li>
-      <a href="/Home">Home
+      <a href="/home">Home
       <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
       </a>
     </li>
@@ -27,12 +27,10 @@
       </a>
     </li>
 
-
-
   </ul>
 
     <ul class="serverlist">
-      <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
+      
         
       <div class="leftnavbarsymbols" >
           
@@ -40,7 +38,9 @@
   
         
         <div id="server" class="server">
+              {#each serverData as {serverimage}}          
               <Serverprofile {serverimage} />
+              {/each}
         </div>	
     </ul>
   

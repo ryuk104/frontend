@@ -1,4 +1,3 @@
-<!-- from: https://www.w3schools.com/howto/howto_css_notes.asp -->
 <section>	
 	<div class="no-results-msg">
 		<p><strong>No results.</strong> Try again!</p>

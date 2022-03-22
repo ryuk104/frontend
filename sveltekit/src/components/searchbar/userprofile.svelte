@@ -8,11 +8,11 @@
 
 
 <section class="Userprofile"
-	transition:scale={{duration: 1000, easing: expoInOut}}>
+	transition:scale={{duration: 650, easing: expoInOut}}>
 	<section class="book-top-info">
 		<figure class="bkcont">
-			<img src={profilepicture} alt={username} class="bkcover">
-			<div class="language">({desc})</div>
+			<img src={profilepicture} alt={profilepicture} class="bkcover">
+			<div class="desc">({desc})</div>
 			<figcaption>{username}</figcaption>
 		</figure>
 	</section> 
@@ -55,14 +55,13 @@
 			height: 316px;
 			font-weight: bold;
 		}
-	.language{
+	.desc{
 		text-align: center;
-			width: 90%;
-			height: 36px;
-			font-weight: bold;
-			float: left;
-		  position: relative;
-  padding-bottom:10px;
-
+		width: 90%;
+		height: 36px;
+		font-weight: bold;
+		float: left;
+		position: relative;
+  		padding-bottom:10px;
 	}
 </style>

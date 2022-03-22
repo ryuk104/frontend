@@ -11,16 +11,15 @@
 console.log(req.sessionID)
 */
 
-export const load = async ({ session }) => {};
+//export const load = async ({ session }) => {};
 
     import Topnavbutton from "../components/Topnavbutton.svelte";
     import Leftnavbar from "../components/Leftnavbar.svelte";
     import Chatchannel from "../components/chatchannel.svelte";
     import CustomeMenu from "..//components/customeMenu/CustomeMenu.svelte";
-    import Instagram from "..//components/instagram.svelte";
+    import Instagram from "../components/posts/instagram.svelte";
     import Friendsactivity from "../components/friendsactivity.svelte";
     import Stories from "../components/stories.svelte";
-
 
     
 </script>
@@ -31,20 +30,19 @@ export const load = async ({ session }) => {};
 <Leftnavbar></Leftnavbar>
 <Chatchannel></Chatchannel>
 <CustomeMenu></CustomeMenu>
+<Stories></Stories>
+<Friendsactivity></Friendsactivity>
+<Instagram></Instagram>
 
 
 <head lang="en" dir="ltr" > 
     <meta charset="utf-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-
 <body class="body-css" style="background-color: #424242;" id="thebody">
-
     <div class="leftbarbuttonpfpclick">
         <div>
-    
         </div>
     </div>
     
@@ -56,12 +54,9 @@ export const load = async ({ session }) => {};
     
     
   <main class="maincontent" >
-    <Stories></Stories>
-    <Friendsactivity></Friendsactivity>
-    <Instagram></Instagram>
+  
   </main>
 </body>
-
 
 <style>
 body{
@@ -72,36 +67,10 @@ body{
   background: var(--bg);
   transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
-.message-container {
-  place-items: center;
-  
-}
-
-.message-input {
-  border-radius: 20px;
-  height: 50px;
-  width: 90%;
-  font-size: 18px;
-  outline: none;
-}
-
-.send-button {
-  border-radius: 50px;
-  width: 50px;
-  height: 50px;
-  outline: none;
-}
 
 main {
   margin-left: 5rem;
 }
-
-
-
-
-
-
-
 
 .notificationbutton{
   background-color: rgba(0,0,0,.7);

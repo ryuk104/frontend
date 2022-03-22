@@ -1,7 +1,4 @@
 <script>
-
-import { onMount } from 'svelte';
-	
 import { bookData } from '../testdb/User.js';		 
 import Userprofile from './searchbar/userprofile.svelte';
 import NoResults from './searchbar/userprofile.svelte';
@@ -11,8 +8,8 @@ let filteredBooks = [];
 
 
 const searchBooks = () => {	
-		return filteredBooks = bookData.filter(book => {
-			let username = book.username.toLowerCase();
+		return filteredBooks = bookData.filter(Userprofile => {
+			let username = Userprofile.username.toLowerCase();
 			return username.includes(searchTerm.toLowerCase())
 		});
 }
@@ -81,19 +78,18 @@ function openbookshelf() {
         <div id="search-input-cont">
         <input type="text" 
                id="search-field" 
-               placeholder="Enter Search Term" 
+               placeholder="Search" 
                autocomplete="off"
                bind:value={searchTerm}
-               on:click={openbookshelf}
-               on:input={searchBooks}/>
-      </div> 
+               on:input={searchBooks} />
+        </div> 
       </section>
 
       <button on:click={openbookshelf}>
         dasds
       </button>
 
-      <main id="bookshelf" class="bookshelf">
+<main id="bookshelf">
         {#if searchTerm && filteredBooks.length === 0}
           <NoResults />		
         {:else if filteredBooks.length > 0}
@@ -111,10 +107,10 @@ function openbookshelf() {
                    />
           {/each}	
         {/if}
-      </main>	
+</main>	
       
 
-      <hr>
+<hr>
 
       <div class="quickacessheadspacearea"></div>
       <div class="quickacess"> 
@@ -188,19 +184,17 @@ function openbookshelf() {
 	}
 	
 	/* General Structure */
-  .bookshelf{
-    /*display: none; */
-  }
 
-	.bookshelf.show {
-		width: 100%;
-		margin: 10px;
-		display: flex;
-		flex-direction: row;
-		flex-wrap: wrap;
-		align-items: flex-start;
-		justify-content: center; 
-	}
+
+main#bookshelf{
+	width: 100%;
+	margin: 10px;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	align-items: flex-start;
+	justify-content: center; 
+}
 
 .chatchaneel {
   margin: 0;

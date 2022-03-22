@@ -1,4 +1,18 @@
+<script>
+  import Postsprofile from './postsprofile.svelte'
+  import { postsData } from '../../testdb/posts.js';		 
+
+</script>
+
+
+
+
+
 <div class="instagramg" id="instagramg">
+  {#each postsData as {image}}          
+    <Postsprofile {image} />
+  {/each}
+
     <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
     <article> <img class="instapics" src="../static/image/image2.png" wdith="400" height="400" alt="gram"> </article>
     <article> <img class="instapics" src="../static/image/image3.jpeg" wdith="400" height="400" alt="gram"> </article>
@@ -9,7 +23,7 @@
 </div>
 
 <style>
-    .instagramg {
+.instagramg {
   text-align:center;
   display:grid;
   justify-items: center;
@@ -22,16 +36,4 @@
   overflow-x: hidden;
 }
 
-.instapics {
-  background: #fff;
-  border: 1px solid #dbdbdb;
-  padding: 16px 0;
-  outline: 0;
-  overflow-y: scroll;
-  display: flex;
-  flex-direction: row;
-  display: table-row;
-  width: 400px;
-  height: 400px;
-}
 </style>
