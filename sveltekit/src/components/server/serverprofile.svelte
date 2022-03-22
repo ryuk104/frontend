@@ -1,5 +1,5 @@
 <script>
-    export let serverimage;
+  export let serverimage;
 </script>
 
 

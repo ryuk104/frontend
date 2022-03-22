@@ -15,11 +15,11 @@ console.log(req.sessionID)
 
     import Topnavbutton from "../components/Topnavbutton.svelte";
     import Leftnavbar from "../components/Leftnavbar.svelte";
-    import Chatchannel from "../components/chatchannel.svelte";
+    import Chatchannel from "../components/chatchannel/chatchannel.svelte";
     import CustomeMenu from "..//components/customeMenu/CustomeMenu.svelte";
     import Instagram from "../components/posts/instagram.svelte";
     import Friendsactivity from "../components/friendsactivity.svelte";
-    import Stories from "../components/stories.svelte";
+    import Stories from "../components/stories/stories.svelte";
 
     
 </script>

@@ -1,7 +1,9 @@
 <script>
-import { bookData } from '../testdb/User.js';		 
-import Userprofile from './searchbar/userprofile.svelte';
-import NoResults from './searchbar/userprofile.svelte';
+import { bookData } from '../../testdb/user.js';		 
+import Userprofile from '../searchbar/userprofile.svelte';
+import NoResults from '../searchbar/userprofile.svelte';
+
+import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
 
 let searchTerm = "";
 let filteredBooks = [];
@@ -136,19 +138,16 @@ function openbookshelf() {
       <hr>
       </div>
 
-      <a class="channelprofile" href="img"> 
-        <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
-        </div>
-        <div class="friendsusername">Quax</div>
-      </a>
-
       <a class="channelprofile" href="s"> 
         <div class="avatarpicture" role="img"> 
           <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="45px" hieght="45px" alt="d"> 
         </div>
         <div class="friendsusername">Quax</div>
       </a>
+
+      {#each bookData as { profilepicture}}          
+        <Textchannelprofile { profilepicture } />
+      {/each}
 
     </div>
   </nav>

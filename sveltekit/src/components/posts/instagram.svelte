@@ -13,10 +13,7 @@
     <Postsprofile {image} />
   {/each}
 
-    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
-    <article> <img class="instapics" src="../static/image/image2.png" wdith="400" height="400" alt="gram"> </article>
-    <article> <img class="instapics" src="../static/image/image3.jpeg" wdith="400" height="400" alt="gram"> </article>
-    <article> <img class="instapics" src="../static/image/image4.jpeg" wdith="400" height="400" alt="gram"> </article>
+    
     <article> <img class="instapics" src="../static/image/image5.jpeg" wdith="400" height="400" alt="gram"> </article>
     <article> <img class="instapics" src="../static/image/image6.jpeg" wdith="400" height="400" alt="gram"> </article>
     <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
