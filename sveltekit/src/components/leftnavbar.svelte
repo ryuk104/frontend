@@ -1,11 +1,8 @@
 <script>
   
-  
   import { serverData } from '../testdb/server.js';		 
   import Setting from './/setting/setting.svelte'
   import Serverprofile from './/server/serverprofile.svelte'
-
-  let serverimage = serverData.serverimage;
 
 </script>
 
@@ -17,13 +14,13 @@
   <ul class="applist">
     <li>
       <a href="/home">Home
-      <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
+      <img src=./static/icon/homeicon.svg width="48px" hieght="48px" alt="logo">
       </a>
     </li>
 
     <li>
       <a href="/music">Music
-      <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
+      <img src=./static/icon/musicicon.svg width="48px" hieght="48px" alt="logo">
       </a>
     </li>
 

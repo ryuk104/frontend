@@ -4,18 +4,12 @@
 </script>
 
 
-
-
-
-
-
 <div class="stories">
     <div>
       <ul class="storiesul"> 
-        {#each storyData as {profilepicture, username}}          
-          <Storyprofile {profilepicture} />
+        {#each storyData as {profilepicuture, username}}          
+          <Storyprofile {profilepicuture} {username}/>
         {/each}
-
   </ul>
 </div>
 </div>

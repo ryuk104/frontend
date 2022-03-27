@@ -1,15 +1,14 @@
 <script>
     
-    
-  
+    import { snackbar } from "$lib/store/ui";
 
     const username = "ryuk"
   
-    </script>
+  </script>
   
   
   
-  <button class="top-right-nav" type="button" >
+  <button class="top-right-nav" type="button" active={$snackbar.open} on:click={() => snackbar.hideSnackbar()}>
 
       <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>

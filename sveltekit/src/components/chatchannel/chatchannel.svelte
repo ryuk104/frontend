@@ -71,6 +71,8 @@ function openbookshelf() {
 		bookshelfs.classList.toggle("show");
 };
 
+let active = false;
+
 </script>
 
 
@@ -80,9 +82,10 @@ function openbookshelf() {
         <div id="search-input-cont">
         <input type="text" 
                id="search-field" 
-               placeholder="Search" 
+               placeholder="Search"
                autocomplete="off"
                bind:value={searchTerm}
+               on:click={() => (active = true)}
                on:input={searchBooks} />
         </div> 
       </section>
@@ -119,14 +122,14 @@ function openbookshelf() {
 
       <a class="channelprofile" href="http://"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/image/image1.jpeg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+          <img src=../static/icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Home</div>
       </a>
 
       <a class="channelprofile" href="d" onclick="document.location.href='/message';"> 
         <div class="avatarpicture" role="img"> 
-          <img src=../static/icon/homeicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+          <img src=../static/icon/musicicon.svg class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
         <div class="friendsusername">Message</div>
       </a>
@@ -148,6 +151,11 @@ function openbookshelf() {
       {#each bookData as { profilepicture}}          
         <Textchannelprofile { profilepicture } />
       {/each}
+
+
+      <div class="minimusicplayer"> 
+
+      </div>
 
     </div>
   </nav>

@@ -18,7 +18,7 @@ console.log(req.sessionID)
     import Chatchannel from "../components/chatchannel/chatchannel.svelte";
     import CustomeMenu from "..//components/customeMenu/CustomeMenu.svelte";
     import Instagram from "../components/posts/instagram.svelte";
-    import Friendsactivity from "../components/friendsactivity.svelte";
+    import Friendsactivity from "../components/friendsactivity/friendsactivity.svelte";
     import Stories from "../components/stories/stories.svelte";
 
     

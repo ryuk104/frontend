@@ -1,5 +1,19 @@
+<script>
+  import Friendsactivityprofile from './friendsactivityprofile.svelte'
+  import { bookData } from '../../testdb/user.js';		 
+</script>
+
+
+
+
 <div class="friendsactivivty">
     <ul class="friendsactivivtylist">
+
+  {#each bookData as {profilepicuture, username}}          
+    <Friendsactivityprofile {profilepicuture}
+    {username} />
+  {/each}
+
       <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax</li>
   
       <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax Playing fortnite</li>
