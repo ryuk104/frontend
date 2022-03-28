@@ -2,11 +2,15 @@
 import { bookData } from '../../testdb/user.js';		 
 import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
+import ModalOne from "../ModalOne.svelte";
+
 
 import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
 
 let searchTerm = "";
 let filteredBooks = [];
+let showModal = false;
+
 
 
 const searchBooks = () => {	
@@ -134,9 +138,15 @@ let active = false;
         <div class="friendsusername">Message</div>
       </a>
 
-      <button class="channelprofile" type="button">
+    <div>
+      <button on:click={() => (showModal = true)}
+      class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">
         create post
       </button>
+      {#if showModal}
+			<ModalOne on:close={() => (showModal = false)} />
+		  {/if}
+    </div>
 
       <hr>
       </div>
@@ -154,9 +164,47 @@ let active = false;
 
 
       <div class="minimusicplayer"> 
+        <div class="musiccard">
+
+          <div class="musiccardimage">
+            <img src="https://audio.liberta.vip/media/__sized__/attachments/a8/14/72/cover-crop-c0-5__0-5-200x200-95.jpg" class="musiccardimage" width="40%" hieght="40%" alt="d">
+          </div>
+
+          <div class="musiccardtext">
+            <div class="musiccardtexttitle">
+              <a href="artist"> 
+                <h1>Reve de toi</h1>
+              </a>
+            </div>
+
+            <div class="musiccardtextartist">
+              <a href="artist">
+                <h4> 徒 setto セット </h4>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="trackcontroll">
+          <button title="Prevous track"> </button>
+          <button title="play"> </button>
+          <button title="Next track"> </button>
+        </div>
+
+        <div class="trackoption">
+          <button title="volume"> </button>
+          <button title="repeat"> </button>
+          <button title="shuffle"> </button>
+        </div>
+
+        <div class="tracktimeline">
+          <div data-percents="100" style="width:100%"></div>
+          <div data-percents="100" style="width:100%"></div>
+        </div>
+
+
 
       </div>
-
     </div>
   </nav>
 
@@ -252,6 +300,24 @@ main#bookshelf{
     left: 10px;
     border-radius: 8px;
     top: 3px;
+}
+
+.minimusicplayer{
+  position: fixed;
+  width: 100%;
+  height: 20%;
+  left: 0px;
+  bottom: 0px;
+  background-color: #21c700;
+}
+
+.musiccardtext{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: -40%;
+  padding-left: 40%;
 }
 
 

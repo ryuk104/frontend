@@ -1,11 +1,7 @@
 <script>
 
+export const prerender = true;
 
-
-if (!firebase.apps.length) {
-  firebase.initializeApp(firebaseConfig);
-}
-const firestore = firebase.firestore();
 
 const servers = {
   iceServers: [

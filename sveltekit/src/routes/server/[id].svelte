@@ -18,13 +18,14 @@
     }
   </script>
   <script>
+    /*
     import { onMount } from "svelte";
     import UserPosts from "$lib/components/UserPosts.svelte";
     import { BASE_URL } from "$lib/config";
     import { auth } from "$lib/store/auth";
     import EditUser from "$lib/components/EditUser.svelte";
     import DeleteUser from "$lib/components/DeleteUser.svelte";
-  
+    */
     let api;
   
     onMount(async () => {

@@ -1,14 +1,12 @@
 <script>
     
-    import { snackbar } from "$lib/store/ui";
-
     const username = "ryuk"
   
-  </script>
+</script>
   
   
   
-  <button class="top-right-nav" type="button" active={$snackbar.open} on:click={() => snackbar.hideSnackbar()}>
+  <button class="Topnavbutton" type="button" active={"$snackbar.open"} on:click={() => snackbar.hideSnackbar()}>
 
       <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>
@@ -32,7 +30,7 @@
                 <span class="fas fa-cog"></span></div>
   Settings<i class="fas fa-angle-right"></i>
             </a></li>
-  <li class="help-item" on:click|preventDefault={helpitem} ><a href="/login">
+  <li class="help-item" on:click|preventDefault={"helpitem"} ><a href="/login">
               <div class="icon">
                 <span class="fas fa-question-circle"></span></div>
   Help & support <i class="fas fa-angle-right"></i>
@@ -70,7 +68,7 @@
   </button>
   
   <style>
-    .top-right-nav{
+    .Topnavbutton{
     background-color: rgba(0,0,0,.7);
     border-radius: 23px;
     height: 42px;

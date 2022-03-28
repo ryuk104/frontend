@@ -3,6 +3,9 @@ import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
 
+export const ssr = false;
+
+
 import { MemoryStore } from 'express-session';
 
 
@@ -27,6 +30,8 @@ const db = app.use(session({
         httpOnly: true
     }
 }))
+
+
 /*
 export async function getContext({headers}) {
     const cookies = cookie.parse(headers.cookie || '')
