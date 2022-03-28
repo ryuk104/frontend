@@ -28,13 +28,7 @@ console.log(req.sessionID)
 
 
 
-<Topnavbutton></Topnavbutton>
-<Leftnavbar></Leftnavbar>
-<Chatchannel></Chatchannel>
-<CustomeMenu></CustomeMenu>
-<Stories></Stories>
-<Friendsactivity></Friendsactivity>
-<Instagram></Instagram>
+
 
 
 
@@ -43,7 +37,16 @@ console.log(req.sessionID)
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body class="body-css" style="background-color: #424242;">
+<div class="body-css" style="background-color: #424242;">
+
+  <Topnavbutton></Topnavbutton>
+  <Leftnavbar></Leftnavbar>
+  <Chatchannel></Chatchannel>
+  <CustomeMenu></CustomeMenu>
+  <Stories></Stories>
+  <Friendsactivity></Friendsactivity>
+  <Instagram></Instagram>
+
     <div class="leftbarbuttonpfpclick">
         <div>
         </div>
@@ -75,10 +78,10 @@ console.log(req.sessionID)
     </div>
     
     
-</body>
+</div>
 
 <style>
-body{
+.body-css{
   background: #18191A !important;
   margin: 0;
   padding: 0;

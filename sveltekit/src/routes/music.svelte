@@ -8,13 +8,14 @@
     let playlistartist = "dsdjoa";
     let playlistimage = "https://audio.liberta.vip/media/__sized__/attachments/a8/14/72/cover-crop-c0-5__0-5-200x200-95.jpg"
 </script>
+  
+<div class="body">
 
-<main> 
-    <div>
-        <Topnavbutton></Topnavbutton>
-        <Leftnavbar></Leftnavbar>
-        <Chatchannel></Chatchannel>
-        <CustomeMenu></CustomeMenu>
+  <Topnavbutton></Topnavbutton>
+  <Leftnavbar></Leftnavbar>
+  <Chatchannel></Chatchannel>
+  <CustomeMenu></CustomeMenu>
+        
     <h1>Recently played</h1>
     <ul class="playlists-list"> 
         <div class="playlist">
@@ -71,12 +72,11 @@
 
     </div>
 
-    </div>
-</main>
+</div>
 
 <style>
 
-    main{
+    .body{
     background: #18191A !important;
     margin: 0;
     padding: 0;
