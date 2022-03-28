@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { createEventDispatcher, onDestroy } from 'svelte';
 	import { fade } from 'svelte/transition';
+	import "../app.css";
+
 	const dispatch = createEventDispatcher();
 	const close = () => dispatch('close');
 	let modal;
