@@ -25,7 +25,18 @@ console.log(req.sessionID)
     import "../app.css";
 
 
+
     let showModal = false;
+
+    import Modal from '../components/Modal.svelte'
+	
+	  let selection
+
+    function setSelection(res){
+		selection=res
+	  }
+
+    
 </script>
 
 
@@ -53,9 +64,34 @@ console.log(req.sessionID)
         <div>
         </div>
     </div>
-
-
     
+    <slot name="trigger">
+      <!-- fallback trigger -->
+      <button>Open Modal</button>
+    </slot>
+    <div class="modal">
+        <div class="backdrop" />
+    
+        <div class="content-wrapper">
+          <slot name="header">
+            <!-- fallback -->
+            <div>
+              <h1>Your Modal Heading Goes Here...</h1>
+            </div>
+          </slot>
+    
+          <div class="content">
+            <slot name="content" />
+          </div>
+    
+          <slot name="footer">
+            <!-- fallback -->
+            <div>
+              <h1>Your Modal Footer Goes Here...</h1>
+            </div>
+          </slot>
+        </div>
+      </div>
 
     
     <div>

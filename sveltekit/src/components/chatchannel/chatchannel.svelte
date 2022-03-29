@@ -3,6 +3,10 @@ import { bookData } from '../../testdb/user.js';
 import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
 import ModalOne from "../ModalOne.svelte";
+import Modal from '../Modal.svelte'
+
+
+
 
 
 import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
@@ -139,6 +143,44 @@ let active = false;
       </a>
 
     <div>
+      <Modal>
+        <div slot="trigger" let:open>
+          <button on:click={open} 
+          class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">>
+          Open Modal</button>
+        </div>
+        <div slot="header">
+          <h1>First Modal</h1>
+        </div>
+        <div slot="content">
+          <!-- Modal within a Modal -->
+          <Modal>
+          <div slot="trigger" let:open>
+            <button on:click={open}>Open Second Modal</button>
+          </div>
+          <div slot="header">
+            <h1>Second Modal</h1>
+          </div>
+          <div slot="content">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magni earum ut ex
+              totam corporis unde incidunt deserunt, dolorem voluptatum libero quia. Maiores,
+              provident error vel veritatis itaque nemo commodi.
+            </p>
+          </div>
+          </Modal>
+        
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magni earum ut ex
+            totam corporis unde incidunt deserunt, dolorem voluptatum libero quia. Maiores, provident
+            error vel veritatis itaque nemo commodi.
+          </p>
+        </div>
+        
+        <div slot="footer" let:store={{close}}>
+          <button on:click={close}>Close First Modal</button>
+        </div>
+        </Modal>
       <button on:click={() => (showModal = true)}
       class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">
         create post
