@@ -1,12 +1,13 @@
 <script>
     export let username;
-    export let profilepicuture;
+    export let profilepicture;
 
 </script>
 
 <section class="friendsactivity"> 
-    <li class="friendactivivty"><img class="firendactvitypfp" src="{profilepicuture}" height="48px" width="48px" alt="gram">
-        {username}
+    <li class="friendactivivty">
+        <img class="firendactvitypfp" src={profilepicture} height="48px" width="48px" alt="gram">
+        <h1>{username}</h1>
     </li>
 
 </section>

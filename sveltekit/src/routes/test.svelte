@@ -46,6 +46,7 @@
 
 	
   </script>
+<main>
   <Modal>
 	<div slot="trigger" let:open>
 	  <button on:click={open}
@@ -109,3 +110,5 @@
 	  <button on:click={close}>Close First Modal</button>
 	</div>
   </Modal>
+
+</main>

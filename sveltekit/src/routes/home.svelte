@@ -1,4 +1,4 @@
-<script context="module">
+<script>
   /*
   if (!request.session || !request.sessionID || !request.session.user || !request.cookies.sid) {
       const err = new Error("unatuh");
@@ -21,78 +21,40 @@ console.log(req.sessionID)
     import Instagram from "../components/posts/instagram.svelte";
     import Friendsactivity from "../components/friendsactivity/friendsactivity.svelte";
     import Stories from "../components/stories/stories.svelte";
-    import ModalOne from '../components/ModalOne.svelte';
+    import Modal from '../components/Modal.svelte'
+    import Postbuttonpopup from '../components/postbuttonpopup.svelte'
+
     import "../app.css";
 
-
-
-    let showModal = false;
-
-    import Modal from '../components/Modal.svelte'
-	
-	  let selection
-
-    function setSelection(res){
-		selection=res
-	  }
-
+    
     
 </script>
-
-
-
-
-
-
-
-<head lang="en" dir="ltr" > 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-</head>
-
-<div class="body-css" style="background-color: #424242;">
-
+  <Postbuttonpopup></Postbuttonpopup>
   <Topnavbutton></Topnavbutton>
   <Leftnavbar></Leftnavbar>
   <Chatchannel></Chatchannel>
+  
   <CustomeMenu></CustomeMenu>
   <Stories></Stories>
   <Friendsactivity></Friendsactivity>
   <Instagram></Instagram>
+
+
+
+<svelte:head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</svelte:head>
+
+<section>
+
+  
 
     <div class="leftbarbuttonpfpclick">
         <div>
         </div>
     </div>
     
-    <slot name="trigger">
-      <!-- fallback trigger -->
-      <button>Open Modal</button>
-    </slot>
-    <div class="modal">
-        <div class="backdrop" />
-    
-        <div class="content-wrapper">
-          <slot name="header">
-            <!-- fallback -->
-            <div>
-              <h1>Your Modal Heading Goes Here...</h1>
-            </div>
-          </slot>
-    
-          <div class="content">
-            <slot name="content" />
-          </div>
-    
-          <slot name="footer">
-            <!-- fallback -->
-            <div>
-              <h1>Your Modal Footer Goes Here...</h1>
-            </div>
-          </slot>
-        </div>
-      </div>
-
     
     <div>
       <button class="notificationbutton">
@@ -101,8 +63,7 @@ console.log(req.sessionID)
     </div>
 
     
-    
-</div>
+</section>
 
 <style>
 .body-css{

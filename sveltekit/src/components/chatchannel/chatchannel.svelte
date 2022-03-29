@@ -3,18 +3,10 @@ import { bookData } from '../../testdb/user.js';
 import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
 import ModalOne from "../ModalOne.svelte";
-import Modal from '../Modal.svelte'
-
-
-
-
-
 import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
 
 let searchTerm = "";
 let filteredBooks = [];
-let showModal = false;
-
 
 
 const searchBooks = () => {	
@@ -60,6 +52,7 @@ function sendData(e){
 
 
 //usermetadata
+/*
 const fetchusers = async () => {
         const login = await fetch("http://localhost:8080/api/user/getusers", {
             method: "GET",
@@ -73,6 +66,7 @@ const fetchusers = async () => {
             },
         });
 }
+*/
 
 function openbookshelf() {
     const bookshelfs = document.querySelector('bookshelf');
@@ -82,7 +76,6 @@ function openbookshelf() {
 let active = false;
 
 </script>
-
 
 <nav class="chatchaneel">
     <div>
@@ -102,7 +95,7 @@ let active = false;
         dasds
       </button>
 
-<main id="bookshelf">
+<div id="bookshelf">
         {#if searchTerm && filteredBooks.length === 0}
           <NoResults />		
         {:else if filteredBooks.length > 0}
@@ -120,7 +113,7 @@ let active = false;
                    />
           {/each}	
         {/if}
-</main>	
+</div>	
       
 
 <hr>
@@ -143,44 +136,16 @@ let active = false;
       </a>
 
     <div>
-      <Modal>
-        <div slot="trigger" let:open>
-          <button on:click={open} 
-          class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">>
-          Open Modal</button>
-        </div>
-        <div slot="header">
-          <h1>First Modal</h1>
-        </div>
-        <div slot="content">
-          <!-- Modal within a Modal -->
-          <Modal>
-          <div slot="trigger" let:open>
-            <button on:click={open}>Open Second Modal</button>
-          </div>
-          <div slot="header">
-            <h1>Second Modal</h1>
-          </div>
-          <div slot="content">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magni earum ut ex
-              totam corporis unde incidunt deserunt, dolorem voluptatum libero quia. Maiores,
-              provident error vel veritatis itaque nemo commodi.
-            </p>
-          </div>
-          </Modal>
-        
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, magni earum ut ex
-            totam corporis unde incidunt deserunt, dolorem voluptatum libero quia. Maiores, provident
-            error vel veritatis itaque nemo commodi.
-          </p>
-        </div>
-        
-        <div slot="footer" let:store={{close}}>
-          <button on:click={close}>Close First Modal</button>
-        </div>
-        </Modal>
+
+
+
+      
+
+
+
+
+
+<!--
       <button on:click={() => (showModal = true)}
       class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">
         create post
@@ -189,7 +154,7 @@ let active = false;
 			<ModalOne on:close={() => (showModal = false)} />
 		  {/if}
     </div>
-
+ -->
       <hr>
       </div>
 
@@ -200,9 +165,14 @@ let active = false;
         <div class="friendsusername">Quax</div>
       </a>
 
-      {#each bookData as { profilepicture}}          
-        <Textchannelprofile { profilepicture } />
+      {#each bookData as { profilepicture, username, desc}}          
+        <Textchannelprofile { profilepicture } {username} {desc}/>
       {/each}
+
+
+
+      
+      
 
 
       <div class="minimusicplayer"> 
@@ -297,7 +267,6 @@ main#bookshelf{
   margin: 0;
   padding: 0;
   display: flex;
-  overflow: hidden;
   flex-direction: column;
   box-sizing: border-box;
   /* background-color: #2d3436; */
@@ -308,8 +277,10 @@ main#bookshelf{
   transform: translate(32%, 0%);
   height: 100%;
   width: 225px;
-  overflow-y: hidden;
+  overflow-x: hidden;
   float: left;
+  z-index: -1;
+
 }
 
 .channelprofile {

@@ -1,12 +1,47 @@
-<script>
+<script lang="ts">
+
+  import { createEventDispatcher, onDestroy } from 'svelte';
+	import { fade } from 'svelte/transition';
+	const dispatch = createEventDispatcher();
+	const close = () => dispatch('close');
+
+  let modal;
+
+  const handle_keydown = (e) => {
+		if (e.key === 'Escape') {
+			close();
+			return;
+		}
+		if (e.key === 'Tab') {
+			// trap focus
+			const nodes = modal.querySelectorAll('*');
+			const tabbable: any = Array.from(nodes).filter((n: any) => n.tabIndex >= 0);
+			let index = tabbable.indexOf(document.activeElement);
+			if (index === -1 && e.shiftKey) index = 0;
+			index += tabbable.length + (e.shiftKey ? -1 : 1);
+			index %= tabbable.length;
+			tabbable[index].focus();
+			e.preventDefault();
+		}
+	};
+	const previously_focused: any = typeof document !== 'undefined' && document.activeElement;
+	if (previously_focused) {
+		onDestroy(() => {
+			previously_focused.focus();
+		});
+	}
+
     
-    const username = "ryuk"
+  const username = "ryuk"
+
+    let showNavbutton = false;
+
   
 </script>
   
   
   
-  <button class="Topnavbutton" type="button" active={"$snackbar.open"} on:click={() => snackbar.hideSnackbar()}>
+  <button class="Topnavbutton" type="button" on:click={close}>
 
       <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>

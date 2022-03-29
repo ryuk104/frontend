@@ -9,17 +9,11 @@
 <div class="friendsactivivty">
     <ul class="friendsactivivtylist">
 
-  {#each bookData as {profilepicuture, username}}          
-    <Friendsactivityprofile {profilepicuture}
-    {username} />
+  {#each bookData as {profilepicture, username}}          
+    <Friendsactivityprofile {profilepicture} {username} 
+    />
   {/each}
 
-      <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax</li>
-  
-      <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax Playing fortnite</li>
-      <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax</li>
-      <li class="friendactivivty"><img class="firendactvitypfp" src="../static/image/image1.jpeg" alt="gram">quax Playing among us</li>
-  
     </ul>
 </div>
 
@@ -40,6 +34,7 @@
   top: 40%;
   left: 80%;
   border-radius: 20px;
+  z-index: -1;
 
 }
 

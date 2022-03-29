@@ -32,7 +32,6 @@
     <title>UNIVERSE</title>
 </svelte:head>
 
-<body>
 
 <header>
     <div class="logo">Uninet</div>
@@ -85,7 +84,6 @@
         </div>
    </div>
 </footer>
-</body>
 
 <style>
 *{
@@ -94,7 +92,7 @@
   box-sizing: border-box;
 }
 
-body{
+.body{
   background-color: #272727;
 }
 

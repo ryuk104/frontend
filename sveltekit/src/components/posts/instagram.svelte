@@ -9,28 +9,29 @@
 
 
 <div class="instagramg" id="instagramg">
-  {#each postsData as {image}}          
-    <Postsprofile {image} />
+  {#each postsData as {image, profilepicture, username, comments, desc}}          
+    <Postsprofile {image} {profilepicture} {username} {desc} {comments}/>
   {/each}
 
     
-    <article> <img class="instapics" src="../static/image/image5.jpeg" wdith="400" height="400" alt="gram"> </article>
-    <article> <img class="instapics" src="../static/image/image6.jpeg" wdith="400" height="400" alt="gram"> </article>
-    <article> <img class="instapics" src="../static/image/image1.jpeg" wdith="400" height="400" alt="gram"> </article>
 </div>
 
 <style>
 .instagramg {
   text-align:center;
+  z-index: -1;
   display:grid;
   justify-items: center;
   grid-row-gap: 80px;
   position: absolute;
-  top: 50%;
-  left: 50%;
+  top: 40%;
+  left: 35%;
+  width: 50%;
+  height: 100%;
   transform: translate(-20%, -5%);
   overflow-y:scroll;
   overflow-x: hidden;
+  background-color: rgb(37, 29, 29);
 }
 
 </style>

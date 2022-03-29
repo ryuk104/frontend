@@ -7,8 +7,8 @@
 <div class="stories">
     <div>
       <ul class="storiesul"> 
-        {#each storyData as {profilepicuture, username}}          
-          <Storyprofile {profilepicuture} {username}/>
+        {#each storyData as {profilepicture, username}}          
+          <Storyprofile {profilepicture} {username}/>
         {/each}
   </ul>
 </div>
@@ -16,11 +16,11 @@
 
 <style>
 .stories {
-  background: #fff;
+  background: rgb(90, 37, 37);
   border: 1px solid #dbdbdb;
   padding: 16px 0;
-  height: 75px;
-  width: 800px;
+  height: 120px;
+  width: 60%;
   outline: 0;
   overflow-y: hidden;
   display: flex;
@@ -29,23 +29,11 @@
   position: absolute;
   top: 50%;
   left: 65%;
+  z-index: -1;
   transform: translate(-70%, -350%);
 } 
 
-.storyprofilepicture {
-  border-radius: 100px;
-  width: 56px; 
-  height: 56px;
-}
 
-.storycontent {
-  display: flex;
-  transform: translatex(10px);
-  flex-direction: row;
-  width: 10px;
-  display: list-item;
-  display: block;
-}
 
 .storiesul{
   margin: 0;
@@ -57,17 +45,5 @@
   justify-content:space-between;
 }
 
-.storeisbutton{
-  align-items: center;
-  align-self: center;
-  background: 0 0;
-  border: 0;
-  cursor: pointer;
-  display: flex;
-  flex-direction: column;
-  padding-bottom: 0;
-  padding-top: 0;
-  text-align: center;
-  width: 64px;
-}
+
 </style>
