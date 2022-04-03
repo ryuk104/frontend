@@ -52,7 +52,7 @@ const filesPath = '/';
 <Modal>
     <div slot="trigger" let:open>
       <button on:click={open}
-      class="m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">
+      class="postbutton m-2 w-full inline-flex justify-center rounded-md border border-gray-300 dark:border-gray-500 shadow-sm px-5 py-3 bg-purple-500 dark:bg-purple-400 text-base font-medium text-white hover:bg-purple-700  dark:hover:bg-purple-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 dark:focus:ring-purple-400 sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm capitalize">
     create post</button>
     </div>
     <div slot="header">
@@ -112,3 +112,10 @@ const filesPath = '/';
       <button on:click={close}>Close First Modal</button>
     </div>
     </Modal>
+
+
+<style>
+  .postbutton {
+    position: center;
+  }
+</style>

@@ -4,6 +4,8 @@ import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
 import ModalOne from "../ModalOne.svelte";
 import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
+import Postbuttonpopup from '../postbuttonpopup.svelte'
+
 
 let searchTerm = "";
 let filteredBooks = [];
@@ -136,11 +138,6 @@ let active = false;
       </a>
 
     <div>
-
-
-
-      
-
 
 
 
