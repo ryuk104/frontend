@@ -1,16 +1,18 @@
 <script>
 
-    import PostCard from "../lib/components/post/PostCard.svelte";
+    import PostCard from "$lib/components/post/PostCard.svelte";
 
-    import Topnavbutton from "../lib/components/Topnavbutton.svelte";   
-    import Leftnavbar from "../lib/components/Leftnavbar.svelte";
-    import Chatchannel from "../lib/components/chatchannel/chatchannel.svelte";
-    import CustomeMenu from "../lib/components/customeMenu/CustomeMenu.svelte";
+    import Topnavbutton from "$lib/components/Topnavbutton.svelte";   
+    import Leftnavbar from "$lib/components/Leftnavbar.svelte";
+    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
+    import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
 
     import { auth } from "$lib/store/auth";
     import { post as postState } from "$lib/store/post";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
+    import { Button, Col, ProgressCircular, Row } from "svelte-materialify";
+
 
     let api;
     let page = 0;
@@ -88,12 +90,5 @@
     </Row>
   </div>
 {/if}
-<div class="grid grid-cols-3 gap-3">
-	{#each $images as image (image)}
-		<div class="card bordered">
-			<figure>
-				<img src={image} />
-			</figure>
-		</div>
-	{/each}
-</div>
+
+

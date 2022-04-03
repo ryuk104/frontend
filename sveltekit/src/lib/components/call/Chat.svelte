@@ -2,10 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	import { chatMessages } from '../../../storeort chat from './assets/chat.svg';
-	import close from './assets/x.svg';
-	import send from './assets/send.svg';
-
+	import { chatMessages } from '../../testdb/chat.js';
 	const dispatch = createEventDispatcher();
 
 	export let callObject;
