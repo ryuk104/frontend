@@ -1,8 +1,8 @@
 <script>
-  
-  import { serverData } from '../testdb/server.js';		 
-  import Setting from './/setting/setting.svelte'
-  import Serverprofile from './/server/serverprofile.svelte'
+
+  import { serverData } from '../../testdb/server.js';		 
+  import Serverprofile from './server/serverprofile.svelte'
+  import Setting from './setting/setting.svelte'
 
 </script>
 

@@ -1,6 +1,6 @@
 <script>
   import Storyprofile from './storyprofile.svelte'
-  import { storyData } from '../../testdb/story.js';		 
+  import { storyData } from '../../../testdb/story.js';		 
 </script>
 
 

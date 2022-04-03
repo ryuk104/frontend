@@ -1,5 +1,5 @@
 <script>
-	import Modal from '../components/Modal.svelte'
+	import Modal from '$lib/components/Modal.svelte'
 	const filesPath = '/'; 
     let fileToUpload = null;
     let fileName = ''

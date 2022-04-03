@@ -2,8 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import { quintOut } from 'svelte/easing';
-	import { chatMessages } from '../../store';
-	import chat from './assets/chat.svg';
+	import { chatMessages } from '../../../storeort chat from './assets/chat.svg';
 	import close from './assets/x.svg';
 	import send from './assets/send.svg';
 

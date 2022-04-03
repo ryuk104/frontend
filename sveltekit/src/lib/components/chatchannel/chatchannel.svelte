@@ -1,10 +1,10 @@
 <script>
-import { bookData } from '../../testdb/user.js';		 
+import { bookData } from '../../../testdb/user.js';		 
 import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
 import ModalOne from "../ModalOne.svelte";
-import Textchannelprofile from '../chatchannel/textchannelprofile.svelte';
-import Postbuttonpopup from '../postbuttonpopup.svelte'
+import Textchannelprofile from './textchannelprofile.svelte'
+import Postbuttonpopup from './textchannelprofile.svelte'
 
 
 let searchTerm = "";

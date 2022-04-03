@@ -3,12 +3,12 @@
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
 	import { browser } from '$app/env';
-	import VideoTile from '../../components/call/VideoTile.svelte';
-	import WaitingForOthersTile from '../../components/call/WaitingForOthersTile.svelte';
-	import Chat from '../../components/call/Chat.svelte';
-	import Loading from '../../components/call/Loading.svelte';
-	import PermissionErrorMessage from '../../components/call/PermissionErrorMessage.svelte';
-	import { chatMessages, dailyErrorMessage, username } from '../../store';
+	import VideoTile from '$lib/components/call/VideoTile.svelte';
+	import WaitingForOthersTile from '$lib/components/call/WaitingForOthersTile.svelte';
+	import Chat from '$lib/components/call/Chat.svelte';
+	import Loading from '$lib/components/call/Loading.svelte';
+	import PermissionErrorMessage from '$lib/components/call/PermissionErrorMessage.svelte';
+	import { chatMessages, dailyErrorMessage, username } from '$store';
 
 	
 

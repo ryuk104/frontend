@@ -1,10 +1,7 @@
 <script>
   import Postsprofile from './postsprofile.svelte'
-  import { postsData } from '../../testdb/posts.js';		 
-
+  import { postsData } from '../../../testdb/posts.js';		 
 </script>
-
-
 
 
 

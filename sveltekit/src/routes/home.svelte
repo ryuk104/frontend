@@ -14,16 +14,16 @@ console.log(req.sessionID)
 //export const load = async ({ session }) => {};
 
 
-    import Topnavbutton from "../components/Topnavbutton.svelte";
-    import Leftnavbar from "../components/Leftnavbar.svelte";
-    import Chatchannel from "../components/chatchannel/chatchannel.svelte";
-    import CustomeMenu from "..//components/customeMenu/CustomeMenu.svelte";
-    import Instagram from "../components/posts/instagram.svelte";
-    import Friendsactivity from "../components/friendsactivity/friendsactivity.svelte";
-    import Stories from "../components/stories/stories.svelte";
-    import Modal from '../components/Modal.svelte'
+    import Topnavbutton from "$lib/components/Topnavbutton.svelte";
+    import Leftnavbar from "$lib/components/leftnavbar.svelte";
+    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
+    import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
+    import Instagram from "$lib/components/posts/instagram.svelte";
+    import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
+    import Stories from "$lib/components/stories/stories.svelte";
+    import Modal from '$lib/components/Modal.svelte'
     
-    import Postbuttonpopup from '../components/postbuttonpopup.svelte'
+    import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
     import "../app.css";
 

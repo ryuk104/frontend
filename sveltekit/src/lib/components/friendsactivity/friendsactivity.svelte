@@ -1,8 +1,7 @@
 <script>
   import Friendsactivityprofile from './friendsactivityprofile.svelte'
-  import { bookData } from '../../testdb/user.js';		 
+  import { bookData } from '../../../testdb/user.js';		 
 </script>
-
 
 
 

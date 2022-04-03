@@ -1,10 +1,4 @@
-<script context="module">
-    let email;
-    let password;
-    
-
-    const {sessions} = stores();
-    
+<script context="module">    
 
     import { createEventDispatcher } from 'svelte'
     import axios from 'axios'
@@ -23,6 +17,70 @@
     })
     return await result;
 }
+
+
+import { emailRules, passwordRules } from "$lib/utils/validation";
+  import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
+  import { onMount } from "svelte";
+
+  import {
+    Button,
+    Card,
+    Col,
+    Divider,
+    Icon,
+    ProgressCircular,
+    Row,
+    TextField,
+  } from "svelte-materialify";
+
+  import { snackbar } from "$lib/store/ui";
+  import { goto } from "$app/navigation";
+  import { auth } from "$lib/store/auth";
+
+  let api;
+
+  onMount(async () => {
+    if(auth.isAuthenticated){
+      goto("/")
+    }
+    api = await import("$lib/utils/axiosApi");
+  });
+
+  let show = false;
+  let email = "";
+  let password = "";
+
+  let error = {};
+  let loading = false;
+
+  async function handleLogin() {
+    try {
+      loading = true;
+      const res = await api.loginUser({ email, password });
+
+      loading = false;
+      snackbar.showSnackbar({
+        open: true,
+        type: res.type,
+        msg: res.message,
+      });
+
+      if (res.type === "success") {
+        localStorage.setItem("token", res.data.token);
+        auth.setUser(res.data);
+        return goto("/");
+      }
+
+      if (res.type === "error") {
+        error = res.data;
+        return;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
     
 
     /*
