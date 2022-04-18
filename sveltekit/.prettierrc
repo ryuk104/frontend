@@ -1,6 +1,12 @@
 {
+	"tabWidth": 2,
 	"useTabs": true,
-	"singleQuote": true,
 	"trailingComma": "none",
-	"printWidth": 100
+	"singleQuote": true,
+	"semi": true,
+	"printWidth": 80,
+	"bracketSpacing": true,
+
+	"svelteBracketNewLine": true,
+	"svelteSortOrder": "scripts-markup-styles"
 }

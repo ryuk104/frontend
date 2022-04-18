@@ -1,5 +1,5 @@
 <script>
-  import { snackbar } from "$lib/store/ui";
+  import { snackbar } from "$lib/stores/ui";
   import { onMount } from "svelte";
   import { mdiArrowLeft, mdiArrowRight } from "@mdi/js";
   import {
@@ -11,9 +11,9 @@
     TextField,
   } from "svelte-materialify";
 
-  import { post } from "$lib/store/post";
+  import { post } from "$lib/stores/post";
   import { goto } from "$app/navigation";
-  import { auth } from "$lib/store/auth";
+  import { auth } from "$lib/stores/auth";
 
   let axiosApi;
 

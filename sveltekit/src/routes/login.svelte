@@ -34,9 +34,9 @@ import { emailRules, passwordRules } from "$lib/utils/validation";
     TextField,
   } from "svelte-materialify";
 
-  import { snackbar } from "$lib/store/ui";
+  import { snackbar } from "$lib/stores/ui";
   import { goto } from "$app/navigation";
-  import { auth } from "$lib/store/auth";
+  import { auth } from "$lib/stores/auth";
 
   let api;
 

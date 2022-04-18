@@ -1,7 +1,7 @@
 <script>
     import { goto } from "$app/navigation";
   
-    import { auth } from "$lib/store/auth";
+    import { auth } from "$lib/stores/auth";
     import { onMount } from "svelte";
   
     let active = false;

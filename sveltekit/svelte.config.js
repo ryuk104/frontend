@@ -3,9 +3,12 @@ import node from '@sveltejs/adapter-node'
 import adapter from '@sveltejs/adapter-auto';
 import autoPreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
+import cssnano from 'cssnano'
 import path from 'path'
 import sveltePreprocess from 'svelte-preprocess'
 import dotenv from 'dotenv';
+import autoprefixer from 'autoprefixer'
+
 dotenv.config();
 
 const rootDomain = process.env["VITE_DOMAIN"]; // or your server IP for dev
@@ -18,9 +21,18 @@ const dev = check === 'development'
 const config = {
 	preprocess: [
 		autoPreprocess({
-			postcss: true,
-			preserve: ['module']
+			preserve: ['module'],
+			sass: false,
+			scss: {
+
+				includePaths: ['src'], prependData: '@import "src/global/stylesheet/base/_variables.scss";', renderSync: true
+			},
+
+			postcss: {
+				plugins: [cssnano({ preset: 'cssnano-preset-default' }), autoprefixer({})]
+			},
 		})
+		
 	],
 	
 	kit: {

@@ -30,7 +30,7 @@ let { BASE_URL } = "djskajhd";
   import { onMount } from "svelte";
   import UserPosts from "$lib/components/UserPosts.svelte";
   import { BASE_URL } from "$lib/config";
-  import { auth } from "$lib/store/auth";
+  import { auth } from "$lib/stores/auth";
   import { Avatar, Col, Row, Chip, Divider, Button } from "svelte-materialify";
   import EditUser from "$lib/components/setting/EditUser.svelte";
   import DeleteUser from "$lib/components/setting/DeleteUser.svelte";

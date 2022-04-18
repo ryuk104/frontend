@@ -7,8 +7,8 @@
     import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
     import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
 
-    import { auth } from "$lib/store/auth";
-    import { post as postState } from "$lib/store/post";
+    import { auth } from "$lib/stores/auth";
+    import { post as postState } from "$lib/stores/post";
     import { goto } from "$app/navigation";
     import { onMount } from "svelte";
     import { Button, Col, ProgressCircular, Row } from "svelte-materialify";

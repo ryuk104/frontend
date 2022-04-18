@@ -1,8 +1,8 @@
 <script>
     import { goto } from "$app/navigation";
   
-    import { auth } from "$lib/store/auth";
-    import { snackbar } from "$lib/store/ui";
+    import { auth } from "$lib/stores/auth";
+    import { snackbar } from "$lib/stores/ui";
     import { mdiDelete } from "@mdi/js";
     import { onMount } from "svelte";
   

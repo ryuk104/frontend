@@ -3,8 +3,8 @@
     import { onMount } from "svelte";
     import { scale } from "svelte/transition";
     import { elasticOut } from "svelte/easing";
-    import { snackbar } from "$lib/store/ui";
-    import { post } from "$lib/store/post";
+    import { snackbar } from "$lib/stores/ui";
+    import { post } from "$lib/stores/post";
   
     import { mdiDotsVertical, mdiDelete, mdiPencil } from "@mdi/js";
     import { goto } from "$app/navigation";

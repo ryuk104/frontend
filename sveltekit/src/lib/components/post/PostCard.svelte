@@ -1,5 +1,5 @@
 <script>
-    import { auth } from "$lib/store/auth";
+    import { auth } from "$lib/stores/auth";
     import { onMount } from "svelte";
     import { mdiHeart, mdiHeartOutline } from "@mdi/js";
   
@@ -15,7 +15,7 @@
       Chip,
     } from "svelte-materialify";
   
-    import { post as postState } from "$lib/store/post";
+    import { post as postState } from "$lib/stores/post";
     let axiosApi;
     onMount(async () => {
       axiosApi = await import("$lib/utils/axiosApi");
