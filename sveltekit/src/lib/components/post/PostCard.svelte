@@ -1,7 +1,6 @@
 <script>
     import { auth } from "$lib/store/auth";
     import { onMount } from "svelte";
-    import { snackbar, theme } from "$lib/store/ui";
     import { mdiHeart, mdiHeartOutline } from "@mdi/js";
   
     import {

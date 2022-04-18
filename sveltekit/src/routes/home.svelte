@@ -14,9 +14,7 @@ console.log(req.sessionID)
 //export const load = async ({ session }) => {};
 
 
-    import Topnavbutton from "$lib/components/Topnavbutton.svelte";
-    import Leftnavbar from "$lib/components/leftnavbar.svelte";
-    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
+    
     import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
     import Instagram from "$lib/components/posts/instagram.svelte";
     import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
@@ -31,9 +29,7 @@ console.log(req.sessionID)
     
 </script>
   <Postbuttonpopup></Postbuttonpopup>
-  <Topnavbutton></Topnavbutton>
-  <Leftnavbar></Leftnavbar>
-  <Chatchannel></Chatchannel>
+  
   
   <CustomeMenu></CustomeMenu>
   <Stories></Stories>

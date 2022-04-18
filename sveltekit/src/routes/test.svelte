@@ -1,4 +1,40 @@
+<script context="module">
+	export async function load({ fetch }) {
+	  const res = await fetch('https://run.mocky.io/v3/d1a39d21-9f98-4719-94de-84cc746e265d')
+	  const textchannelprofile = await res.json()
+	
+  
+	if (res.ok) {
+	  return {
+		props: {
+		  textchannelprofile
+		}
+	  }
+	}
+  
+	return {
+	  status: res.status,
+	  error: new Error('fetch failed')
+	}
+  }
+  </script>
+  
+
+
+
+
+
+
+
+
+
 <script>
+
+
+	export let textchannelprofile
+
+
+
 	import Modal from '$lib/components/Modal.svelte'
 	const filesPath = '/'; 
     let fileToUpload = null;
@@ -47,6 +83,27 @@
 	
   </script>
 <main>
+
+
+
+
+	{#each textchannelprofile as textchannelpeopel}          
+    <section class="Textchannelprofile">
+      <a class="channelprofile" href="/userid"> 
+        <div class="avatarpicture" role="img"> 
+          <img src={textchannelpeopel.avatar} class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+        </div>
+        <div class="friendsusername">{textchannelpeopel.username}</div>
+        <div class="desc">{textchannelpeopel.name}</div>
+      </a>
+    </section>
+  {/each}
+  
+
+
+
+
+
   <Modal>
 	<div slot="trigger" let:open>
 	  <button on:click={open}

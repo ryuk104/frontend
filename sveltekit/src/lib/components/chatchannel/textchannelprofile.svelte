@@ -1,21 +1,47 @@
+<script context="module">
+  export async function load({ fetch }) {
+    const res = await fetch('https://dummyapi.io/data/v1/user')
+    const textchannelprofile = await res.json()
+  
+
+  if (res.ok) {
+    return {
+      props: {
+        textchannelprofile
+      }
+    }
+  }
+
+  return {
+    status: res.status,
+    error: new Error('fetch failed')
+  }
+}
+</script>
+
+
+
 <script>
-    export let username;
-    export let profilepicture;
-    export let desc;
+  export let textchannelprofile
 
 
-  </script>
-  
-  
-  <section class="Textchannelprofile">
-    <a class="channelprofile" href="img"> 
+</script>
+
+
+  {#each textchannelprofile as textchannelpeopel}      
+    <section class="Textchannelprofile">
+      <a class="channelprofile" href={`/profiles/${textchannelprofile.id}`}> 
         <div class="avatarpicture" role="img"> 
-          <img src={profilepicture} class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
+          <img src={textchannelpeopel.picture} class="avatarpicturecircle" width="48px" hieght="48px" alt="d"> 
         </div>
-        <div class="friendsusername">{username}</div>
-        <div class="desc">{desc}</div>
+        <div class="friendsusername">{textchannelpeopel.firstName}</div>
+        <div class="desc">{textchannelpeopel.title}</div>
       </a>
-  </section>
+    </section>
+  {/each}
+  
+  
+  
 
 
 <style>
