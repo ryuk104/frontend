@@ -4,7 +4,7 @@
 	let path;
 
 	export const load: Load = async ({ fetch, stuff }) => {
-		const response = await fetch('/trending.json?q=browse');
+		const response = await fetch('/music/trending.json?q=browse');
 		const data = await response.json();
 		if (!response.ok) {
 			return {
@@ -81,7 +81,7 @@
 </main>
 
 <style lang="scss">
-	@import '../../global/stylesheet/components/_carousel';
+	@import '../../../global/stylesheet/components/_carousel';
 	.breakout {
 		border-radius: 0.8rem;
 		-webkit-overflow-scrolling: touch;

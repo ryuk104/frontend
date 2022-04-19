@@ -1,5 +1,5 @@
 import type { RequestHandler } from '@sveltejs/kit'
-import BaseContext from '../api/_modules/context'
+import BaseContext from '../../api/_modules/context'
 
 export const get: RequestHandler = async ({ url }) => {
 	const query = url.searchParams
