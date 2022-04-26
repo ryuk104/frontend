@@ -1,6 +1,5 @@
-import node from '@sveltejs/adapter-node'
+import adapter from '@sveltejs/adapter-node';
 
-import adapter from '@sveltejs/adapter-auto';
 import autoPreprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript';
 import cssnano from 'cssnano'

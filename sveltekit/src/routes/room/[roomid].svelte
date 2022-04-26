@@ -8,8 +8,9 @@
 	import Chat from '$lib/components/call/Chat.svelte';
 	import Loading from '$lib/components/call/Loading.svelte';
 	import PermissionErrorMessage from '$lib/components/call/PermissionErrorMessage.svelte';
-	import { chatMessages, dailyErrorMessage, username } from '$store';
-
+	/*
+	import { chatMessages, dailyErrorMessage, username } from '$lib/stores';
+	*/
 	
 
 	let callObject;
@@ -69,7 +70,8 @@
 		 */
 		if (!e?.data?.name && !e?.data?.text) return;
 		// add chat message to message history
-		$chatMessages = [...$chatMessages, e?.data];
+		
+		//$chatMessages = [...$chatMessages, e?.data];
 		hasNewNotification = true;
 	};
 	/**
@@ -86,7 +88,7 @@
 
 		const url = `https://${domain}.daily.co/${roomName}`;
 		// Create instance of Daily call object
-		callObject = daily.createCallObject({ url, userName: $username });
+		//callObject = daily.createCallObject({ url, userName: $username });
 		// Add call and participant event handler
 		// Visit https://docs.daily.co/reference/daily-js/events for more event info
 		callObject
@@ -105,9 +107,9 @@
 		try {
 			await callObject.join();
 			// reset possible existing error message
-			dailyErrorMessage.set('');
+			//dailyErrorMessage.set('');
 		} catch (e) {
-			dailyErrorMessage.set(e);
+			//dailyErrorMessage.set(e);
 		}
 	};
 
@@ -135,6 +137,7 @@
 			.off('camera-error', handleDeviceError)
 			.off('app-message', handleAppMessage);
 	});
+	
 </script>
 
 <svelte:head>
@@ -147,7 +150,8 @@ there are any errors loading the call -->
 	<button on:click={goHome}>Home</button>
 
 	<p>{$page.url.href}</p>
-</div>
+</div> 
+
 {#if loading}
 	<div class="loading">
 		<Loading />
@@ -159,7 +163,9 @@ there are any errors loading the call -->
 	{#if screensList?.length > 0}
 		<!-- Note: We'll only allow one screen share to be displayed
 		for this demo. Take the first one available -->
+		<!--
 		<VideoTile {callObject} screen={screensList[0]} />
+		-->
 	{/if}
 	<!-- This in-call view is _not_ optimized for large meetings.
 	Please see our large meetings series to learn more about 
@@ -169,7 +175,9 @@ there are any errors loading the call -->
 	<div class="call-container">
 		<!-- Render a video tile for each participant -->
 		{#each participants as participant}
+		<!-- 
 			<VideoTile {callObject} {participant} {screensList} />
+			-->
 		{/each}
 
 		<!-- Show a waiting message if the local user is alone in the call -->

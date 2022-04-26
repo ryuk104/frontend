@@ -162,11 +162,16 @@ answerButton.onclick = async () => {
     <div class="videos">
       <span>
         <h3>Local Stream</h3>
-        <video id="webcamVideo" autoplay playsinline></video>
+        <video id="webcamVideo" autoplay playsinline>
+          <track kind="captions">
+        </video>
+
       </span>
       <span>
         <h3>Remote Stream</h3>
-        <video id="remoteVideo" autoplay playsinline></video>
+        <video id="remoteVideo" autoplay playsinline>
+          <track kind="captions">
+        </video>
       </span>
 
 

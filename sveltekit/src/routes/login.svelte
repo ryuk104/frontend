@@ -15,25 +15,20 @@ import { auth } from "$lib/stores/auth";
 
   let api;
 
-  let email = "";
-  let password = "";
   let show = false;
   let email = "";
   let password = "";
 
   let error = {};
   let loading = false;
-
-  let error = {};
-  let loading = false;
-
+/*
   onMount(async () => {
     if($auth.isAuthenticated){
       goto("/")
     }
     api = await import("$lib/utils/axiosApi");
   });
-
+*/
   const submitlogin = async (data) => {
   try {
     localStorage.removeItem("token");

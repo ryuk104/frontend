@@ -1,6 +1,5 @@
 <script context="module">
 
-let { BASE_URL } = "djskajhd";
 
   export async function load({ page, fetch }) {
     try {

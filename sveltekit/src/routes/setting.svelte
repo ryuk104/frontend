@@ -1,4 +1,5 @@
 <script>
+  /*
     import { goto } from "$app/navigation";
   
     import { auth } from "$lib/stores/auth";
@@ -54,9 +55,11 @@
       console.log(error);
     }
   }
+  */
   </script>
   
 <!--edituser-->
+<!--
 <div class="text-center">
     <button
       on:click={() => (active = true)}
@@ -85,15 +88,13 @@
         {/if}
   
         <div class="mt-8">
-          <input bind:value={name} class="mt-2 mb-2" rounded outlined>
-          Username</input>
-          <input bind:value={email} class="mt-2 mb-2" rounded outlined>
-          Email</input>
-          <input bind:value={bio} class="mt-2 mb-2" rounded outlined>
-          Bio</input>
-          <input rounded outlined bind:value={profilePic} class="mt-2 mb-2">
-          Profile Image Url</input>
+          <input bind:value={name} text="Username" class="mt-2 mb-2" rounded outlined>
+          <input bind:value={email} text="Email" class="mt-2 mb-2" rounded outlined>
+          
+          <input bind:value={bio} class="mt-2 mb-2" text="Bio" rounded outlined>
+          <input rounded outlined bind:value={profilePic} class="mt-2 mb-2" text="Profile Image Url">
         </div>
+
         <div class="mt-8 mb-8">
           <button on:click={() => handleEdit()} class="blue" rounded size="large"
             >Update</button
@@ -102,10 +103,11 @@
       </div>
     </div>
   </div>
-  
+  -->
 
 
   <!--delteuser-->
+  <!--
   <div class="text-center">
     <button
       on:click={() => (active = true)}
@@ -133,4 +135,5 @@
       </div>
     </div>
 </div>
-  
+-->
+

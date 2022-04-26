@@ -1,4 +1,6 @@
+
 <script context="module">
+  /*
     export async function load({ page, fetch }) {
       try {
         const { id } = page.params;
@@ -16,16 +18,17 @@
         console.log(error);
       }
     }
+    */
   </script>
   <script>
-    /*
+/*
     import { onMount } from "svelte";
     import UserPosts from "$lib/components/UserPosts.svelte";
     import { BASE_URL } from "$lib/config";
     import { auth } from "$lib/store/auth";
     import EditUser from "$lib/components/EditUser.svelte";
     import DeleteUser from "$lib/components/DeleteUser.svelte";
-    */
+
     let api;
   
     onMount(async () => {
@@ -61,15 +64,16 @@
         return false;
       }
     };
+    */
   </script>
-  
+
+  <!-- 
   <svelte:head>
     <title>{user.name} | Sveltegram</title>
   </svelte:head>
   <div style="max-width:1200px ;margin: auto;">
     <div style="margin:auto ">
       <div sm={12} cols={12} md={8} offset_md={2}>
-        <!-- user profile  -->
   
         <div>
           <div cols={12} md={4}>
@@ -131,9 +135,8 @@
   
     <Row style="margin:auto">
       <Col sm={12} md={8} offset_md={2}>
-        <!-- user posts  -->
         <UserPosts {posts} />
       </Col>
     </Row>
   </div>
-  
+-->
