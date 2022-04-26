@@ -1,52 +1,22 @@
 <script context="module">    
 
-    import { createEventDispatcher } from 'svelte'
-    import axios from 'axios'
+import axios from 'axios'
 
-    const submitlogin = async () => {
-        axios({
-            method: 'post',
-            headers: { 'content-type': 'application/x-www-form-urlencoded' },
-            withCredentials: true, 
-            url: 'http://localhost:8080/auth/api/login',
-            auth: { 
-                email: email,
-                password: password
-            }
-        
-    })
-    return await result;
-}
+
 
 
 import { emailRules, passwordRules } from "$lib/utils/validation";
-  import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
-  import { onMount } from "svelte";
+import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
+import { onMount } from "svelte";
 
-  import {
-    Button,
-    Card,
-    Col,
-    Divider,
-    Icon,
-    ProgressCircular,
-    Row,
-    TextField,
-  } from "svelte-materialify";
-
-  import { snackbar } from "$lib/stores/ui";
-  import { goto } from "$app/navigation";
-  import { auth } from "$lib/stores/auth";
+  
+import { goto } from "$app/navigation";
+import { auth } from "$lib/stores/auth";
 
   let api;
 
-  onMount(async () => {
-    if(auth.isAuthenticated){
-      goto("/")
-    }
-    api = await import("$lib/utils/axiosApi");
-  });
-
+  let email = "";
+  let password = "";
   let show = false;
   let email = "";
   let password = "";
@@ -54,17 +24,35 @@ import { emailRules, passwordRules } from "$lib/utils/validation";
   let error = {};
   let loading = false;
 
+  let error = {};
+  let loading = false;
+
+  onMount(async () => {
+    if($auth.isAuthenticated){
+      goto("/")
+    }
+    api = await import("$lib/utils/axiosApi");
+  });
+
+  const submitlogin = async (data) => {
+  try {
+    localStorage.removeItem("token");
+    const res = await axios.post("http://localhost:8080/api/auth/login", data);
+
+    return res.data;
+  } catch (error) {
+    console.log(error);
+    return error.response.data;
+  }
+};
+
   async function handleLogin() {
     try {
       loading = true;
       const res = await api.loginUser({ email, password });
 
       loading = false;
-      snackbar.showSnackbar({
-        open: true,
-        type: res.type,
-        msg: res.message,
-      });
+      
 
       if (res.type === "success") {
         localStorage.setItem("token", res.data.token);
@@ -80,8 +68,7 @@ import { emailRules, passwordRules } from "$lib/utils/validation";
       console.log(error);
     }
   }
-
-    
+  
 
     /*
     const submitlogin = async () => {

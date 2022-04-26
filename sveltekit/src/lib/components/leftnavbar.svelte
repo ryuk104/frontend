@@ -10,17 +10,17 @@
 
 
 <nav class="leftnavbar">
-  <img src=./static/image/logo2.png width="48px" hieght="48px" alt="logo">
+  <img src=./static/image/logo2.png width="48px" hieght="48px" alt="dsdasd">
   <ul class="applist">
     <li>
       <a href="/home">Home
-      <img src=./static/icon/homeicon.svg width="48px" hieght="48px" alt="logo">
+      <img src=./static/icon/homeicon.svg width="48px" hieght="48px" alt="lodsadsadgo">
       </a>
     </li>
 
     <li>
       <a href="/music">Music
-      <img src=./static/icon/musicicon.svg width="48px" hieght="48px" alt="logo">
+      <img src=./static/icon/musicicon.svg width="48px" hieght="48px" alt="dasd">
       </a>
     </li>
 

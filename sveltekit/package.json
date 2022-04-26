@@ -7,7 +7,8 @@
     "package": "svelte-kit package",
     "preview": "svelte-kit preview",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
-    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. ."
+    "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
+    "stripe:init": "node scripts/createProductsOnStripe.js"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
@@ -36,8 +37,10 @@
   "type": "module",
   "dependencies": {
     "@fontsource/commissioner": "^4.5.6",
+    "@lukeed/uuid": "^2.0.0",
     "@mdi/js": "^6.6.96",
     "@rollup/plugin-typescript": "^8.3.1",
+    "@stripe/stripe-js": "^1.28.0",
     "@sveltejs/adapter-node": "^1.0.0-next.73",
     "axios": "^0.26.0",
     "connect-mongo": "^4.6.0",
@@ -47,6 +50,7 @@
     "express-session": "^1.17.2",
     "node-fetch": "^3.2.1",
     "node-sass": "^7.0.1",
+    "stripe": "^8.219.0",
     "svelte-materialify": "^0.3.11"
   }
 }

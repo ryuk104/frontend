@@ -1,9 +1,10 @@
-import * as cookie from 'cookie'
+import cookie from 'cookie';
+import { v4 as uuid } from '@lukeed/uuid';
 import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
 import { dev } from '$app/env';
-import type { GetSession, Handle } from '@sveltejs/kit';
+import type { GetSession, Handle, } from '@sveltejs/kit';
 
 const rootDomain = import.meta.env.VITE_DOMAIN; // or your server IP for dev
 const originURL = import.meta.env.VITE_SITE_URL; // or your server IP for dev
@@ -22,6 +23,8 @@ const headers = {
 };
 
 
+
+/* 
 const checkUserAgent = (userAgent: string) =>
 	/i(Phone|Pad|Pod)/i.test(userAgent);
 
@@ -43,7 +46,7 @@ export const getSession: GetSession = (event) => {
 		  }
 		: {};
 };
-
+*/
 
 
 const app = express()
