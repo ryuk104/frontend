@@ -19,7 +19,7 @@
 				carouselItems,
 				_data
 			},
-			maxage: 3600,
+			cache: 3600,
 			status: 200
 		};
 	};

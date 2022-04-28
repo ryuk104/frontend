@@ -31,7 +31,7 @@
 			stuff: {
 				path: url.pathname
 			},
-			maxage: 3600,
+			cache: 3600,
 			status: 200
 		};
 	};
