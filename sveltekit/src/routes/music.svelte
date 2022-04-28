@@ -1,8 +1,4 @@
 <script>
-    import Topnavbutton from "$lib/components/Topnavbutton.svelte";
-    import Leftnavbar from "$lib/components/Leftnavbar.svelte";
-    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
-    import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
 
     let playlistname = "dsadsads";
     let playlistartist = "dsdjoa";
@@ -11,11 +7,6 @@
   
 
 <div class="body">
-
-  <Topnavbutton></Topnavbutton>
-  <Leftnavbar></Leftnavbar>
-  <Chatchannel></Chatchannel>
-  <CustomeMenu></CustomeMenu>
         
     <h1>Recently played</h1>
     <ul class="playlists-list"> 

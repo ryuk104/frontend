@@ -2,10 +2,7 @@
 
     import PostCard from "$lib/components/post/PostCard.svelte";
 
-    import Topnavbutton from "$lib/components/Topnavbutton.svelte";   
-    import Leftnavbar from "$lib/components/Leftnavbar.svelte";
-    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
-    import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
+  
 
     import { auth } from "$lib/stores/auth";
     import { post as postState } from "$lib/stores/post";
@@ -55,11 +52,6 @@
     }
   }
 </script>
-
-    <Topnavbutton></Topnavbutton>
-    <Leftnavbar></Leftnavbar>
-    <Chatchannel></Chatchannel>
-    <CustomeMenu></CustomeMenu>
 
 
 
