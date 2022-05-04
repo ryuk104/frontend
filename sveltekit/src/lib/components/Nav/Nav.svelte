@@ -77,7 +77,7 @@
 		</button>
 
 		<button
-			on:click={() => goto('/trending')}
+			on:click={() => goto('/music/trending')}
 			class="nav-icon icon-btn no-style"
 			use:tooltip
 			data-tooltip="Trending"
@@ -92,7 +92,7 @@
 		</button>
 		<button
 			use:tooltip
-			on:click={() => goto('/library')}
+			on:click={() => goto('/music/library')}
 			data-tooltip="Library"
 			aria-label="library"
 			class="nav-icon icon-btn no-style"
