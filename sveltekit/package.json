@@ -50,6 +50,7 @@
     "express-session": "^1.17.2",
     "node-fetch": "^3.2.1",
     "node-sass": "^7.0.1",
+    "random-words": "^1.1.2",
     "stripe": "^8.219.0",
     "svelte-materialify": "^0.3.11"
   }

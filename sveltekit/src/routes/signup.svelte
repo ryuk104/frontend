@@ -50,6 +50,22 @@
             <input type="number" name="phonenumber" placeholder="phonenumber" id="phonenumber" bind:value={phonenumber}>
         </div>
         
+        <div>
+            <label class="inline-flex items-center cursor-pointer">
+              <input
+                id="customCheckLogin"
+                type="checkbox"
+                class="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
+              />
+              <span class="ml-2 text-sm font-semibold text-blueGray-600">
+                I agree with the
+                <a href="#pablo" on:click={(e) => e.preventDefault()} class="text-red-500">
+                  Privacy Policy
+                </a>
+              </span>
+            </label>
+          </div>
+
 
         <input type="submit" name="createacount"  placeholder="create acount" class="logbtn" value="signup">
         
