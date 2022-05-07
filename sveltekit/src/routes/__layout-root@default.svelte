@@ -12,3 +12,13 @@
 <CustomeMenu></CustomeMenu>
 
 <slot></slot>
+
+<style lang="scss" global>
+	@import '../global/stylesheet/_layout.scss';
+	@import '../global/stylesheet/main.scss';
+
+	.wrapper {
+		overflow-y: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+</style>
