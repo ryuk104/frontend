@@ -8,14 +8,14 @@
 
   import { flip } from "svelte/animate"
 
-  import HexTile from "$lib/HexTile.svelte"
+  import HexTile from "$lib/components/minigame/wordgame/HexTile.svelte"
   import {
     BOARD_WIDTH,
     BOARD_HEIGHT,
     getAdjacentDirection,
     getTilePositionIndex,
     isAdjacent,
-  } from '$lib/helpers'
+  } from '$lib/components/minigame/wordgame/helpers'
 
   let path = []
   let is_active = false

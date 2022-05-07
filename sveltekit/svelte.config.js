@@ -65,7 +65,11 @@ const config = {
 					'https://projects.iq.harvard.edu/',
 					'https://audio.liberta.vip/media/',
 					'https://centauri-dreams.org/',
-					'https://www.dsac.gov/'
+					'https://www.dsac.gov/',
+					'https://images.unsplash.com/',
+					'https://melissasiroisblog.files.wordpress.com/',
+					'https://steamuserimages-a.akamaihd.net/'
+
 
 
 				],

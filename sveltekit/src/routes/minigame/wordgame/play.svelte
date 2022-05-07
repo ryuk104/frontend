@@ -4,7 +4,7 @@
 
   import {
     getDefaultTimeLimit,
-  } from "$lib/localstorage"
+  } from "$lib/components/minigame/wordgame/localstorage"
 
   export async function load( { page } ) {
     const response = await fetch( "https://hex-spell.com/data/wordlist.txt" )
@@ -31,12 +31,12 @@
 
   import { onDestroy } from "svelte"
 
-  import { setDefaultTimeLimit } from "$lib/localstorage"
-  import { game } from "$lib/store"
+  import { setDefaultTimeLimit } from "$lib/components/minigame/wordgame//localstorage"
+  import { game } from "$lib/components/minigame/wordgame//store"
 
-  import GameTimer from "$lib/GameTimer/index.svelte"
-  import ScoreCard from "$lib/ScoreCard/index.svelte"
-  import TileBoard from "$lib/TileBoard/index.svelte"
+  import GameTimer from "$lib/components/minigame/wordgame/GameTimer/index.svelte"
+  import ScoreCard from "$lib/components/minigame/wordgame/ScoreCard/index.svelte"
+  import TileBoard from "$lib/components/minigame/wordgame/TileBoard/index.svelte"
 
   setDefaultTimeLimit( time_limit )
   game.start( { time_limit } )
