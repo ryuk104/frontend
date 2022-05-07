@@ -1,27 +1,23 @@
 <script>
-    import Header from './components/Header.svelte'
-    import Features from './components/Features.svelte'
-    import Working from './components/Working.svelte'
-    import Hightlight from './components/Hightlight.svelte'
-    import Contribution from './components/Contribution.svelte'
-    import Footer from './components/Footer.svelte'
-    import { featuresData, working } from './landingPageData.js'
+    import Features from '$lib/components/Message/Features.svelte'
+    import Working from '$lib/components/Message/Working.svelte'
+    import Hightlight from '$lib/components/Message/Hightlight.svelte'
+    import { featuresData, working } from '$lib/components/Message/landingPageData.js'
     import io from 'socket.io-client'
-    import secretKeyGenerator from './utils/secretKeyGenerator'
-    import sleep from './utils/sleep'
+    import secretKeyGenerator from '$lib/utils/secretKeyGenerator'
+    import sleep from '$lib/utils/sleep'
     import { slide } from 'svelte/transition'
     import { fade, fly } from 'svelte/transition'
     import copy from 'copy-to-clipboard'
     import AnimalAvatar from 'animal-avatars.js'
-    import getTime from './utils/getTime'
-    import notificationSound from './utils/notificationSound'
+    import getTime from '$lib/utils/getTime'
+    import notificationSound from '$lib/utils/notificationSound'
     // Import checkDevice from './utils/device'
     import FileSaver from 'file-saver'
     import InternetConnection from 'svelte-internet-connection'
     import nacl from 'tweetnacl'
     import naclUtil from 'tweetnacl-util'
     import { onMount } from 'svelte'
-    import Analytics from 'analytics'
   
   
     let socket,
@@ -902,8 +898,7 @@
   <!-- <svelte:window on:keydown={checkEnterPress}/> -->
   <div class="main-container" class:modifier={isChatBox}>
     <div class:modifier--displayNone={isChatBox}>
-      <Header
-        src={isChatBox ? 'assets/chatsecureonline.svg' : 'assets/chatsecureoffline.svg'} />
+      
     </div>
     <main class:main--modifier={isChatBox}>
       <div class="enterSessionCard" class:enterSessionCard--modifier={isChatBox}>
@@ -1253,7 +1248,6 @@
         </button>
         <!-- 	{:else}
           <p class="warning" in:fade class:modifier--displayNone={isChatBox}>Please do not share personal information with anyone</p> -->
-        <Contribution />
       {/if}
     </main>
     <div class:mobileChatActive={isChatBox}>
@@ -1267,6 +1261,5 @@
     </div>
   </div>
   <div class:mobileChatActive={isChatBox}>
-    <Footer />
   </div>
   

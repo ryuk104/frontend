@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "animal-avatars.js": "^0.0.2",
+    "copy-to-clipboard": "^3.3.1",
+    "file-saver": "^2.0.5",
+    "socket.io-client": "^4.5.0",
+    "svelte-internet-connection": "^0.1.2",
+    "tweetnacl-util": "^0.15.1"
+  }
+}
