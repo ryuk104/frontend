@@ -43,7 +43,7 @@
   
   <button class="Topnavbutton" type="button" on:click={close}>
 
-      <img class="profileimage" src="../static/image/image5.jpeg" width="28px" height="28px" alt="d">
+      <img class="profileimage" src="/image/image5.jpeg" width="28px" height="28px" alt="d">
       <span class="dropdownusername" name="dropdownusername" id="dropdownusername">{username}</span>
       
       <svg role="img" height="16" width="16" class="Svg-ulyrgf-0 dIsYZz triangledropdown" viewBox="0 0 16 16"><path d="M13 10L8 4.206 3 10z"></path></svg>

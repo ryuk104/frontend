@@ -3,7 +3,7 @@ export const storyData = [{
     "username": "Ryuk",
     "image": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
     "video": "",
-    "profilepicture": "https://static.projects.iq.harvard.edu/files/styles/os_files_small/public/weitzlab/files/image001.png?m=1598895699&itok=8-YnkJNj",
+    "profilepicture": "https://m.media-amazon.com/images/I/51ufsmqJmyL._AC_UL320_.jpg",
     "comments": "1",
     "likes": "1",
   }, {

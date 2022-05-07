@@ -58,7 +58,16 @@ const config = {
 					'https://*.ytimg.com',
 					'https://*.googleusercontent.com',
 					'https://*.ggpht.com',
-					'https://www.gstatic.com/'
+					'https://www.gstatic.com/',
+					'https://m.media-amazon.com/',
+					'https://upload.wikimedia.org/',
+					'https://casoca.com.br/media/',
+					'https://projects.iq.harvard.edu/',
+					'https://audio.liberta.vip/media/',
+					'https://centauri-dreams.org/',
+					'https://www.dsac.gov/'
+
+
 				],
 				'font-src': ['self', 'data:'],
 				'form-action': ['self'],
