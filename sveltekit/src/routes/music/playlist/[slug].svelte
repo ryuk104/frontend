@@ -50,7 +50,7 @@
 	import type { Header as HeaderType } from '$lib/types/playlist';
 	import type { IListItemRenderer } from '$lib/types/musicListItemRenderer';
 	import Carousel from '$lib/components/Carousel/Carousel.svelte';
-	import ListInfoBar from '$lib/components/ListInfoBar';
+	import ListInfoBar from '$lib/components/Music/ListInfoBar';
 	import { notify } from '$lib/utils';
 	import { browser } from '$app/env';
 

@@ -42,13 +42,14 @@ const config = {
 				'base-uri': ['self'],
 				'child-src': ['self'],
 				'connect-src': dev
-					? ['self', 'ws://localhost:*', 'ws://*', 'blob://*', '*']
+					? ['self', 'ws://localhost:*', 'ws://*', 'blob://*', '*', 'ws://localhost:3001']
 					: [
 						'self',
 						'ws://localhost:*',
 						'https://*.googlevideo.com',
 						'wss://*.peerjs.com',
-						'ws://*.peerjs.com'
+						'ws://*.peerjs.com',
+						'ws://localhost:3001'
 					],
 				// 'connect-src': ,
 				'img-src': [
@@ -68,12 +69,16 @@ const config = {
 					'https://www.dsac.gov/',
 					'https://images.unsplash.com/',
 					'https://melissasiroisblog.files.wordpress.com/',
-					'https://steamuserimages-a.akamaihd.net/'
+					'https://steamuserimages-a.akamaihd.net/',
+					'http://localhost:3000/',
+					'https://avatars.dicebear.com/',
+					'https://picsum.photos/'
+
 
 
 
 				],
-				'font-src': ['self', 'data:'],
+				'font-src': ['self', 'data:', 'https://fonts.googleapis.com/'],
 				'form-action': ['self'],
 				'frame-ancestors': ['self'],
 				'frame-src': ['self'],
@@ -85,7 +90,8 @@ const config = {
 					'blob:*',
 					'ws://localhost:*',
 					'localhost:*',
-					'https://*.googlevideo.com'
+					'https://*.googlevideo.com',
+					' http://localhost:3000/',
 				],
 				'object-src': ['none'],
 				'style-src': ['self', 'unsafe-inline'],

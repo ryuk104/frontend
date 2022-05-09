@@ -22,8 +22,8 @@
 	import { getSrc, seededShuffle } from '$lib/utils';
 	import Header from '$lib/components/Layouts/Header.svelte';
 	import { page } from '$app/stores';
-	import CreatePlaylist from '$lib/components/PlaylistPopper/CreatePlaylist.svelte';
-	import ListInfoBar from '$lib/components/ListInfoBar';
+	import CreatePlaylist from '$lib/components/Music/PlaylistPopper/CreatePlaylist.svelte';
+	import ListInfoBar from '$lib/components/Music/ListInfoBar';
 
 	export let playlistName;
 	const ctx = {};

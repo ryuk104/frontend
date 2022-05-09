@@ -59,25 +59,25 @@
 
 
 <div>
-  <img src="../static/demo/demo1.svg" alt="dsad">
+  <img src="/demo/demo1.svg" alt="dsad">
   <h2>Create an invite-only place where you belong</h2>
   <p>Discord servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat.</p>
 </div>
 
 <div>
-  <img src="../static/demo/demo2.svg" alt="dsad">
+  <img src="/demo/demo2.svg" alt="dsad">
   <h2>Where hanging out is easy</h2>
   <p>Grab a seat in a voice channel when you’re free. Friends in your server can see you’re around and instantly pop in to talk without having to call.</p>
 </div>
 
 <div>
-  <img src="../static/demo/demo3.svg" alt="dsad">
+  <img src="/demo/demo3.svg" alt="dsad">
   <h2>From few to a fandom</h2>
   <p>Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.</p>
 </div>
 
 <div>
-  <img src="../static/demo/demo4.svg" alt="dsad">
+  <img src="/demo/demo4.svg" alt="dsad">
   <h2>RELIABLE TECH FOR STAYING CLOSE</h2>
   <p>Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.</p>
 </div>

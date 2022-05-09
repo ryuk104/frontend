@@ -19,31 +19,22 @@
 
 <div id="wrapper">
     <div class="slides fullpage" style="transform: scale({1 - $loginProgress*0.3})">
-          <Swipeable numScreens="3" let:current bind:progress={introProgress}>
+          <Swipeable numScreens="5" direction="vertical" let:current bind:progress={introProgress}>
           <section class:current={current == 0 && zoomOut}>
               <div class="topimage" style="opacity: {1 - Math.abs($introProgress)}">
-                  <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1518335935020-cfd6580c1ab4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')"></div>
+                  <div class="bg" style="background-image:url('https://picsum.photos/600')">
+                    <img src="https://picsum.photos/600" alt="dsad">
+                </div>
                   <div class="topgradient"></div>
                   <div class="bottomgradient"></div>
               </div>
               <div class="content" style="right: {100 * $introProgress}%; opacity: {1 - Math.abs($introProgress)}">
                   <h1>Your thumb.</h1>
                   <h1>Incredible power.</h1>
-                  <p style="right: {150 * $introProgress}px">Discover the ultimate utilization of your thumb with <b>thumb-ui</b> for touch-driven UIs. Swipe left to try.</p>
+                  <p style="right: {150 * $introProgress}px">lorem</p>
               </div>
           </section>
-          <section class:current={current == 1}>
-              <div class="topimage" style="opacity: {1 - Math.abs($introProgress - 1)}">
-                  <div class="bg" style="background-image:url('https://melissasiroisblog.files.wordpress.com/2015/04/tumblr_inline_moiixyhwbe1qz4rgp.jpg?w=620')"></div>
-                  <div class="topgradient"></div>
-                  <div class="bottomgradient"></div>
-              </div>
-              <div class="content" style="right: {100 * ($introProgress - 1)}%; opacity: {1 - Math.abs($introProgress - 1)}">
-                  <h1>Congratulations.</h1>
-                  <h1>You swiped.</h1>
-                  <p style="right: {150 * ($introProgress - 1)}px">You have experienced a smooth transition of content placed inside the <b>Swipeable</b> component. Cheers. But wait, there's more! Swipe again.</p>
-              </div>
-          </section>
+          
           <section class:current={current == 2}>
               <div class="topimage" style="opacity: {1 - Math.abs($introProgress - 2)}">
                   <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1570030289513-f44af3cd0944?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')"></div>
@@ -53,7 +44,7 @@
               <div class="content" style="right: {100 * ($introProgress - 2)}%; opacity: {1 - Math.abs(introProgress - 2)}">
                   <h1>Change direction.</h1>
                   <h1>Discover the vertical.</h1>
-                  <p style="right: {150 * ($introProgress - 2)}px"><b>Swipeable</b> also supports vertical swiping. Click "Sign In" to bring up vertically sliding content.</p>
+                  <p style="right: {150 * ($introProgress - 2)}px">lorem</p>
               </div>
           </section>
           
@@ -69,7 +60,7 @@
   
   
       <div class="login fullpage" style="top: {100 * (1 - $loginProgress)}%">
-          <Swipeable numScreens="2" direction="vertical" bind:this={loginSwipeable} bind:progress={loginProgress}>
+          <Swipeable numScreens="6" direction="vertical" bind:this={loginSwipeable} bind:progress={loginProgress}>
           <div class="inner" style="top: {80*($loginProgress-1)}%">
               <div class="topimage">
                   <div class="bg" style="background-image:url('https://steamuserimages-a.akamaihd.net/ugc/307738670230847301/02FCBC35FC39EC8A78464A4CB62F049987C44892/')"></div>

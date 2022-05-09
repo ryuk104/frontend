@@ -35,7 +35,7 @@
 
 <script lang="ts">
 	import Carousel from '$lib/components/Carousel/Carousel.svelte';
-	import ArtistPageHeader from '$lib/components/ArtistPageHeader/ArtistPageHeader.svelte';
+	import ArtistPageHeader from '$lib/components/Music/ArtistPageHeader/ArtistPageHeader.svelte';
 	import { page } from '$app/stores';
 
 	import ListItem from '$components/ListItem/ListItem.svelte';

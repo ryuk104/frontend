@@ -7,7 +7,7 @@
 	import Icon from '$lib/components/Icon/Icon.svelte'
 
 	import Listing from '$lib/components/Item/Listing.svelte'
-	import CreatePlaylist from '$lib/components/PlaylistPopper/CreatePlaylist.svelte'
+	import CreatePlaylist from '$lib/components/Music/PlaylistPopper/CreatePlaylist.svelte'
 	// import type { Item } from '$lib/types'
 	import db from '$lib/db'
 

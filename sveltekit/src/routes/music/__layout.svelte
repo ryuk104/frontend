@@ -12,14 +12,14 @@
 
 <script lang="ts">
 	import Nav from '$components/Nav/Nav.svelte';
-	import Player from '$lib/components/Player/Player.svelte';
+	import Player from '$lib/components/Music/Player/Player.svelte';
 	import Wrapper from '$components/Wrapper/Wrapper.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
 	import { showAddToPlaylistPopper } from '$stores/stores';
 	import { onMount } from 'svelte';
 	import { Popper } from '$lib/components/Popper';
 	import { settings } from '$lib/stores/settings';
-	import PlaylistPopper from '$lib/components/PlaylistPopper';
+	import PlaylistPopper from '$lib/components/Music/PlaylistPopper';
 	import '@fontsource/commissioner/400.css';
 	import '@fontsource/commissioner/500.css';
 	import '@fontsource/commissioner/600.css';
