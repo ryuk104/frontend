@@ -6,8 +6,8 @@ import session from 'express-session';
 import { dev } from '$app/env';
 import type { GetSession, Handle, } from '@sveltejs/kit';
 
-const rootDomain = import.meta.env.VITE_DOMAIN; // or your server IP for dev
-const originURL = import.meta.env.VITE_SITE_URL; // or your server IP for dev
+const rootDomain = "http://127.0.0.1:4000"; // or your server IP for dev
+const originURL = "http://127.0.0.1:4000"; // or your server IP for dev
 
 export const ssr = false;
 

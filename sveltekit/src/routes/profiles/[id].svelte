@@ -1,5 +1,5 @@
 <script context="module">
-    export async function load({ fetch, url }) {
+    export async function load({ params, fetch, url }) {
     const id = url.params
     const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
     const userprofile = await res.json()
