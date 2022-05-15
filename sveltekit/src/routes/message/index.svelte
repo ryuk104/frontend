@@ -1,6 +1,4 @@
 <script>
-  import Features from '$lib/components/message/Features.svelte'
-  import { featuresData } from '$lib/components/Message/landingPageData.js'
   import io from 'socket.io-client'
   import secretKeyGenerator from '$lib/utils/secretKeyGenerator'
   import sleep from '$lib/utils/sleep'
@@ -91,19 +89,19 @@
         botMessage = `${anonName} has joined the chat`
         isChatLocked = true
         showNotification(botMessage, 'green')
-        notificationSound('./assets/sounds/enterleave.mp3')
+        notificationSound('assets/sounds/enterleave.mp3')
       } else if (joinedSession) {
         botMessage = `${userName} has left the chat`
         isChatLocked = false
         shareOptions = true
         showNotification(botMessage, 'red')
-        notificationSound('./assets/sounds/enterleave.mp3')
+        notificationSound('assets/sounds/enterleave.mp3')
       } else {
         botMessage = `${anonName} has left the chat`
         isChatLocked = false
         shareOptions = true
         showNotification(botMessage, 'red')
-        notificationSound('./assets/sounds/enterleave.mp3')
+        notificationSound('assets/sounds/enterleave.mp3')
       }
     })
   }
@@ -131,7 +129,7 @@
     messages = [...messages, utf8]
     updateScroll()
     if (!tabActive) {
-      notificationSound('./assets/sounds/message.mp3')
+      notificationSound('assets/sounds/message.mp3')
     }
   })
 
@@ -405,7 +403,479 @@
   }
 </script>
 
+
+
+<svelte:head>
+  <link
+    rel="icon"
+    type="image/png"
+    href={!isChatBox ? 'assets/offlinefav.svg' : 'assets/onlinefav.svg'} />
+</svelte:head>
+
+<svelte:body
+  on:mouseenter={() => (tabActive = true)}
+  on:mouseleave={() => (tabActive = false)} />
+<!-- causing a lot of bugs, will fix -->
+<!-- <svelte:window on:keydown={checkEnterPress}/> -->
+<div class="main-container" class:modifier={isChatBox}>
+  <div class:modifier--displayNone={isChatBox}>
+  </div>
+  <main class:main--modifier={isChatBox}>
+    <div class="enterSessionCard" class:enterSessionCard--modifier={isChatBox}>
+      {#if !isChatBox}
+        <input
+          placeholder="*****"
+          minlength="5"
+          maxlength="5"
+          bind:value={joinKey}
+          on:keydown={checkEnterPress} />
+        {#if notification}
+          <div
+            transition:slide
+            class="error"
+            class:redtext={notificationMessage.color === 'red'}>
+            {notificationMessage.msg}
+          </div>
+        {/if}
+        <button
+          on:click={joinSession}
+          style="background: var(--grey)"
+          disabled={!joinKey.length}
+          class:focus={joinKey.length}>
+          {#if !isLoadingJoin}
+            Enter with secret code
+          {:else}
+            <img src="assets/loader.gif" alt="loading gif" class="loaderAnim" />
+          {/if}
+        </button>
+      {:else}
+        <!-- this is just here to laod the image, avoid the delay when rendering in the real case -->
+        <div style="background-image: url({userAvatar})" />
+        <div style="background-image: url({anonAvatar})" />
+        <div class="chatBox" transition:slide>
+          <div class="sessionInfo flex" in:fade={{ duration: 500 }}>
+            <div class="secretKey">
+              <div data-tooltip="Share this secret code to start chatting">
+                {secretKey || joinKey}
+              </div>
+              <div class="flex">
+                <img
+                  src={secretKeyCopied ? 'assets/copied.svg' : 'assets/copy.svg'}
+                  alt="copied icon"
+                  class="copyIcon"
+                  on:click={copySecretKey} />
+                <img
+                  src={!shareOptions ? 'assets/share.svg' : 'assets/shareactive.svg'}
+                  alt="share icon"
+                  class="copyIcon"
+                  on:click={() => {
+                    shareOptions = !shareOptions
+                  }}
+                  style="margin-left: 0.4rem; margin-right: -0.2rem;" />
+              </div>
+            </div>
+            <ul>
+              <li
+                data-tooltip="Locked once another user enters the chat"
+                style="cursor: pointer;">
+                <div
+                  class={isChatLocked ? 'status' : joinedSession ? 'status' : 'status red'} />
+                Chat
+                {isChatLocked ? 'Locked' : joinedSession ? 'Locked' : 'Open'}
+              </li>
+              <li
+                data-tooltip="Indicates if you are online or not"
+                style="cursor: pointer;">
+                <InternetConnection let:status>
+                  <div class="status" class:red={status === 'offline'} />
+                </InternetConnection>
+                Network
+              </li>
+            </ul>
+          </div>
+          {#if shareOptions}
+            <div
+              class="shareOptions"
+              in:fly={{ y: -20, duration: 100 }}
+              out:fly={{ y: -20, duration: 100 }}>
+              <h5 style="display: inline-block;">Share link</h5>
+              <img
+                src="assets/close.svg"
+                alt="close icon"
+                class="closeIcon"
+                on:click={() => (shareOptions = false)} />
+              <div class="secretKey" style="padding: 0 0.4rem;">
+                <div
+                  class="sharelink"
+                  data-tooltip="Share this link to start chatting">
+                  {secretLink}
+                </div>
+                <img
+                  src={secretLinkCopied ? 'assets/copied.svg' : 'assets/copy.svg'}
+                  alt="copied icon"
+                  class="copyIcon"
+                  on:click={copySecretLink}
+                  style="margin-left: auto;" />
+              </div>
+              <div>
+                <!-- {#if appleShare}
+								<a href={imessageLink} target="_blank">
+									<img src="assets/imessage.svg" title="iMessage" alt="iMessage" class="chatOption">
+								</a>
+							{/if}
+							<a href={messengerLink} target="_blank">
+								<img src="assets/messenger.svg" title="Facebook Messenger" alt="messenger icon icon" class="chatOption">
+							</a> -->
+    
+              </div>
+            </div>
+          {/if}
+          {#if notification}
+            <div
+              class="notification"
+              in:fly={{ y: -20, duration: 200 }}
+              out:fly={{ y: -20, duration: 200 }}
+              class:red={notificationMessage.color === 'red'}>
+              {notificationMessage.msg}
+            </div>
+          {/if}
+          <div
+            class="chatArea"
+            in:fade={{ duration: 500 }}
+            bind:this={chatArea}>
+            {#each messages as { way, msg, time, file, fileData }}
+              {#if way === 'out'}
+                <div
+                  class="chatBubbleContainer"
+                  in:fly={{ y: 10, duration: 300 }}>
+                  <div class="chatBubbleBlue">
+                    {#if file}
+                      <a
+                        download={msg}
+                        href={fileData}
+                        style="word-wrap: anywhere;">
+                        {msg}<img
+                          src="assets/attachment.svg"
+                          alt="attachment icon" />
+                      </a>
+                    {:else}{msg}{/if}
+                  </div>
+                  {#if !joinedSession}
+                    <div
+                      class="avatar avatarUser tooltip-bottom-right"
+                      style="background-image: url({userAvatar}); font-size: 0.8rem;"
+                      data-tooltip={userName} />
+                  {:else}
+                    <div
+                      class="avatar avatarUser tooltip-bottom-right"
+                      style="background-image: url({anonAvatar}); font-size: 0.8rem;"
+                      data-tooltip={anonName} />
+                  {/if}
+                </div>
+                <div
+                  class="timeStamp timeStampUser"
+                  in:fly={{ y: 10, duration: 300 }}>
+                  {time}
+                </div>
+              {:else}
+                <div
+                  class="chatBubbleContainer"
+                  in:fly={{ y: 10, duration: 300 }}>
+                  {#if !joinedSession}
+                    <div
+                      class="avatar avatarAnon tooltip-bottom-left"
+                      style="background-image: url({anonAvatar}); font-size: 0.8rem;"
+                      data-tooltip={anonName} />
+                  {:else}
+                    <div
+                      class="avatar avatarAnon tooltip-bottom-left"
+                      style="background-image: url({userAvatar}); font-size: 0.8rem;"
+                      data-tooltip={userName} />
+                  {/if}
+                  <div class="chatBubbleGrey">
+                    {#if file}
+                      <a
+                        download={msg}
+                        href={fileData}
+                        style="word-wrap: anywhere;">
+                        <img
+                          src="assets/attachment.svg"
+                          alt="attachment icon"
+                          style="filter: brightness(10);" />{msg}
+                      </a>
+                    {:else}{msg}{/if}
+                  </div>
+                </div>
+                <div
+                  class="timeStamp timeStampAnon"
+                  in:fly={{ y: 10, duration: 300 }}>
+                  {time}
+                </div>
+              {/if}
+            {/each}
+            {#if isTyping}
+              <div
+                class="chatBubbleContainer"
+                in:fly={{ y: 10, duration: 300 }}
+                out:fly={{ y: 10, duration: 100 }}>
+                {#if !joinedSession}
+                  <div
+                    class="avatar avatarAnon tooltip-bottom-left"
+                    style="background-image: url({anonAvatar}); font-size: 0.8rem;"
+                    data-tooltip={anonName} />
+                {:else}
+                  <div
+                    class="avatar avatarAnon tooltip-bottom-left"
+                    style="background-image: url({userAvatar}); font-size: 0.8rem;"
+                    data-tooltip={userName} />
+                {/if}
+                <div class="chatBubbleGrey typingAnimContainer">
+                  <img
+                    src="assets/typing.gif"
+                    alt="typing anim"
+                    class="typingAnim" />
+                </div>
+              </div>
+            {/if}
+          </div>
+          {#if chatOptions}
+            <ul class="chatOptions" transition:slide>
+              <li on:click={closeSession}>
+                <img src="assets/close.png" alt="close icon" />
+                <div>close</div>
+              </li>
+              <li
+                on:click={() => {
+                  messages = []
+                  chatOptions = false
+                  chatmessage = ''
+                }}>
+                <img src="assets/clear.png" alt="clear icon" />
+                <div>clear</div>
+              </li>
+              <li on:click={saveHistory}>
+                <img src="assets/download.png" alt="download icon" />
+                <div>download</div>
+              </li>
+            </ul>
+          {/if}
+          {#if !isChatLocked}
+            <div
+              class="loadingChat"
+              transition:slide
+              data-tooltip="Messages cannot be sent unless key exchange happens">
+              <img
+                src="assets/loader.gif"
+                alt="loading animation"
+                class="loading" />
+              <p>waiting for a user to join...</p>
+            </div>
+          {/if}
+          <div class="messageBoxContainer flex" in:fade={{ duration: 500 }}>
+            <div>
+              <input
+                type="file"
+                on:change={uploadFile}
+                bind:this={uploadButtonRef}
+                hidden />
+              {#if file}
+                <img
+                  src="assets/close.svg"
+                  alt="attachment icon"
+                  class="attachmentIcon"
+                  style="opacity: 0.2;"
+                  on:click={cancelUpload} />
+              {:else}
+                <img
+                  src="assets/attachment.svg"
+                  alt="attachment icon"
+                  class="attachmentIcon"
+                  class:attachmentDisabled={chatmessage.length || !isChatLocked}
+                  on:click={() => uploadButtonRef.click()} />
+              {/if}
+              <input
+                class="messageBox"
+                bind:value={chatmessage}
+                maxlength="1024"
+                minlength="1"
+                placeholder="type your message here"
+                bind:this={inputRef}
+                on:keydown={checkEnterPress}
+                disabled={!isChatLocked || file}
+                class:fileUploaded={file} />
+            </div>
+            <button
+              on:click={sendMessage}
+              disabled={!chatmessage.length || chatmessage === '/' || sendingMessage}>
+              {#if sendingMessage}
+                <img
+                  src="assets/loader.gif"
+                  alt="loading gif"
+                  class="loaderAnim"
+                  style="height: 1.8rem" />
+              {:else}
+                <img src="assets/send.png" alt="send icon" class="sendIcon" />
+                <span class="sendText">Send</span>
+              {/if}
+            </button>
+          </div>
+          {#if fileLargeError}
+            <p transition:slide class="fileLargeError">
+              Please upload a file less than
+              {MAX_FILE_SIZE / 1000}kb
+            </p>
+          {/if}
+          {#if !chatOptions}
+            <p class="chatOptionsHelper" transition:slide>
+              type '/' for chat options<span
+                style="margin-left:0.8rem;"
+                class="onlyDesktop">open console for your public key</span>
+            </p>
+          {/if}
+          <img
+            src="assets/chatsecureoffline.svg"
+            alt="logo"
+            class="chatBoxLogo" />
+        </div>
+      {/if}
+    </div>
+    {#if !isChatBox}
+      <button class="newSession" on:click={startSession}>
+        {#if !isLoadingStart}
+          Start a new chat
+        {:else}
+          <img src="assets/loader.gif" alt="loading gif" class="loaderAnim" />
+        {/if}
+      </button>
+      <!-- 	{:else}
+		<p class="warning" in:fade class:modifier--displayNone={isChatBox}>Please do not share personal information with anyone</p> -->
+    {/if}
+  </main>
+  <div class:mobileChatActive={isChatBox}>
+  </div>
+  <div class:mobileChatActive={isChatBox}>
+  </div>
+  <div class:mobileChatActive={isChatBox}>
+  </div>
+</div>
+<div class:mobileChatActive={isChatBox}>
+</div>
+
 <style>
+  :root {
+    --bg-color: #141318;
+    --blue: #6875f5;
+    --grey: #1f1e22;
+    --green: #04e887;
+    --red: #F91C1C;
+    --border-grey: #35363B;
+}
+
+::-webkit-scrollbar {
+    background: #201c29;
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background: #201c29;
+    border-radius: 4px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Overpass', sans-serif;
+    color: #EEE;
+}
+
+html {
+    scroll-behavior: smooth;
+    scrollbar-color: #201c29 var(--bg-color);
+}
+
+body {
+    background: var(--bg-color);
+}
+
+li {
+    list-style: none;
+}
+
+.container {
+    margin: auto;
+    max-width: 60rem;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#highlight h1,
+#how h1 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin: auto;
+    text-align: center;
+}
+
+input {
+    background: #181818;
+    height: 2.6rem;
+    border: none;
+    text-align: center;
+    border-radius: 0.4rem;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+
+input:focus {
+    outline: none;
+    border: 1px solid var(--border-grey);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    width: 100%;
+    height: 2.8rem;
+    background: var(--blue);
+    border: none;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
+    filter: brightness(120%);
+}
+
+button:focus {
+    outline: none;
+}
+
+@media only screen and (max-width: 768px) {
+
+    #highlight h1,
+    #how h1 {
+        font-size: 1rem;
+        font-weight: 600;
+    }
+}
   main {
     width: auto;
     max-width: 24rem;
@@ -869,360 +1339,3 @@
     }
   }
 </style>
-
-<svelte:head>
-  <link
-    rel="icon"
-    type="image/png"
-    href={!isChatBox ? 'assets/offlinefav.svg' : 'assets/onlinefav.svg'} />
-</svelte:head>
-
-<svelte:body
-  on:mouseenter={() => (tabActive = true)}
-  on:mouseleave={() => (tabActive = false)} />
-<!-- causing a lot of bugs, will fix -->
-<!-- <svelte:window on:keydown={checkEnterPress}/> -->
-<div class="main-container" class:modifier={isChatBox}>
-  <div class:modifier--displayNone={isChatBox}>
-  </div>
-  <main class:main--modifier={isChatBox}>
-    <div class="enterSessionCard" class:enterSessionCard--modifier={isChatBox}>
-      {#if !isChatBox}
-        <input
-          placeholder="*****"
-          minlength="5"
-          maxlength="5"
-          bind:value={joinKey}
-          on:keydown={checkEnterPress} />
-        {#if notification}
-          <div
-            transition:slide
-            class="error"
-            class:redtext={notificationMessage.color === 'red'}>
-            {notificationMessage.msg}
-          </div>
-        {/if}
-        <button
-          on:click={joinSession}
-          style="background: var(--grey)"
-          disabled={!joinKey.length}
-          class:focus={joinKey.length}>
-          {#if !isLoadingJoin}
-            Enter with secret code
-          {:else}
-            <img src="assets/loader.gif" alt="loading gif" class="loaderAnim" />
-          {/if}
-        </button>
-      {:else}
-        <!-- this is just here to laod the image, avoid the delay when rendering in the real case -->
-        <div style="background-image: url({userAvatar})" />
-        <div style="background-image: url({anonAvatar})" />
-        <div class="chatBox" transition:slide>
-          <div class="sessionInfo flex" in:fade={{ duration: 500 }}>
-            <div class="secretKey">
-              <div data-tooltip="Share this secret code to start chatting">
-                {secretKey || joinKey}
-              </div>
-              <div class="flex">
-                <img
-                  src={secretKeyCopied ? 'assets/copied.svg' : 'assets/copy.svg'}
-                  alt="copied icon"
-                  class="copyIcon"
-                  on:click={copySecretKey} />
-                <img
-                  src={!shareOptions ? 'assets/share.svg' : 'assets/shareactive.svg'}
-                  alt="share icon"
-                  class="copyIcon"
-                  on:click={() => {
-                    shareOptions = !shareOptions
-                  }}
-                  style="margin-left: 0.4rem; margin-right: -0.2rem;" />
-              </div>
-            </div>
-            <ul>
-              <li
-                data-tooltip="Locked once another user enters the chat"
-                style="cursor: pointer;">
-                <div
-                  class={isChatLocked ? 'status' : joinedSession ? 'status' : 'status red'} />
-                Chat
-                {isChatLocked ? 'Locked' : joinedSession ? 'Locked' : 'Open'}
-              </li>
-              <li
-                data-tooltip="Indicates if you are online or not"
-                style="cursor: pointer;">
-                <InternetConnection let:status>
-                  <div class="status" class:red={status === 'offline'} />
-                </InternetConnection>
-                Network
-              </li>
-            </ul>
-          </div>
-          {#if shareOptions}
-            <div
-              class="shareOptions"
-              in:fly={{ y: -20, duration: 100 }}
-              out:fly={{ y: -20, duration: 100 }}>
-              <h5 style="display: inline-block;">Share link</h5>
-              <img
-                src="assets/close.svg"
-                alt="close icon"
-                class="closeIcon"
-                on:click={() => (shareOptions = false)} />
-              <div class="secretKey" style="padding: 0 0.4rem;">
-                <div
-                  class="sharelink"
-                  data-tooltip="Share this link to start chatting">
-                  {secretLink}
-                </div>
-                <img
-                  src={secretLinkCopied ? 'assets/copied.svg' : 'assets/copy.svg'}
-                  alt="copied icon"
-                  class="copyIcon"
-                  on:click={copySecretLink}
-                  style="margin-left: auto;" />
-              </div>
-              <div>
-                <!-- {#if appleShare}
-								<a href={imessageLink} target="_blank">
-									<img src="assets/imessage.svg" title="iMessage" alt="iMessage" class="chatOption">
-								</a>
-							{/if}
-							<a href={messengerLink} target="_blank">
-								<img src="assets/messenger.svg" title="Facebook Messenger" alt="messenger icon icon" class="chatOption">
-							</a> -->
-    
-              </div>
-            </div>
-          {/if}
-          {#if notification}
-            <div
-              class="notification"
-              in:fly={{ y: -20, duration: 200 }}
-              out:fly={{ y: -20, duration: 200 }}
-              class:red={notificationMessage.color === 'red'}>
-              {notificationMessage.msg}
-            </div>
-          {/if}
-          <div
-            class="chatArea"
-            in:fade={{ duration: 500 }}
-            bind:this={chatArea}>
-            {#each messages as { way, msg, time, file, fileData }}
-              {#if way === 'out'}
-                <div
-                  class="chatBubbleContainer"
-                  in:fly={{ y: 10, duration: 300 }}>
-                  <div class="chatBubbleBlue">
-                    {#if file}
-                      <a
-                        download={msg}
-                        href={fileData}
-                        style="word-wrap: anywhere;">
-                        {msg}<img
-                          src="assets/attachment.svg"
-                          alt="attachment icon" />
-                      </a>
-                    {:else}{msg}{/if}
-                  </div>
-                  {#if !joinedSession}
-                    <div
-                      class="avatar avatarUser tooltip-bottom-right"
-                      style="background-image: url({userAvatar}); font-size: 0.8rem;"
-                      data-tooltip={userName} />
-                  {:else}
-                    <div
-                      class="avatar avatarUser tooltip-bottom-right"
-                      style="background-image: url({anonAvatar}); font-size: 0.8rem;"
-                      data-tooltip={anonName} />
-                  {/if}
-                </div>
-                <div
-                  class="timeStamp timeStampUser"
-                  in:fly={{ y: 10, duration: 300 }}>
-                  {time}
-                </div>
-              {:else}
-                <div
-                  class="chatBubbleContainer"
-                  in:fly={{ y: 10, duration: 300 }}>
-                  {#if !joinedSession}
-                    <div
-                      class="avatar avatarAnon tooltip-bottom-left"
-                      style="background-image: url({anonAvatar}); font-size: 0.8rem;"
-                      data-tooltip={anonName} />
-                  {:else}
-                    <div
-                      class="avatar avatarAnon tooltip-bottom-left"
-                      style="background-image: url({userAvatar}); font-size: 0.8rem;"
-                      data-tooltip={userName} />
-                  {/if}
-                  <div class="chatBubbleGrey">
-                    {#if file}
-                      <a
-                        download={msg}
-                        href={fileData}
-                        style="word-wrap: anywhere;">
-                        <img
-                          src="assets/attachment.svg"
-                          alt="attachment icon"
-                          style="filter: brightness(10);" />{msg}
-                      </a>
-                    {:else}{msg}{/if}
-                  </div>
-                </div>
-                <div
-                  class="timeStamp timeStampAnon"
-                  in:fly={{ y: 10, duration: 300 }}>
-                  {time}
-                </div>
-              {/if}
-            {/each}
-            {#if isTyping}
-              <div
-                class="chatBubbleContainer"
-                in:fly={{ y: 10, duration: 300 }}
-                out:fly={{ y: 10, duration: 100 }}>
-                {#if !joinedSession}
-                  <div
-                    class="avatar avatarAnon tooltip-bottom-left"
-                    style="background-image: url({anonAvatar}); font-size: 0.8rem;"
-                    data-tooltip={anonName} />
-                {:else}
-                  <div
-                    class="avatar avatarAnon tooltip-bottom-left"
-                    style="background-image: url({userAvatar}); font-size: 0.8rem;"
-                    data-tooltip={userName} />
-                {/if}
-                <div class="chatBubbleGrey typingAnimContainer">
-                  <img
-                    src="assets/typing.gif"
-                    alt="typing anim"
-                    class="typingAnim" />
-                </div>
-              </div>
-            {/if}
-          </div>
-          {#if chatOptions}
-            <ul class="chatOptions" transition:slide>
-              <li on:click={closeSession}>
-                <img src="assets/close.png" alt="close icon" />
-                <div>close</div>
-              </li>
-              <li
-                on:click={() => {
-                  messages = []
-                  chatOptions = false
-                  chatmessage = ''
-                }}>
-                <img src="assets/clear.png" alt="clear icon" />
-                <div>clear</div>
-              </li>
-              <li on:click={saveHistory}>
-                <img src="assets/download.png" alt="download icon" />
-                <div>download</div>
-              </li>
-            </ul>
-          {/if}
-          {#if !isChatLocked}
-            <div
-              class="loadingChat"
-              transition:slide
-              data-tooltip="Messages cannot be sent unless key exchange happens">
-              <img
-                src="assets/loader.gif"
-                alt="loading animation"
-                class="loading" />
-              <p>waiting for a user to join...</p>
-            </div>
-          {/if}
-          <div class="messageBoxContainer flex" in:fade={{ duration: 500 }}>
-            <div>
-              <input
-                type="file"
-                on:change={uploadFile}
-                bind:this={uploadButtonRef}
-                hidden />
-              {#if file}
-                <img
-                  src="assets/close.svg"
-                  alt="attachment icon"
-                  class="attachmentIcon"
-                  style="opacity: 0.2;"
-                  on:click={cancelUpload} />
-              {:else}
-                <img
-                  src="assets/attachment.svg"
-                  alt="attachment icon"
-                  class="attachmentIcon"
-                  class:attachmentDisabled={chatmessage.length || !isChatLocked}
-                  on:click={() => uploadButtonRef.click()} />
-              {/if}
-              <input
-                class="messageBox"
-                bind:value={chatmessage}
-                maxlength="1024"
-                minlength="1"
-                placeholder="type your message here"
-                bind:this={inputRef}
-                on:keydown={checkEnterPress}
-                disabled={!isChatLocked || file}
-                class:fileUploaded={file} />
-            </div>
-            <button
-              on:click={sendMessage}
-              disabled={!chatmessage.length || chatmessage === '/' || sendingMessage}>
-              {#if sendingMessage}
-                <img
-                  src="assets/loader.gif"
-                  alt="loading gif"
-                  class="loaderAnim"
-                  style="height: 1.8rem" />
-              {:else}
-                <img src="assets/send.png" alt="send icon" class="sendIcon" />
-                <span class="sendText">Send</span>
-              {/if}
-            </button>
-          </div>
-          {#if fileLargeError}
-            <p transition:slide class="fileLargeError">
-              Please upload a file less than
-              {MAX_FILE_SIZE / 1000}kb
-            </p>
-          {/if}
-          {#if !chatOptions}
-            <p class="chatOptionsHelper" transition:slide>
-              type '/' for chat options<span
-                style="margin-left:0.8rem;"
-                class="onlyDesktop">open console for your public key</span>
-            </p>
-          {/if}
-          <img
-            src="assets/chatsecureoffline.svg"
-            alt="logo"
-            class="chatBoxLogo" />
-        </div>
-      {/if}
-    </div>
-    {#if !isChatBox}
-      <button class="newSession" on:click={startSession}>
-        {#if !isLoadingStart}
-          Start a new chat
-        {:else}
-          <img src="assets/loader.gif" alt="loading gif" class="loaderAnim" />
-        {/if}
-      </button>
-      <!-- 	{:else}
-		<p class="warning" in:fade class:modifier--displayNone={isChatBox}>Please do not share personal information with anyone</p> -->
-    {/if}
-  </main>
-  <div class:mobileChatActive={isChatBox}>
-    <Features features={featuresData} />
-  </div>
-  <div class:mobileChatActive={isChatBox}>
-  </div>
-  <div class:mobileChatActive={isChatBox}>
-  </div>
-</div>
-<div class:mobileChatActive={isChatBox}>
-</div>
