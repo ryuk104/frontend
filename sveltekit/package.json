@@ -63,10 +63,5 @@
     "tweetnacl-util": "^0.15.1",
     "uncss": "^0.17.3"
   },
-<<<<<<< Updated upstream
-  "proxy": "http://127.0.0.1:4000/"
-
-=======
   "proxy": "http://localhost:8080"
->>>>>>> Stashed changes
 }
