@@ -11,6 +11,7 @@
 
 <nav class="leftnavbar">
   <img src=/image/logo2.png width="48px" hieght="48px" alt="dsdasd">
+
   <ul class="applist">
     <li>
       <a href="/home">Home
@@ -24,16 +25,22 @@
       </a>
     </li>
 
+    <li>
+      <a href="/tiktok">tiktok
+      <img src=/icon/musicicon.svg width="48px" hieght="48px" alt="dasd">
+      </a>
+    </li>
+
+    <li>
+      <a href="/minigame">minigame
+      <img src=/icon/musicicon.svg width="48px" hieght="48px" alt="dasd">
+      </a>
+    </li>
+
   </ul>
 
-    <ul class="serverlist">
-      
-        
-      <div class="leftnavbarsymbols" >
-          
-        </div>
-  
-        
+  <ul class="serverlist">
+    <div class="leftnavbarsymbols"></div>
         <div id="server" class="server">
               {#each serverData as {serverimage}}          
               <Serverprofile {serverimage} />
@@ -97,6 +104,7 @@
 
 .serverpicturebutton{
 cursor: pointer;
+  
 }
 
 .serverlist {
@@ -105,7 +113,6 @@ cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -119,6 +126,14 @@ cursor: pointer;
   padding-top: 780%;
 }
 
+.server {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  padding-top: 80%;
+  cursor: pointer;
+}
 </style>
   
   

@@ -1,11 +1,10 @@
 <script>
   import Navbar from "$lib/components/insta/header/Navbar.svelte";
   import { Container, MaterialApp, ProgressCircular } from "svelte-materialify";
-  import { snackbar, theme } from "$lib/stores/ui";
-  import Footer from "$lib/components/insta/footer/index.svelte";
+  import { snackbar, theme } from "$lib/store/ui";
   import { onMount } from "svelte";
   import Snackbar from "$lib/components/insta/Snackbar.svelte";
-  import { auth } from "$lib/stores/auth";
+  import { auth } from "$lib/store/auth";
   import { goto } from "$app/navigation";
   import { BASE_URL } from "$lib/config";
 
@@ -65,7 +64,6 @@
       </Container>
     </main>
 
-    <Footer />
   </div>
   <Snackbar />
   <NavigationLoading active={$navigating} />
