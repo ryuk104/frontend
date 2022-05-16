@@ -7,7 +7,7 @@
     import Screen from '$lib/components/tiktok/Screen.svelte';
 
     import {tick} from 'svelte'
-    let loginProgress, loginSwipeable, introProgress, zoomOut
+    let introProgress, zoomOut
     tick().then(() => zoomOut = true)
 </script>
 
@@ -18,7 +18,7 @@
 
 
 <div id="wrapper">
-    <div class="slides fullpage" style="transform: scale({1 - $loginProgress*0.3})">
+    <div class="slides fullpage" style="transform: scale()">
           <Swipeable numScreens="5" direction="vertical" let:current bind:progress={introProgress}>
           <section class:current={current == 0 && zoomOut}>
               <div class="topimage" style="opacity: {1 - Math.abs($introProgress)}">
@@ -52,36 +52,16 @@
               <div class="dot active" style="left: {$introProgress * 14}px"></div>
               <div class="dot"></div><div class="dot"></div><div class="dot"></div>
           </div>
-  
-          <div class="btn" on:click={() => loginSwipeable.jump(1)}>Sign In</div>
-              </Swipeable>
+        </Swipeable>
       </div>
-  
-  
-  
-      <div class="login fullpage" style="top: {100 * (1 - $loginProgress)}%">
-          <Swipeable numScreens="6" direction="vertical" bind:this={loginSwipeable} bind:progress={loginProgress}>
-          <div class="inner" style="top: {80*($loginProgress-1)}%">
-              <div class="topimage">
-                  <div class="bg" style="background-image:url('https://steamuserimages-a.akamaihd.net/ugc/307738670230847301/02FCBC35FC39EC8A78464A4CB62F049987C44892/')"></div>
-                  <div class="topgradient"></div>
-                  <div class="bottomgradient"></div>
-              </div>
-              <p>
-                  This content slides vertically. Wowzers. Slide down to dismiss.
-              </p>
-              <h1>Sign In</h1>
-              <div class="cancel" on:click|stopPropagation={() => loginSwipeable.jump(0)}>X</div>
-              <input type="text" placeholder="E-mail address"><br>
-              <input type="password" placeholder="Password"><br>
-              <div class="btn">Sign in</div>
-          </div>
-              </Swipeable>
-      </div>
-  
-  
   </div>
-  <style>
+
+
+
+
+
+  
+<style>
   .cancel {
       position: absolute;
       top: 3%;

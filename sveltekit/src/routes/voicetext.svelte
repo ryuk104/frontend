@@ -2,9 +2,19 @@
     import VoiceRecogination from "$lib/Components/voicetext/VoiceRecogination/VoiceRecogination.svelte";
     console.clear();
 </script>
+
+<main>
+  <header>Voice Notes</header>
+  <div class="container">
+    <div class="recording__box">
+      <VoiceRecogination />
+    </div>
+
+  </div>
+</main>
   
-  <style>
-    .container {
+<style>
+  .container {
       text-align: center;
       padding: 0 50px;
     }
@@ -44,14 +54,4 @@ a:hover {
 * {
   box-sizing: border-box;
 }
-  </style>
-  
-  <main>
-    <header>Voice Notes</header>
-    <div class="container">
-      <div class="recording__box">
-        <VoiceRecogination />
-      </div>
-  
-    </div>
-  </main>
+</style>

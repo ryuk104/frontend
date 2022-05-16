@@ -91,7 +91,7 @@ const config = {
 					'ws://localhost:*',
 					'localhost:*',
 					'https://*.googlevideo.com',
-					' http://localhost:3000/',
+					'http://localhost:3000/',
 				],
 				'object-src': ['none'],
 				'style-src': ['self', 'unsafe-inline'],
@@ -125,6 +125,9 @@ const config = {
 
 
 		}
+	},
+	watch: {
+		clearScreen: false,
 	},
 	onwarn(warning, defaultHandler) {
 		// don't warn on <marquee> elements, cos they're cool

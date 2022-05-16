@@ -16,10 +16,10 @@
 </script>
 
 <script>
-  import PostCard from "$lib/components/post/PostCard.svelte";
+  import PostCard from "$lib/components/insta/post/PostCard.svelte";
   import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
-  import { auth } from "$lib/stores/auth";
+  import { auth } from "$lib/store/auth";
   import {
     Button,
     Card,
@@ -28,10 +28,10 @@
     ProgressCircular,
     Row,
   } from "svelte-materialify";
-  import { post as postState } from "$lib/stores/post";
+  import { post as postState } from "$lib/store/post";
   import { mdiPlus } from "@mdi/js";
   import { goto } from "$app/navigation";
-  import { user } from "$lib/stores/user";
+  import { user } from "$lib/store/user";
   import { onMount } from "svelte";
 
   export let posts;

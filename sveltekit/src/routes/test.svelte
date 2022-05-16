@@ -36,6 +36,8 @@
 
 
 	import Modal from '$lib/components/Modal.svelte'
+	import SveltyPicker from '$lib/components/calender/SveltyPicker.svelte'
+
 	const filesPath = '/'; 
     let fileToUpload = null;
     let fileName = ''
@@ -101,7 +103,7 @@
   
 
 
-
+<SveltyPicker/>
 
 
   <Modal>

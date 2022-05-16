@@ -5,6 +5,7 @@
   let recordingText = `Press the Play button to Start recording.`;
   let noteContent = "";
   try {
+    //BUG RIGHT HERE
     let SpeechRecognition =
       window.SpeechRecognition || window.webkitSpeechRecognition;
     var recognition = new SpeechRecognition();
