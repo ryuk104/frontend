@@ -41,13 +41,12 @@
   };
 </script>
 
-<AppBar fixed={true} class="theme-{theme} elevation-1" style="width: 100%;">
+<AppBar fixed={true} class="theme-{theme} elevation-1" style="width: 40%;">
   <div slot="icon">
     <Button fab depressed text on:click={() => (active = !active)}>
       <Icon path={mdiMenu} />
     </Button>
   </div>
-  <span slot="title">Sveltegram</span>
   <div style="flex-grow:1" />
 
   <div class="pt-2">

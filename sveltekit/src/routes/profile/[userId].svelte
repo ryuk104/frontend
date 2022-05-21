@@ -1,9 +1,9 @@
 <script context="module">
 
 
-  export async function load({ page, fetch }) {
+  export async function load({ params, fetch }) {
     try {
-      const { userId } = page.params;
+      const { userId } = params;
       const res = await fetch(`${BASE_URL}/api/user/${userId}`);
 
       const data = await res.json();

@@ -71,6 +71,10 @@
     import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
     import Stories from "$lib/components/stories/stories.svelte";
     import Modal from '$lib/components/Modal.svelte'
+    import {browser} from '$app/env'
+    import {goto} from '$app/navigation'
+
+
     
     import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
@@ -79,14 +83,6 @@
     
     
 </script>
-  <Postbuttonpopup></Postbuttonpopup>
-  
-  
-  <CustomeMenu></CustomeMenu>
-  <Stories></Stories>
-  <Friendsactivity></Friendsactivity>
-<!--   <Instagram></Instagram> -->
-
 
 
 <svelte:head> 
@@ -94,9 +90,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<section>
+<section class="main">
+  
+  <CustomeMenu></CustomeMenu>
+  <Stories></Stories>
+  <Friendsactivity>
+    <UserSuggestions users={$user.users} />
+  </Friendsactivity>
+<!--   <Instagram></Instagram> -->
 
-  <div style="max-width:1200px ;margin: auto;">
+  <div style="max-width:1200px ;margin: auto; padding-top:200px; padding-left:200px">
     <Row style="margin:auto">
       <Col sm={12} cols={12} md={8}>
         <!-- create post  -->
@@ -118,7 +121,7 @@
         <!--  posts -->
   
         {#each $postState.posts as post (post._id)}
-          <div class="mb-8">
+          <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
           </div>
         {/each}
@@ -136,8 +139,8 @@
         {/if}
       </Col>
   
-      <Col sm={12} md={4} class="d-none d-md-block">
-        <div style="position: sticky;top: 64px;">
+      <Col sm={12} md={4} class="d-none d-md-block gray-500 pl-100">
+        <div style="position: sticky;top: 64px; background-color:gray;">
           <UserSideProfile />
           <!-- user profile on large screen -->
   
@@ -174,8 +177,11 @@
   transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
-main {
-  margin-left: 5rem;
+.main {
+  height: 100%;
+  margin: auto;
+  width: 100%;
+
 }
 
 .notificationbutton{
