@@ -63,5 +63,5 @@
     "tweetnacl-util": "^0.15.1",
     "uncss": "^0.17.3"
   },
-  "proxy": "http://localhost:4000"
+  "proxy": "http://localhost:8080"
 }
