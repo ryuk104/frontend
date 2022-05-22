@@ -30,11 +30,9 @@
 			previously_focused.focus();
 		});
 	}
-
     
   const username = "ryuk"
-
-    let showNavbutton = false;
+  let showNavbutton = false;
 
   
 </script>

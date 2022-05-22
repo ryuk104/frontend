@@ -14,18 +14,18 @@ html {
 html {
 	font-size: 12px;
 }
-@media (pointer: fine) {
-	*:focus-visible:not(input):not(.input):not(select):not(.select):not(.no-style) {
-		outline: 0.16666em rgb(113, 175, 255) solid !important;
-	}
-}
+// @media (pointer: fine) {
+// 	*:focus-visible:not(input):not(.input):not(select):not(.select):not(.no-style) {
+// 		outline: 0.16666em rgb(113, 175, 255) solid !important;
+// 	}
+// }
 // :focus:not(:focus-visible) {
 // 	outline: none;
 // }
 html,
 body {
 	background-color: #09090a;
-	color: #fefefe;
+	color: var(--color-dark);
 	line-height: 1.5;
 	position: fixed;
 	min-height: 100vh;
@@ -84,7 +84,7 @@ body {
 	-moz-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
-	-webkit-tap-highlight-color: transparent;
+	-webkit-tap-highlight-color: transparent !important;
 	-webkit-font-smoothing: antialiased;
 	@media screen and (min-width: 40rem) and (max-width: 115.375rem) {
 		--base-font-size: 0.875rem;
@@ -147,11 +147,12 @@ html {
 	font-size: var(--base-font-size);
 }
 #app {
-	grid-template-rows: 1fr 18fr 1.2fr;
+	grid-template-rows: 1fr 32fr 2fr;
 	position: fixed;
 	height: 100%;
 	width: 100%;
 	line-height: 1.5;
+	inset: 0;
 	display: grid;
 	grid-template-areas:
 		"n n n n"
@@ -178,7 +179,8 @@ html {
 main {
 	margin: 0 auto;
 	position: relative;
-	@include v.padding;
+	@include v.content-spacing($type: "padding");
+	@include v.content-width();
 }
 .backdrop {
 	position: fixed;

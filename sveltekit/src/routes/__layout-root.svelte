@@ -1,23 +1,19 @@
 <script>
-    import Topnavbutton from "$lib/components/Topnavbutton.svelte";
-    import Leftnavbar from "$lib/components/leftnavbar.svelte";
-    import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
+  import Topnavbutton from "$lib/components/Topnavbutton.svelte";
+  import Leftnavbar from "$lib/components/leftnavbar.svelte";
+  import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";
     //import CustomeMenu from "$lib/components/customeMenu/CustomeMenu.svelte";
-	
 	import Navbar from "$lib/components/insta/header/Navbar.svelte";
 	import Snackbar from "$lib/components/insta/Snackbar.svelte";
 
 
-	
-	
 	import { snackbar, theme } from "$lib/store/ui";
 	import { onMount } from "svelte";
 	import { auth } from "$lib/store/auth";
-  	import { goto } from "$app/navigation";
-  	import { BASE_URL } from "$lib/config";
-
+  import { goto } from "$app/navigation";
+  import { BASE_URL } from "$lib/config";
 	import { navigating } from "$app/stores";
-  	import NavigationLoading from "$lib/components/insta/NavigationLoading.svelte";
+  import NavigationLoading from "$lib/components/insta/NavigationLoading.svelte";
 
 
 
@@ -55,9 +51,9 @@
 
 </script>
 
-<Topnavbutton></Topnavbutton>
+<!--<Topnavbutton></Topnavbutton>--> <!--BIG bug-->
 <Leftnavbar></Leftnavbar>
-<Chatchannel></Chatchannel>
+<Chatchannel></Chatchannel> <!--CSS bug-->
 
 <nav>
 	<Navbar/>
@@ -71,11 +67,3 @@
 -->
 <slot></slot>
 
-<style lang="scss" global>
-	@import '../global/stylesheet/_layout.scss';
-
-	.wrapper {
-		overflow-y: show;
-		-webkit-overflow-scrolling: touch;
-	}
-</style>

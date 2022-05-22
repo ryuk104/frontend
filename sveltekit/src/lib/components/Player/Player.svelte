@@ -1,29 +1,29 @@
 <script lang="ts">
-	import { browser } from '$app/env';
-	import { goto } from '$app/navigation';
-	import Icon from '$components/Icon/Icon.svelte';
-	import db from '$lib/db';
-	import { clickOutside } from '$lib/actions/clickOutside';
-	import list from '$lib/stores/list';
-	import { getSrc, notify, shuffle } from '$lib/utils';
+	import { browser } from "$app/env";
+	import { goto } from "$app/navigation";
+	import Icon from "$components/Icon/Icon.svelte";
+	import db from "$lib/db";
+	import { clickOutside } from "$lib/actions/clickOutside";
+	import list from "$lib/stores/list";
+	import { getSrc } from "$lib/utils/utils";
 	import {
 		currentTitle,
 		key,
 		playerLoading,
 		showAddToPlaylistPopper,
 		updateTrack
-	} from '$stores/stores';
-	import { onMount, tick } from 'svelte';
+	} from "$stores/stores";
+	import { tick } from "svelte";
 
-	import { cubicOut } from 'svelte/easing';
-	import { tweened } from 'svelte/motion';
-	import { fade } from 'svelte/transition';
-	import { PopperButton } from '../Popper';
-	import Controls from './Controls.svelte';
-	import keyboardHandler from './keyboardHandler';
-	import Queue from './Queue.svelte';
-	import QueueListItem from './QueueListItem.svelte';
-	import { session } from '$app/stores';
+	import { cubicOut } from "svelte/easing";
+	import { tweened } from "svelte/motion";
+	import { fade } from "svelte/transition";
+	import { PopperButton } from "../Popper";
+	import Controls from "./Controls.svelte";
+	import keyboardHandler from "./keyboardHandler";
+	import Queue from "./Queue.svelte";
+	import QueueListItem from "./QueueListItem.svelte";
+	import { session } from "$app/stores";
 	class NodeAudio {
 		constructor() {}
 		addEventListener(arg0: string, play: any) {
@@ -35,15 +35,14 @@
 	// $: player.preload = $updateTrack.url !== null && 'metadata';
 
 	// $: browser && console.log($updateTrack.url, $updateTrack.originalUrl);
-	$: player.src = $updateTrack.url !== null ? $updateTrack.url : '';
-	$: isWebkit = $session.iOS;
-	let title;
-	$: console.log($list.mix, isWebkit, $session);
+	$: player.src = $updateTrack.url !== null ? $updateTrack.url : "";
+	$: isWebkit = $session.iOS ? browser && navigator.userAgent.match(/i(Pad|Phone|Pod)/g) : false;
+	// $: console.log($list.mix, isWebkit, $session);
 	$: autoId = $key;
 
 	$: time = player.currentTime;
-	$: duration = 0;
-	$: remainingTime = 0;
+	let duration = 0;
+	let remainingTime = 0;
 
 	$: volume = 0.5;
 	$: player.volume = volume;
@@ -55,14 +54,13 @@
 	let hoverWidth;
 	let showing;
 	let hovering;
-	// $: console.log($list);
 	$: DropdownItems = [
 		{
-			text: 'View Artist',
-			icon: 'artist',
+			text: "View Artist",
+			icon: "artist",
 			action: () => {
 				window.scrollTo({
-					behavior: 'smooth',
+					behavior: "smooth",
 					top: 0,
 					left: 0
 				});
@@ -70,29 +68,25 @@
 			}
 		},
 		{
-			text: 'Add to Playlist',
-			icon: 'playlist-add',
+			text: "Add to Playlist",
+			icon: "playlist-add",
 			action: async () => {
 				showAddToPlaylistPopper.set({ state: true, item: $list.mix[autoId] });
 			}
 		},
 		{
-			text: 'Add to Favorites',
-			icon: 'heart',
+			text: "Add to Favorites",
+			icon: "heart",
 			action: async () => {
-				// console.log(data)
 				if (!browser) return;
 				await db.setNewFavorite($list.mix[autoId]);
 			}
 		},
 		{
-			text: 'Shuffle',
-			icon: 'shuffle',
+			text: "Shuffle",
+			icon: "shuffle",
 			action: () => {
-				// console.log(data)
 				list.shuffle($key, true);
-				// console.log($list.mix, `Player Comp`);
-				// console.log($list.mix)
 			}
 		}
 	].filter((item) => {
@@ -105,28 +99,25 @@
 		}
 	});
 	let once = false;
-	// $: console.log($list, autoId, $key, $updateTrack)
 
 	/*
   	Player Controls
 	 */
 	const play = () => {
-		if ('mediaSession' in navigator) {
-			navigator.mediaSession.playbackState = 'playing';
+		if ("mediaSession" in navigator) {
+			navigator.mediaSession.playbackState = "playing";
 		}
 		isPlaying = true;
-
-		// metaDataHandler()
 	};
 	const pause = () => {
-		if ('mediaSession' in navigator) {
-			navigator.mediaSession.playbackState = 'paused';
+		if ("mediaSession" in navigator) {
+			navigator.mediaSession.playbackState = "paused";
 		}
 		isPlaying = false;
 		player.pause();
 	};
 	const setPosition = () => {
-		if ('mediaSession' in navigator) {
+		if ("mediaSession" in navigator) {
 			navigator.mediaSession.setPositionState({
 				duration: isWebkit ? player.duration / 2 : player.duration,
 				position: player.currentTime
@@ -138,7 +129,7 @@
 		Player Event Listeners
 	 */
 
-	player.addEventListener('loadedmetadata', () => {
+	player.addEventListener("loadedmetadata", () => {
 		setPosition();
 		isPlaying = true;
 		window.bbPlayer = {
@@ -150,11 +141,11 @@
 		metaDataHandler();
 	});
 
-	player.addEventListener('timeupdate', async () => {
+	player.addEventListener("timeupdate", () => {
 		time = player.currentTime;
 		duration = player.duration;
 		remainingTime = duration - time;
-		if (document.visibilityState !== 'hidden') {
+		if (document.visibilityState !== "hidden") {
 			$progress = isWebkit == true ? time * 2 : time;
 		}
 		/* This checks if the user is on an iOS device
@@ -162,20 +153,19 @@
 			 we have to cut the time in half. Doesn't effect other devices.
 		*/
 		if (isWebkit && remainingTime <= duration / 2 && once == false) {
-			// await getNext()
 			player.currentTime = player.currentTime * 2;
 		}
 	});
-	player.addEventListener('pause', () => {
+	player.addEventListener("pause", () => {
 		isPlaying = false;
 		pause();
 	});
 
-	player.addEventListener('play', () => play());
+	player.addEventListener("play", () => play());
 
-	player.addEventListener('ended', () => getNext());
+	player.addEventListener("ended", () => getNext());
 
-	player.addEventListener('seeked', () => {
+	player.addEventListener("seeked", () => {
 		if (!isPlaying) return;
 		play();
 	});
@@ -184,9 +174,7 @@
 		Metadata Handler
 	*/
 	function metaDataHandler() {
-		// <!-- if (!player.src) return -->
-
-		if ('mediaSession' in navigator) {
+		if ("mediaSession" in navigator) {
 			navigator.mediaSession.metadata = new MediaMetadata({
 				title: $list.mix[autoId]?.title,
 				artist: $list.mix[autoId]?.artistInfo?.artist[0].text || null,
@@ -206,11 +194,11 @@
 								$list.mix[autoId]?.thumbnails.length - 1
 							].height
 						}`,
-						type: 'image/jpeg'
+						type: "image/jpeg"
 					}
 				]
 			});
-			navigator.mediaSession.setActionHandler('play', (session) => {
+			navigator.mediaSession.setActionHandler("play", (session) => {
 				const _play = player.play();
 
 				if (_play !== undefined) {
@@ -223,9 +211,9 @@
 						});
 				}
 			});
-			navigator.mediaSession.setActionHandler('pause', pause);
-			navigator.mediaSession.setActionHandler('seekto', (session) => {
-				if (session.fastSeek && 'fastSeek' in player) {
+			navigator.mediaSession.setActionHandler("pause", pause);
+			navigator.mediaSession.setActionHandler("seekto", (session) => {
+				if (session.fastSeek && "fastSeek" in player) {
 					player.fastSeek(session.seekTime);
 					setPosition();
 					return;
@@ -233,8 +221,8 @@
 				player.currentTime = session.seekTime;
 				setPosition();
 			});
-			navigator.mediaSession.setActionHandler('previoustrack', prevBtn);
-			navigator.mediaSession.setActionHandler('nexttrack', () => getNext());
+			navigator.mediaSession.setActionHandler("previoustrack", prevBtn);
+			navigator.mediaSession.setActionHandler("nexttrack", () => getNext());
 		}
 	}
 	/*
@@ -273,7 +261,7 @@
 				getTrackURL();
 				once = false;
 			} catch (error) {
-				console.error('Error!', error);
+				console.error("Error!", error);
 			}
 		}
 	}
@@ -289,14 +277,14 @@
 				return body;
 			})
 			.catch((err) => {
-				console.error('URL Error! ' + err);
+				console.error("URL Error! " + err);
 				return err;
 			});
 	}
 
 	function prevBtn() {
 		if (!autoId || autoId < 0) {
-			console.log('cant do that!');
+			console.log("cant do that!");
 		} else {
 			autoId--;
 			key.set(autoId);
@@ -373,7 +361,6 @@
 	on:pointerup={() => (seeking = false)}
 	on:pointermove={trackMouse}
 />
-
 <div
 	class="progress-bar"
 	transition:fade
@@ -498,6 +485,16 @@
 			{/if}
 		</div>
 	</div>
+
+	<Queue
+	bind:autoId={$key}
+	on:close={({ detail }) => (showing = detail.showing)}
+	let:ctxKey
+	{showing}
+	let:item
+	let:index>
+	</Queue>
+	
 	<div class="menu-container">
 		<PopperButton
 			tabindex="-1"
@@ -509,7 +506,7 @@
 </div>
 
 <style lang="scss">
-	@import '../../../global/stylesheet/components/_player.scss';
+	@import "../../../global/stylesheet/components/_player.scss";
 
 	row {
 		position: relative;
@@ -578,6 +575,7 @@
 		width: 100%;
 		will-change: visibility;
 		height: 100%;
+		background-color: #232530;
 	}
 	.player-left,
 	.player-right {
@@ -609,11 +607,12 @@
 		border: transparent;
 		padding: 0;
 		will-change: contents;
+		isolation: isolate;
 		&::before {
 			background-color: #232530;
 			position: absolute;
 			inset: 0;
-			content: '';
+			content: "";
 			width: 100%;
 			z-index: -1;
 		}

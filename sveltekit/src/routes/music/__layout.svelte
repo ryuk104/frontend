@@ -12,6 +12,8 @@
 
 <script lang="ts">
 	import Nav from '$components/Nav/Nav.svelte';
+	import Leftnav from '$components/Nav/leftnav.svelte';
+
 	import Player from '$lib/components/Music/Player/Player.svelte';
 	import Wrapper from '$components/Wrapper/Wrapper.svelte';
 	import Alert from '$lib/components/Alert/Alert.svelte';
@@ -39,6 +41,8 @@
 </script>
 
 <Nav {key} />
+<Leftnav {key} />
+
 <Popper />
 
 <div

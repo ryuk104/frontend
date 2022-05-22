@@ -470,6 +470,7 @@
 		{prevBtn}
 	/>
 	<div class="player-right">
+		
 		<div
 			class="volume "
 			use:clickOutside
@@ -482,7 +483,6 @@
 			>
 				<Icon color="white" name="volume" size="2rem" />
 			</div>
-			{#if volumeHover}
 				<div class="volume-wrapper">
 					<div class="volume-slider">
 						<input
@@ -495,9 +495,9 @@
 						/>
 					</div>
 				</div>
-			{/if}
 		</div>
 	</div>
+
 	<div class="menu-container">
 		<PopperButton
 			tabindex="-1"
@@ -522,6 +522,7 @@
 	.volume {
 		position: relative;
 		will-change: visibility, display;
+		
 		@media screen and (max-width: 500px) {
 			visibility: hidden;
 			display: none;
@@ -542,18 +543,19 @@
 	.volume-wrapper {
 		background: var(--dark-bottom);
 		display: flex;
-
 		position: absolute;
-		bottom: 6.5rem;
-		transform: rotate(-90deg);
+		bottom: 1.5rem;
+		transform: rotate(360deg);
 		padding: 0 0.4rem;
 		height: 1.3rem;
 		border-radius: 0.6rem;
+		
 	}
 	.volume-slider {
 		height: 100%;
 		display: flex;
 		align-items: center;
+		
 	}
 	.volume-icon {
 		cursor: pointer;

@@ -19,6 +19,10 @@
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
   import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
+  import Settings from "$lib/components/Nav/Settings.svelte";
+  import { clickOutside } from "$lib/actions/clickOutside";
+
+ 
   import { auth } from "$lib/store/auth.js";
   import {
     Button,
@@ -30,12 +34,13 @@
   } from "svelte-materialify";
   import { post as postState } from "$lib/store/post.js";
   import { mdiPlus } from "@mdi/js";
-  import { goto } from "$app/navigation";
   import { user } from "$lib/store/user.js";
   import { onMount } from "svelte";
 
   export let posts;
   export let users;
+  let isSettingsOpen;
+
 
   let api;
   let page = 0;
@@ -163,6 +168,25 @@
         NOTIFICATION
       </button>
     </div>
+
+    <div
+			use:clickOutside
+			on:click_outside={() => {
+				isSettingsOpen = false;
+			}}
+			style="display:contents; background:inherit;"
+		>
+			<Settings bind:isSettingsOpen />
+			<button
+				aria-label="Settings"
+				class="nav-item icon-btn btn-settings"
+				on:click|stopPropagation={() => {
+					isSettingsOpen = !isSettingsOpen;
+				}}
+			>
+				<Icon name="settings" size="1.5rem" />
+			</button>
+		</div>
 
     
 </section>

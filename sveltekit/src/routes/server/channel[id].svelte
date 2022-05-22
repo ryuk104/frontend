@@ -1,8 +1,7 @@
 <script>
   import Tchat from "$lib/components/server/Tchat.svelte";
-  import { page } from '$app/stores'
-
   const { id } = page.params;
+
   export let params = {};
 </script>
 
