@@ -1,6 +1,9 @@
 <script>
+    import {browser} from '$app/env'
+
     import VoiceRecogination from "$lib/Components/voicetext/VoiceRecogination/VoiceRecogination.svelte";
     console.clear();
+
 </script>
 
 <main>

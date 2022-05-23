@@ -1,30 +1,23 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	import { api } from '$lib/api';
+	import type { Load } from "@sveltejs/kit";
+	import { api } from "$lib/api";
 	export const load: Load = async ({ params, fetch }) => {
 		const response = await api(fetch, {
 			browseId: params.slug,
-			endpoint: 'browse',
-			path: 'artist',
-			type: 'artist'
+			endpoint: "browse",
+			path: "artist",
+			type: "artist"
 		});
-		let {
-			carousels,
-			description,
-			thumbnail,
-			header,
-			songs
-		} = await response.body;
-		// console.log({ carousels, description, thumbnail, header, songs })
+		let { header, body, visitorData } = (await response.body) as ArtistPage;
+
 		if (response.ok) {
 			return {
 				props: {
-					carousels,
-					// headerRaw,
-					description,
-					thumbnail,
+					carousels: body?.carousels,
+					visitorData,
+
 					header,
-					songs,
+					songs: body?.songs,
 					id: params.slug
 				},
 				status: 200
@@ -34,40 +27,47 @@
 </script>
 
 <script lang="ts">
-	import Carousel from '$lib/components/Carousel/Carousel.svelte';
-	import ArtistPageHeader from '$lib/components/Music/ArtistPageHeader/ArtistPageHeader.svelte';
-	import { page } from '$app/stores';
+	import Carousel from "$lib/components/Carousel/Carousel.svelte";
+	import ArtistPageHeader from "$lib/components/music/ArtistPageHeader/ArtistPageHeader.svelte";
+	import { page } from "$app/stores";
 
-	import ListItem from '$components/ListItem/ListItem.svelte';
-	import { isPagePlaying } from '$lib/stores/stores';
-	import { setContext } from 'svelte';
-	import Header from '$lib/components/Layouts/Header.svelte';
-	import type { Thumbnail } from '$lib/types';
-	export let header;
-	export let description;
-	export let thumbnail: Array<Thumbnail> = [];
-	export let carousels;
-	export let songs = [];
+	import ListItem from "$components/ListItem/ListItem.svelte";
+	import { isPagePlaying } from "$lib/stores/stores";
+	import { setContext } from "svelte";
+	import Header from "$lib/components/Layouts/Header.svelte";
+
+	import type {
+		ArtistPage,
+		ArtistPageBody,
+		IArtistPageHeader
+	} from "$lib/js/artist";
+	export let header: IArtistPageHeader;
+	export let carousels: ArtistPageBody["carousels"];
+	export let songs: ArtistPageBody["songs"] = {};
 	export let id;
-	let width;
+	export let visitorData = "";
+
 	const ctx = {};
-	// $: console.log(header, carousels, songs, $page.url.pathname)
 	setContext(ctx, { pageId: id });
 </script>
 
 <Header
-	title={header?.name == undefined ? 'Artist' : header?.name}
+	title={header?.name == undefined ? "Artist" : header?.name}
 	desc={header?.name}
 	url={$page.url.pathname}
-	image={thumbnail && thumbnail[0]?.url}
+	image={header?.thumbnails && header?.thumbnails[0]?.url}
 />
-<ArtistPageHeader {description} {header} {width} {thumbnail} />
+<ArtistPageHeader
+	description={header?.description}
+	{header}
+	thumbnail={header?.thumbnails}
+/>
 <main>
 	<div class="artist-body">
-		{#if songs?.songs?.length > 0}
-			<section>
+		{#if songs?.items?.length > 0}
+			<section class="song-list">
 				<div class="header">
-					<h1>Songs</h1>
+					<span class="h2">Songs</span>
 					<a
 						style="white-space:pre; display: inline-block;"
 						href={`/playlist/${songs?.header?.browseId}`}
@@ -75,7 +75,7 @@
 					>
 				</div>
 				<section class="songs">
-					{#each songs?.songs as item, index}
+					{#each songs?.items as item, index}
 						<ListItem
 							{item}
 							{index}
@@ -92,6 +92,7 @@
 		{#each carousels as { contents, header }, i}
 			{#if i == carousels.length - 1}
 				<Carousel
+					{visitorData}
 					items={contents}
 					type="artist"
 					kind={header?.type}
@@ -103,6 +104,7 @@
 			{:else}
 				<Carousel
 					items={contents}
+					{visitorData}
 					type="artist"
 					kind={header?.type}
 					isBrowseEndpoint={false}
@@ -116,6 +118,9 @@
 </main>
 
 <style lang="scss">
+	.song-list {
+		margin-bottom: 3.3339em;
+	}
 	.content-wrapper {
 		display: flex;
 		max-width: inherit;
@@ -131,15 +136,16 @@
 		padding: 0;
 		width: 100%;
 	}
-
+	section {
+	}
 	.songs {
 		margin-bottom: 1rem;
 	}
 	main {
-		@include padding;
+		@include content-spacing($type: "padding");
 	}
 	.artist-body {
-		padding: 2rem 0 2rem;
+		padding: 1.25rem 0 2rem;
 		// padding-bottom: 2rem;
 		@media screen and (max-width: 500px) {
 			// padding: 0 1rem;

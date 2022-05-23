@@ -6,6 +6,8 @@ import ModalOne from "../ModalOne.svelte";
 import Textchannelprofile from './textchannelprofile.svelte'
 import Postbuttonpopup from './textchannelprofile.svelte'
 import Minimusicplayer from '../musicplayer/minimusicplayer.svelte';
+import Player from '../Player/Player.svelte';
+
 
 
 
@@ -170,6 +172,7 @@ let active = false;
 
 
     <Minimusicplayer></Minimusicplayer>
+    <Player></Player>
       
 
 

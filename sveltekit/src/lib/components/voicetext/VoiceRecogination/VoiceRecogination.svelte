@@ -1,9 +1,17 @@
 <script>
   import StickyNote from "../StickyNote/StickyNote.svelte";
   import Recorder from "../Recorder/Recorder.svelte";
+  import {browser} from '$app/env'
+  import { onMount } from "svelte"; 
+
   let support = true;
   let recordingText = `Press the Play button to Start recording.`;
   let noteContent = "";
+  onMount(async ()=>{
+  let SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  var recognition = new SpeechRecognition();
+})
+
   try {
     //BUG RIGHT HERE
     let SpeechRecognition =

@@ -1,48 +1,57 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit'
-	let path
-
+	import type { Load } from "@sveltejs/kit";
+	let path;
 	export const load: Load = async ({ fetch, stuff }) => {
-		const response = await fetch('/music/home.json')
-		const data = await response.json()
+		const response = await fetch("/music/home.json");
+		const data = await response.json();
 		if (!response.ok) {
 			return {
 				status: response.status,
 				error: new Error(`Error: ${response.statusText}`)
-			}
+			};
 		}
-		const { carousels, headerThumbnail = undefined, continuations } = await data
-		path = stuff.page
+		const {
+			carousels,
+			headerThumbnail = undefined,
+			continuations,
+			visitorData
+		} = await data;
+		path = stuff.page;
 		return {
 			props: {
 				carousels,
 				headerThumbnail,
-				continuations
-				// data: await data.data
+				continuations,
+				visitorData
 			},
 			cache: 3600,
 			status: 200
-		}
-	}
+		};
+	};
 </script>
 
 <script lang="ts">
-	import viewport from '$lib/actions/viewport'
-	import Carousel from '$lib/components/Carousel/Carousel.svelte'
-	import Header from '$lib/components/Layouts/Header.svelte'
-	import Loading from '$lib/components/Loading/Loading.svelte'
-	import type { NextContinuationData, Thumbnail } from '$lib/types'
-
-	export let carousels
-	export let headerThumbnail: Array<Thumbnail> = []
-	export let continuations: NextContinuationData
-
-	let loading = false
-	let hasData = false
+	import viewport from "$lib/actions/viewport";
+	import Carousel from "$lib/components/Carousel/Carousel.svelte";
+	import Header from "$lib/components/Layouts/Header.svelte";
+	import Loading from "$lib/components/Loading/Loading.svelte";
+	import type { NextContinuationData, Thumbnail } from "$lib/types";
+	export let carousels;
+	export let headerThumbnail: Array<Thumbnail> = [];
+	export let continuations: NextContinuationData;
+	export let visitorData = "";
+	let loading = false;
+	let hasData = false;
 </script>
-<svelte:head>
-	<link rel="preload" as="image" href="{headerThumbnail[0].url}">
 
+<svelte:head>
+	<link
+		rel="preload"
+		as="image"
+		href={Array.isArray(headerThumbnail) &&
+			headerThumbnail.length !== 0 &&
+			headerThumbnail[0].url}
+	/>
 </svelte:head>
 <Header
 	title="Home"
@@ -73,6 +82,7 @@
 				src={headerThumbnail[0].url}
 				width={headerThumbnail[0].width}
 				height={headerThumbnail[0].height}
+				decoding="sync"
 				class="immer-img"
 				alt="large background header"
 			/>
@@ -92,32 +102,33 @@
 	{#if Object.keys(continuations).length}
 		<div
 			class="viewport"
-			use:viewport={{ margin: '0px 450px' }}
+			use:viewport={{ margin: "0px 325px" }}
 			on:enterViewport={async () => {
-				if (loading || hasData) return
-				loading = true
+				if (loading || hasData) return;
+				loading = true;
 				const response = await fetch(
-					`/music/home.json?itct=${encodeURIComponent(
+					`/home.json?itct=${encodeURIComponent(
 						continuations.clickTrackingParams
-					)}&ctoken=${encodeURIComponent(continuations.continuation)}&type=next`
-				)
-				const data = await response.json()
+					)}&ctoken=${encodeURIComponent(
+						continuations.continuation
+					)}&type=next&visitorData=${visitorData}`
+				);
+				const data = await response.json();
 				// const {continuations, carousels} = data;
 				if (data.continuations !== {}) {
-					continuations = data.continuations
-					carousels = [...carousels, ...data.carousels]
-					loading = false
-					return hasData
+					continuations = data.continuations;
+					carousels = [...carousels, ...data.carousels];
+					loading = false;
+					return hasData;
 				}
-				hasData = data.continuations === {}
-				return !loading
+				hasData = data.continuations === {};
+				return !loading;
 			}}
 		/>
-		{#if loading}
-			<div class="loading">
-				<Loading />
-			</div>
-		{/if}
+
+		<div class="loading" style:opacity={loading ? 1 : 0}>
+			<Loading />
+		</div>
 	{/if}
 </main>
 
@@ -126,6 +137,8 @@
 		height: 8rem;
 	}
 	.loading {
+		transition: opacity cubic-bezier(0.95, 0.05, 0.795, 0.035) 500ms;
+		opacity: 0;
 		display: flex;
 		position: relative;
 		margin: 0 auto;
@@ -142,6 +155,7 @@
 		top: 0;
 		left: 0;
 		right: 0;
+		contain: layout style paint;
 	}
 	.gradient {
 		position: absolute;

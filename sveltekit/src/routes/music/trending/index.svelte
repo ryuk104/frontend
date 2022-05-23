@@ -1,10 +1,10 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
+	import type { Load } from "@sveltejs/kit";
 
 	let path;
 
 	export const load: Load = async ({ fetch, stuff }) => {
-		const response = await fetch('/music/trending.json?q=browse');
+		const response = await fetch("/music/trending.json?q=browse");
 		const data = await response.json();
 		if (!response.ok) {
 			return {
@@ -28,9 +28,9 @@
 <script lang="ts">
 	export let carouselItems: ICarousel;
 	export let _data;
-	import Carousel from '$components/Carousel/Carousel.svelte';
-	import type { ICarousel } from '$lib/types';
-	import Header from '$lib/components/Layouts/Header.svelte';
+	import Carousel from "$components/Carousel/Carousel.svelte";
+	import type { ICarousel } from "$lib/types";
+	import Header from "$lib/components/Layouts/Header.svelte";
 	// $: console.log(carouselItems, _data);
 </script>
 
@@ -50,7 +50,7 @@
 	<div class="breakout">
 		<div class="box-cont">
 			<div class="header">
-				<h1>{carouselItems[2].header.title}</h1>
+				<span class="h2">{carouselItems[2].header.title}</span>
 				<a class="link" href="/explore"><small>See All</small></a>
 			</div>
 			<box>
@@ -81,7 +81,7 @@
 </main>
 
 <style lang="scss">
-	@import '../../../global/stylesheet/components/_carousel';
+	@import "../../../global/stylesheet/components/_carousel";
 	.breakout {
 		border-radius: 0.8rem;
 		-webkit-overflow-scrolling: touch;
@@ -101,6 +101,7 @@
 		width: 100%;
 		overflow-x: auto;
 		padding: 0.8rem;
+		contain: layout;
 		flex-direction: column;
 	}
 	.scroll {
@@ -110,7 +111,7 @@
 		max-height: 26rem;
 	}
 	.box {
-		margin-bottom: 0.8rem;
+		margin-bottom: 0.8em;
 		cursor: pointer;
 		background: #201e27;
 		display: inline-flex;
@@ -118,16 +119,17 @@
 		flex-direction: row;
 		flex-wrap: nowrap;
 		text-overflow: clip;
-		font-size: 1.1rem;
-		min-width: 12rem;
-		max-width: 15rem;
+		font-size: 1em;
+		min-width: 12em;
+		max-width: 15em;
 		width: 100%;
-		border-radius: 0.8rem;
-		font-family: 'Commissioner', sans-serif;
+		contain: content;
+		border-radius: 0.8em;
+		font-family: "Commissioner", sans-serif;
 
 		align-items: center;
 
-		height: 3.5rem;
+		height: 3.25em;
 		padding: 0 0 0 0.8rem;
 	}
 </style>

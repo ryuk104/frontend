@@ -1,17 +1,33 @@
-<script context="module">    
+<script>    
 
 import axios from 'axios'
-
-
-
-
 import { emailRules, passwordRules } from "$lib/utils/validation";
 import { mdiEmail, mdiEye, mdiEyeOff, mdiLock } from "@mdi/js";
 import { onMount } from "svelte";
 
   
+import {
+  Button,
+  Card,
+  Col,
+  Divider,
+  Icon,
+  ProgressCircular,
+  Row,
+  TextField,
+} from "svelte-materialify";
+
 import { goto } from "$app/navigation";
 import { auth } from "$lib/stores/auth";
+
+onMount(async () => {
+    if($auth.isAuthenticated){
+      goto("/")
+    }
+    api = await import("$lib/utils/axiosApi");
+});
+
+
 
   let api;
 
@@ -21,25 +37,6 @@ import { auth } from "$lib/stores/auth";
 
   let error = {};
   let loading = false;
-/*
-  onMount(async () => {
-    if($auth.isAuthenticated){
-      goto("/")
-    }
-    api = await import("$lib/utils/axiosApi");
-  });
-*/
-  const submitlogin = async (data) => {
-  try {
-    localStorage.removeItem("token");
-    const res = await axios.post("http://localhost:8080/api/auth/login", data);
-
-    return res.data;
-  } catch (error) {
-    console.log(error);
-    return error.response.data;
-  }
-};
 
   async function handleLogin() {
     try {
@@ -52,7 +49,7 @@ import { auth } from "$lib/stores/auth";
       if (res.type === "success") {
         localStorage.setItem("token", res.data.token);
         auth.setUser(res.data);
-        return goto("/");
+        return goto("/home");
       }
 
       if (res.type === "error") {
@@ -63,39 +60,10 @@ import { auth } from "$lib/stores/auth";
       console.log(error);
     }
   }
-  
-
-    /*
-    const submitlogin = async () => {
-        const response = await fetch("http://localhost:8080/api/auth/login", {
-            method: "POST", 
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Access-Control-Allow-Origin": "*",
-                "Host": "localhost",
-                "Accept": "
-            },
-            redirect: "follow",
-            body: ({
-                email,
-                password,
-            }),
-        }).then(console.log(email, password,"working"))
-    }
-
-*/
-    /*
-    if (request.session || request.session.cookie) {
-    res.redirect('/logedin')
-    }else{
-    res.redirect('login')
-}
-console.log(req.sessionID)
-*/
 </script>
 
 <div class="content">
-	<form on:submit|preventDefault={submitlogin} action="/api/login" class="login-form" id="reg-form" method="POST" >
+	<form on:submit|preventDefault={handleLogin} class="login-form" id="reg-form" method="POST" >
         <h1>Login</h1>
         
         <div class="txtb">

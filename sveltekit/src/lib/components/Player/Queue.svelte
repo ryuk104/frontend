@@ -1,12 +1,12 @@
 <script lang="ts">
-	import { browser } from '$app/env';
-	import drag from '$lib/actions/drag';
-	import list from '$lib/stores/list';
-	import { tick } from 'svelte';
-	import { fly } from 'svelte/transition';
+	import { browser } from "$app/env";
+	import drag from "$lib/actions/drag";
+	import list from "$lib/stores/list";
+	import { tick } from "svelte";
+	import { fly } from "svelte/transition";
 
-	import { createEventDispatcher } from 'svelte';
-	import { quartOut } from 'svelte/easing';
+	import { createEventDispatcher } from "svelte";
+	import { quartOut } from "svelte/easing";
 	const dispatch = createEventDispatcher();
 	export let autoId;
 	export let showing = false;
@@ -53,7 +53,7 @@
 	async function close() {
 		showing = false;
 		sliding = false;
-		dispatch('close', { showing });
+		dispatch("close", { showing });
 		await tick();
 		posY = 0;
 
@@ -70,10 +70,10 @@
 	)
 		scrollIntoView();
 	$: transition = sliding
-		? ''
-		: 'transition: transform 300ms cubic-bezier(0.895, 0.03, 0.685, 0.22);';
+		? ""
+		: "transition: transform 300ms cubic-bezier(0.895, 0.03, 0.685, 0.22);";
 	$: height =
-		queueHeight !== undefined && `calc(${listHeight - queueHeight}px - 4rem)`;
+		queueHeight !== undefined && `calc(${listHeight - queueHeight}px)`;
 
 	// : `calc(${(listHeight / 20.2) * 3}px - 0.5rem)`
 </script>
@@ -83,10 +83,21 @@
 <!-- on:click={console.log} -->
 <div
 	class="backdrop"
-	on:click|stopPropagation|self={() => dispatch('close', { showing: false })}
+	on:click|stopPropagation|self={() => dispatch("close", { showing: false })}
 	on:scroll|preventDefault
-	in:fly|local={{ duration: 400, delay: 200, y: queueHeight, easing: quartOut }}
-	out:fly|local={{ duration: 400, y: listHeight, easing: quartOut }}
+	in:fly|local={{
+		duration: 500,
+		delay: 400,
+		opacity: 1,
+		y: queueHeight,
+		easing: quartOut
+	}}
+	out:fly|local={{
+		duration: 800,
+		y: listHeight,
+		opacity: 1,
+		easing: quartOut
+	}}
 >
 	<div
 		class="listContainer"
@@ -149,7 +160,7 @@
 		&::before {
 			position: absolute;
 			inset: 0;
-			content: '';
+			content: "";
 			margin: 0 auto;
 			width: 35%;
 			color: hsl(0deg 0% 80%);
@@ -170,18 +181,13 @@
 		border-top: 0.0175rem groove rgba(171, 171, 171, 0.151);
 		border-top-left-radius: inherit;
 		border-top-right-radius: inherit;
-		box-shadow: 0 -0.4rem 0.8rem 0.5rem hsl(0deg 0% 100% / 9%);
-		background: linear-gradient(
-			to bottom,
-			hsl(240, 10%, 10%),
-			hsl(240, 2%, 7%) 50%,
-			hsl(240, 1%, 6%) 90%
-		);
+		box-shadow: 0 -0.4rem 23px -17px hsl(0deg 0% 100% / 100%);
+		background: hsl(240deg 6% 4%);
 		z-index: 1;
-		height: 2rem;
+		height: 2.2em;
 		display: flex;
 		cursor: pointer;
-		padding: 0.12rem;
+		padding: 0.12em;
 		align-items: center;
 	}
 	.empty > * {
@@ -214,7 +220,7 @@
 		z-index: 1;
 		&::before {
 			position: absolute;
-			content: '';
+			content: "";
 			inset: 0;
 			filter: brightness(0.5) saturate(0.5);
 			width: 100%;
@@ -262,12 +268,12 @@
 		width: 100%;
 		padding-left: 0;
 		padding: 0.225rem 0.6rem;
-		padding-bottom: 0.6rem;
+		padding-bottom: 4.125rem;
 		overflow-x: hidden;
 	}
 
 	.empty-title {
-		font-family: 'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS',
+		font-family: "Gill Sans", "Gill Sans MT", "Calibri", "Trebuchet MS",
 			sans-serif;
 		text-transform: capitalize;
 		text-align: center;

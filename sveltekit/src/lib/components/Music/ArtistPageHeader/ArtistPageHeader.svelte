@@ -1,10 +1,8 @@
 <script lang="ts">
-	import list from '$lib/stores/list';
-	import Icon from '$lib/components/Icon/Icon.svelte';
-	import { theme } from '$lib/stores/stores';
-	import { onMount } from 'svelte';
-	import { browser } from '$app/env';
-	import { shuffle } from '$lib/utils';
+	import list from "$lib/stores/list";
+	import Icon from "$lib/components/Icon/Icon.svelte";
+	import { onMount } from "svelte";
+	import { browser } from "$app/env";
 
 	export let header;
 	export let thumbnail = [];
@@ -23,26 +21,23 @@
 	};
 	const imageLoadHandler = (event: CustomEvent) => {
 		opacity = 1;
-		// 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJpc29sYXRpb246aXNvbGF0ZSIgdmlld0JveD0iMCAwIDI1NiAyNTYiIHdpZHRoPSIyNTZwdCIgaGVpZ2h0PSIyNTZwdCI+PGRlZnM+PGNsaXBQYXRoIGlkPSJwcmVmaXhfX2EiPjxwYXRoIGQ9Ik0wIDBoMjU2djI1NkgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjxnIGNsaXAtcGF0aD0idXJsKCNwcmVmaXhfX2EpIj48cGF0aCBmaWxsPSIjYWNhY2FjIiBkPSJNMCAwaDI1NnYyNTZIMHoiLz48ZyBjbGlwLXBhdGg9InVybCgjcHJlZml4X19iKSI+PHRleHQgdHJhbnNmb3JtPSJtYXRyaXgoMS4yOTkgMCAwIDEuMjcgOTUuNjg4IDE4Ni45NzEpIiBmb250LWZhbWlseT0iTGF0byIgZm9udC13ZWlnaHQ9IjQwMCIgZm9udC1zaXplPSIxMjAiIGZpbGw9IiMyODI4MjgiPj88L3RleHQ+PC9nPjxkZWZzPjxjbGlwUGF0aCBpZD0icHJlZml4X19iIj48cGF0aCB0cmFuc2Zvcm09Im1hdHJpeCgxLjI5OSAwIDAgMS4yNyA3OCA0Mi4yODYpIiBkPSJNMCAwaDc3djEzNUgweiIvPjwvY2xpcFBhdGg+PC9kZWZzPjwvZz48L3N2Zz4='
 	};
 	const handler = () => {
 		if (!browser) return;
-		if (container) scroll = container.getBoundingClientRect();
-		// console.log(scroll)
 		if (container) {
+			scroll = container.getBoundingClientRect();
+			const calc = -scroll.top / window.innerHeight;
 			y =
 				window.innerWidth < 500
-					? Math.min(Math.max(-scroll.top / window.innerHeight, 0), 1) * 250
-					: Math.min(Math.max(-scroll.top / window.innerHeight, 0), 1) * 125;
+					? Math.min(Math.max(calc, 0), 1) * 325
+					: Math.min(Math.max(calc, 0), 1) * 116;
 		}
 	};
 	$: isExpanded && handler();
 	let descClientHeight = undefined;
 	let descOffsetHeight = undefined;
 	let desc: HTMLElement = undefined;
-	// $: descIsOverflow = false
 	$: descIsOverflow = descClientHeight < descOffsetHeight ? false : true;
-	// $: console.log(descClientHeight, descOffsetHeight, descIsOverflow)
 	onMount(() => {
 		let start;
 		if (img) {
@@ -50,24 +45,23 @@
 				opacity = 1;
 			});
 
-			img.addEventListener('load', () => {});
-			// console.log(img)
+			img.addEventListener("load", () => {});
 		}
 		if (desc) {
 			descClientHeight = desc.clientHeight;
 			descOffsetHeight = desc.scrollHeight;
 		}
-		wrapper = document.getElementById('wrapper');
+		wrapper = document.getElementById("wrapper");
 		wrapper.addEventListener(
-			'scroll',
+			"scroll",
 			() => (timestamp = requestAnimationFrame(handler))
 		);
 		return () => {
-			img.removeEventListener('load', () => {
+			img.removeEventListener("load", () => {
 				opacity = 1;
 			});
 			wrapper.removeEventListener(
-				'scroll',
+				"scroll",
 				() => (timestamp = requestAnimationFrame(handler))
 			);
 			cancelAnimationFrame(timestamp);
@@ -85,8 +79,8 @@
 			bind:this={container}
 			style={`background-image: linear-gradient(1turn, var(--base-bg) ${Math.min(
 				Math.max(0, y),
-				70
-			)}%, transparent); transition: cubic-bezier(0.6, -0.28, 0.74, 0.05) all 120ms`}
+				100
+			)}%, transparent); transition: cubic-bezier(0.6, -0.28, 0.74, 0.05) background 120ms`}
 			id="gradient"
 			class="gradient"
 		/>
@@ -171,30 +165,30 @@
 						class:hidden={descIsOverflow}
 						on:click={() => (isExpanded = !isExpanded)}
 					>
-						<span class="btn-text">Show {isExpanded ? 'Less' : 'More'}</span>
+						<span class="btn-text">Show {isExpanded ? "Less" : "More"}</span>
 					</div>
 				{/if}
 				<div class="btn-wrpr">
-					{#if header?.mixInfo !== null}
+					{#if header?.buttons.radio !== null}
 						<button
 							class="outlined"
 							on:click={() =>
 								list.initAutoMixSession({
-									config: { playerParams: header.mixInfo?.params },
-									playlistId: header.mixInfo?.playlistId
+									config: { playerParams: header.buttons.radio?.params },
+									playlistId: header.buttons.radio?.playlistId
 								})}
 							><Icon size="1.25em" name="radio" /><span class="button-text">
 								Play Radio</span
 							></button
 						>
 					{/if}
-					{#if header?.shuffle !== false}
+					{#if header?.buttons.shuffle !== false}
 						<button
 							on:click={() =>
 								list.initAutoMixSession({
-									videoId: header.shuffle?.videoId,
-									config: { playerParams: header.shuffle?.params },
-									playlistId: header.shuffle?.playlistId
+									videoId: header.buttons.shuffle?.videoId,
+									config: { playerParams: header.buttons.shuffle?.params },
+									playlistId: header.buttons.shuffle?.playlistId
 								})}
 							><Icon size="1.25em" name="shuffle" /><span class="button-text">
 								Shuffle</span
@@ -252,13 +246,13 @@
 			white-space: normal;
 			letter-spacing: -0.0125rem;
 			white-space: normal;
-			max-height: calc(var(--lines) * 14px * var(--line-height));
+			max-height: calc(var(--lines) * 1rem * var(--line-height));
 			margin-bottom: 0.8rem;
 			&.expanded {
 				--lines: 12;
 				--max-lines: var(--lines);
 				-webkit-line-clamp: var(--max-lines);
-				max-height: calc(var(--max-lines) * 14px * var(--line-height));
+				max-height: calc(var(--max-lines) * 1rem * var(--line-height));
 			}
 		}
 	}
@@ -302,7 +296,7 @@
 			position: absolute;
 			z-index: -1;
 			inset: 0;
-			content: '';
+			content: "";
 			width: 100%;
 			height: 100%;
 			backdrop-filter: blur(0.05rem);
@@ -331,7 +325,7 @@
 		/* max-height: 30rem; */
 		padding-top: 16vh;
 		overflow: hidden;
-		transition: background-color 0.5s cubic-bezier(0.19, 0, 0.7, 1);
+		transition: background-color 0.8s cubic-bezier(0.19, 0, 0.7, 1);
 		background-color: rgba(0, 0, 0, 0.1);
 
 		@media only screen and (min-width: 1080px) and (max-width: 1600px) {
@@ -344,7 +338,7 @@
 
 		&::before {
 			position: absolute;
-			content: '';
+			content: "";
 			top: 0;
 			bottom: 0;
 			left: 0;
@@ -369,7 +363,7 @@
 			width: 100%;
 			height: 100%;
 			z-index: -5;
-			content: '';
+			content: "";
 			// background-image: linear-gradient(
 			// 	1turn,
 			// 	var(--midnight-base),
@@ -406,7 +400,9 @@
 		z-index: 1;
 
 		// padding-left: 3.5rem;
-		@include padding;
+		@include content-spacing($type: "padding");
+		@include content-width();
+		padding-bottom: 0 !important;
 		margin: 0 auto;
 
 		.content-wrapper {
@@ -424,7 +420,7 @@
 				font-weight: 700;
 				font-size: 2.5rem;
 				display: inline-block;
-				font-family: 'Commissioner', sans-serif;
+				font-family: "Commissioner", sans-serif;
 
 				text-shadow: rgba(0, 0, 0, 0.171) 0.2rem -0.12rem 0.5rem;
 

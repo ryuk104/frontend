@@ -19,6 +19,10 @@
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
   import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
+  import Settings from "$lib/components/Nav/Settings.svelte";
+  import { clickOutside } from "$lib/actions/clickOutside";
+
+ 
   import { auth } from "$lib/store/auth.js";
   import {
     Button,
@@ -30,12 +34,13 @@
   } from "svelte-materialify";
   import { post as postState } from "$lib/store/post.js";
   import { mdiPlus } from "@mdi/js";
-  import { goto } from "$app/navigation";
   import { user } from "$lib/store/user.js";
   import { onMount } from "svelte";
 
   export let posts;
   export let users;
+  let isSettingsOpen;
+
 
   let api;
   let page = 0;
@@ -71,6 +76,10 @@
     import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
     import Stories from "$lib/components/stories/stories.svelte";
     import Modal from '$lib/components/Modal.svelte'
+    import {browser} from '$app/env'
+    import {goto} from '$app/navigation'
+
+
     
     import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
@@ -79,14 +88,6 @@
     
     
 </script>
-  <Postbuttonpopup></Postbuttonpopup>
-  
-  
-  <CustomeMenu></CustomeMenu>
-  <Stories></Stories>
-  <Friendsactivity></Friendsactivity>
-<!--   <Instagram></Instagram> -->
-
 
 
 <svelte:head> 
@@ -94,9 +95,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </svelte:head>
 
-<section>
+<section class="main">
+  
+  <CustomeMenu></CustomeMenu>
+  <Stories></Stories>
+  <Friendsactivity>
+    <UserSuggestions users={$user.users} />
+  </Friendsactivity>
+<!--   <Instagram></Instagram> -->
 
-  <div style="max-width:1200px ;margin: auto;">
+  <div style="max-width:1200px ;margin: auto; padding-top:200px; padding-left:200px">
     <Row style="margin:auto">
       <Col sm={12} cols={12} md={8}>
         <!-- create post  -->
@@ -118,7 +126,7 @@
         <!--  posts -->
   
         {#each $postState.posts as post (post._id)}
-          <div class="mb-8">
+          <div class="mb-8 bg-gray-500	">
             <PostCard {post} />
           </div>
         {/each}
@@ -136,8 +144,8 @@
         {/if}
       </Col>
   
-      <Col sm={12} md={4} class="d-none d-md-block">
-        <div style="position: sticky;top: 64px;">
+      <Col sm={12} md={4} class="d-none d-md-block gray-500 pl-100">
+        <div style="position: sticky;top: 64px; background-color:gray;">
           <UserSideProfile />
           <!-- user profile on large screen -->
   
@@ -161,6 +169,25 @@
       </button>
     </div>
 
+    <div
+			use:clickOutside
+			on:click_outside={() => {
+				isSettingsOpen = false;
+			}}
+			style="display:contents; background:inherit;"
+		>
+			<Settings bind:isSettingsOpen />
+			<button
+				aria-label="Settings"
+				class="nav-item icon-btn btn-settings"
+				on:click|stopPropagation={() => {
+					isSettingsOpen = !isSettingsOpen;
+				}}
+			>
+				<Icon name="settings" size="1.5rem" />
+			</button>
+		</div>
+
     
 </section>
 
@@ -174,8 +201,11 @@
   transition: background 500ms ease-in-out, color 1000ms ease-in-out;
 }
 
-main {
-  margin-left: 5rem;
+.main {
+  height: 100%;
+  margin: auto;
+  width: 100%;
+
 }
 
 .notificationbutton{
