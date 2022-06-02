@@ -91,6 +91,7 @@
 </form>
 
 <style type="text/scss">
+/*
   .input-text {
     @apply
       bg-gray-200
@@ -131,4 +132,5 @@
       }
     }
   }
+  */
 </style>

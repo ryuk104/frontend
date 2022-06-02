@@ -1,6 +1,6 @@
 <script lang="ts">
   import Header from '$lib/components/minigame/wordgame/Header/index.svelte';
-  import '../app.css';
+  //import '../../../../../app.css';
 </script>
 
 <Header />

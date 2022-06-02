@@ -1,5 +1,5 @@
 <script>
-    import SOffline from '../src/SOffline.svelte';
+    import SOffline from '$lib/components/SOffline.svelte';
     const handleNetworkChange = ({ detail }) => {
       console.log('event details: ', detail);
     };

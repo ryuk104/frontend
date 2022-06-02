@@ -1,4 +1,5 @@
 <script lang="ts">
+  /*
   import Ping from 'ping.js';
   import { createEventDispatcher } from 'svelte';
   // constants
@@ -19,8 +20,8 @@
       emit('detectedCondition', { online: isOnline });
     });
   };
+  */
 </script>
-
 <svelte:window
   on:online={updateOnlineStatus}
   on:offline={updateOnlineStatus}

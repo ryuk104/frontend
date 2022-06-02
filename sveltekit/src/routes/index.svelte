@@ -40,6 +40,7 @@
         <nav>
             <ul class="nav_links">
                 <li><a href="/support">support</a></li>
+                <li><a href="/music/home">Music</a></li>
                 <li><a href="/safety">safety</a></li>
                 <li><a href="/download">Download</a></li>
                 <li><a class="login-btn" href="/login">Sign In</a></li>
@@ -51,33 +52,29 @@
 
 
 <div>
-  <h2>Download cozynet</h2>
+  <h2>Download uninet</h2>
   <p>where you can belong to a school club, a gaming group, or a worldwide art community. Where just you and a handful of friends can spend time together. A place that makes it easy to talk every day and hang out more often.</p>
-  <a href="//ryukshome.xyz/api/download" class="button-ZGMevK buttonWhite-1M-wED buttonLarge-3z9xOS marginTop24-3ZXBpg marginRight24-2hC304">Download cozynet</a>
+  <a href="//ryukshome.xyz/api/download" class="button-ZGMevK buttonWhite-1M-wED buttonLarge-3z9xOS marginTop24-3ZXBpg marginRight24-2hC304">Download uninet</a>
 </div>
 
 
 
 <div>
-  <img src="/demo/demo1.svg" alt="dsad">
   <h2>Create an invite-only place where you belong</h2>
-  <p>Discord servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat.</p>
+  <p>servers are organized into topic-based channels where you can collaborate, share, and just talk about your day without clogging up a group chat.</p>
 </div>
 
 <div>
-  <img src="/demo/demo2.svg" alt="dsad">
   <h2>Where hanging out is easy</h2>
   <p>Grab a seat in a voice channel when you’re free. Friends in your server can see you’re around and instantly pop in to talk without having to call.</p>
 </div>
 
 <div>
-  <img src="/demo/demo3.svg" alt="dsad">
   <h2>From few to a fandom</h2>
   <p>Get any community running with moderation tools and custom member access. Give members special powers, set up private channels, and more.</p>
 </div>
 
 <div>
-  <img src="/demo/demo4.svg" alt="dsad">
   <h2>RELIABLE TECH FOR STAYING CLOSE</h2>
   <p>Low-latency voice and video feels like you’re in the same room. Wave hello over video, watch friends stream their games, or gather up and have a drawing session with screen share.</p>
 </div>

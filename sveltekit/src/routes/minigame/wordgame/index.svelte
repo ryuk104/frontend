@@ -46,6 +46,7 @@
 <style lang="scss">
   @import '../../../global/stylesheet/_layout.scss';
 	@import '../../../global/stylesheet/main.scss';
+  /*
   .input-select {
     @apply {
       bg-gray-200
@@ -57,12 +58,14 @@
       px-4
       text-gray-700
       leading-tight;
+      
     }
     &:focus {
       @apply
         outline-none
-        bg-white;
+        bg-white
         // border-selected;
     }
   }
+  */
 </style>
