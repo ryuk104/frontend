@@ -1,5 +1,3 @@
-
-
 <script>
   export let money = 0;
 </script>

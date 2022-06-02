@@ -1,7 +1,5 @@
 
-import App from "./index.svelte";
 
-const app = new App({
   target: document.body,
   props: {
     teamNames: ["Dunning–Kruger Effect", "Impostor Syndrome"],
@@ -93,7 +91,8 @@ const app = new App({
           }
         ]
       },
-      {
+      
+       { 
         question: "Which language should you rewrite something in?",
         answers: [
           {
@@ -120,10 +119,3 @@ const app = new App({
             text: "Elixir",
             money: 1
           }
-        ]
-      }
-    ]
-  }
-});
-
-export default app;

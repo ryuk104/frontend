@@ -1,10 +1,10 @@
 
 
 <script>
-  import Bank     from './Bank.svelte';
-  import Team     from './Team.svelte';
+  import Bank from './Bank.svelte';
+  import Team from './Team.svelte';
   import Question from './Question.svelte';
-  import Answer   from './Answer.svelte';
+  import Answer from './Answer.svelte';
 
   export let qa;
   export let bankMoney = 0;
