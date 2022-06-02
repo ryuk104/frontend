@@ -14,7 +14,8 @@ const rootDomain = process.env["VITE_DOMAIN"]; // or your server IP for dev
 const originURL = process.env["VITE_SITE_URL"]; // or your server IP for dev
 
 const check = process.env.NODE_ENV
-const dev = check === 'development'
+const dev = process.env.NODE_ENV === 'development'
+
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {

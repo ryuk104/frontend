@@ -76,6 +76,8 @@ onMount(async () => {
 
             <input type="submit" class="logbtn" value="login" id="loginbutton" >
 
+
+
             <div class="bottom-text">
                 Don't have account? <a href="/signup"> Sign up</a>
             
