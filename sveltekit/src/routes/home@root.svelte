@@ -20,6 +20,7 @@
   import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
   import Settings from "$lib/components/Nav/Settings.svelte";
+
   import { clickOutside } from "$lib/actions/clickOutside";
 
  
@@ -100,7 +101,7 @@
   <CustomeMenu></CustomeMenu>
   <Stories></Stories>
   <Friendsactivity>
-    <UserSuggestions users={$user.users} />
+  <UserSuggestions users={$user.users} />
   </Friendsactivity>
 <!--   <Instagram></Instagram> -->
 

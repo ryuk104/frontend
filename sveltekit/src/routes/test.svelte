@@ -37,6 +37,10 @@
 
 	import Modal from '$lib/components/Modal.svelte'
 	import SveltyPicker from '$lib/components/calender/SveltyPicker.svelte'
+	import Guild from '$lib/components/guild.svelte'
+	import Settingbtn from '$lib/components/settingbtn.svelte'
+
+
 
 	const filesPath = '/'; 
     let fileToUpload = null;
@@ -104,6 +108,8 @@
 
 
 <SveltyPicker/>
+<Guild/>
+<Settingbtn/>
 
 
   <Modal>
