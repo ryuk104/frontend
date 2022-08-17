@@ -1,6 +1,4 @@
-import styles from './styles.module.css'
-import React, { useRef } from 'react'
-import clsx from 'clsx'
+<script>
 import VideoPlayerActions from './VideoPlayerActions'
 import VideoDescription from '../VideoDescription/VideoDescription'
 import { useIntersectionVideoPlayer } from '../../hooks/useIntersectionVideoPlayer'
@@ -14,8 +12,11 @@ const VideoPlayer = (props) => {
   })
 
   const { src } = props
+)}
+)
+</script>
 
-  return (
+
     <div className={styles.wrapper}>
       <video
         className={styles.video}
@@ -30,7 +31,6 @@ const VideoPlayer = (props) => {
       <VideoPlayerActions {...props} />
       <VideoDescription {...props} />
     </div>
-  )
-}
+  
 
 export default VideoPlayer

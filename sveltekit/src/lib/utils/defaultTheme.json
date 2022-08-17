@@ -1,0 +1,21 @@
+{
+    "primary-color": "#368dff",
+    "background-color": "#202124",
+    "drawer-bg-color": "#1a1a1d",
+    "success-color": "#31c938",
+    "alert-color": "#ff3636",
+    "warn-color": "#ff6436",
+    "main-header-bg-color": "#37393c",
+    "side-header-bg-color": "#27292c",
+    "context-menu-bg-color": "#2b2c2f",
+    "my-chat-bubble-color": "#161719",
+    "others-chat-bubble-color": "#ffffff0d",
+    "card-color": "#292a2d",
+    "popout-color": "#1a1a1d",
+    "link-color": "#68aaff",
+    "quote-bg-color": "rgba(255, 255, 255, 0.05)",
+    "typing-status-bg-color": "#1a1a1d",
+    "pwa-theme-color": "#1a1a1d",
+    "spoiler-color": "rgb(30, 30, 40)",
+    "hidden-quote-color": "rgb(200, 200, 200, 0.8)"
+}

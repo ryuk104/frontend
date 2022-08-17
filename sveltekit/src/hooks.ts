@@ -11,6 +11,13 @@ const originURL = "http://127.0.0.1:4000"; // or your server IP for dev
 
 export const ssr = false;
 
+/** @type {import('@sveltejs/kit').Handle} */
+export async function handle({ event, resolve }) {
+    return resolve(event, { ssr: false });
+}
+
+
+
 import { MemoryStore } from 'express-session';
 
 const headers = {
@@ -25,6 +32,7 @@ const headers = {
 const checkUserAgent = (userAgent: string) =>
 	/i(Phone|Pad|Pod)/i.test(userAgent);
 
+/*
 export const handle: Handle = async ({ event, resolve }) => {
 	event.locals.iOS = checkUserAgent(event.request.headers.get("User-Agent"));
 
@@ -35,7 +43,7 @@ export const handle: Handle = async ({ event, resolve }) => {
 
 	return response;
 };
-
+*/
 export const getSession: GetSession = (event) => {
 	return event.locals.iOS
 		? {

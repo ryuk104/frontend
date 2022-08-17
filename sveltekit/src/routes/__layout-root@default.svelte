@@ -7,8 +7,8 @@
 
 </script>
 
-<Topnavbutton></Topnavbutton>
-<Leftnavbar></Leftnavbar>
+<!--<Topnavbutton></Topnavbutton>-->
+<!--<Leftnavbar></Leftnavbar>-->
 <Chatchannel></Chatchannel>
 <Guild/>
 <CustomeMenu></CustomeMenu>

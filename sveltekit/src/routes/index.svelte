@@ -39,6 +39,7 @@
     <div class="logo">Uninet</div>
         <nav>
             <ul class="nav_links">
+              <li><a href="/home">Home</a></li>
                 <li><a href="/support">support</a></li>
                 <li><a href="/music/home">Music</a></li>
                 <li><a href="/safety">safety</a></li>

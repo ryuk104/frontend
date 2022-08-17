@@ -1,7 +1,6 @@
 <script>
   import { onMount, onDestroy, createEventDispatcher } from 'svelte'
   import * as helpers from './helper.js'
-  import { browser } from '$app/env';
   export let image
   export let crop = { x: 0, y: 0 }
   export let zoom = 1

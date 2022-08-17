@@ -27,7 +27,7 @@
   flex-direction: row;
   display: list-item;
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 65%;
   z-index: -1;
   transform: translate(-70%, -350%);

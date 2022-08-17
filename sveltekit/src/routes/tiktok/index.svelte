@@ -6,6 +6,7 @@
     import Controls from '$lib/components/tiktok/Controls.svelte';
     import Screen from '$lib/components/tiktok/Screen.svelte';
 
+
     import {tick} from 'svelte'
     let introProgress, zoomOut
     tick().then(() => zoomOut = true)
@@ -16,14 +17,12 @@
 <Lazy></Lazy>
 
 
-
 <div id="wrapper">
     <div class="slides fullpage" style="transform: scale()">
           <Swipeable numScreens="5" direction="vertical" let:current bind:progress={introProgress}>
           <section class:current={current == 0 && zoomOut}>
               <div class="topimage" style="opacity: {1 - Math.abs($introProgress)}">
                   <div class="bg" style="background-image:url('https://picsum.photos/600')">
-                    <img src="https://picsum.photos/600" alt="dsad">
                 </div>
                   <div class="topgradient"></div>
                   <div class="bottomgradient"></div>
@@ -37,7 +36,9 @@
           
           <section class:current={current == 2}>
               <div class="topimage" style="opacity: {1 - Math.abs($introProgress - 2)}">
-                  <div class="bg" style="background-image:url('https://images.unsplash.com/photo-1570030289513-f44af3cd0944?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60')"></div>
+                  <div class="bg" >
+                    <video src="https://youtu.be/fsRjU3XnJZE">
+                </div>
                   <div class="topgradient"></div>
                   <div class="bottomgradient"></div>
               </div>
@@ -73,23 +74,11 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      user-select: none;
   }
   .fullpage .inner {
       width: 100%;
       height: 100%;
       position: absolute;
-  }
-  .login {
-      background: black;
-      text-align: center;
-      top: 0;
-  }
-  .login .bg {
-      transform: scale(1);
-  }
-  .login .inner {
-      top: 0;
   }
   
   .btn {
@@ -140,7 +129,7 @@
   }
   .topimage {
       width: 100%;
-      height: 50%;
+      height: 100%;
       overflow: hidden;
       position: relative;
   }
@@ -149,16 +138,16 @@
       position: absolute;
       top: 0;
       left: 0;
-      width: 100%;
-      height: 50%;
+      width: 10%;
+      height: 10%;
   }
   .topimage .bottomgradient {
       background: linear-gradient(0deg, #000000, #00000000);
       position: absolute;
       bottom: 0;
       left: 0;
-      width: 100%;
-      height: 30%;
+      width: 10%;
+      height: 10%;
   }
   
   .dots {
@@ -183,9 +172,9 @@
   #wrapper {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 600px;
       height: 100vh;
-      width: 100vw;
+      width: 50vw;
       overflow: hidden;
       margin: 0;
       font-family: Lato, -apple-system, BlinkMacSystemFont, Segoe UI, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;

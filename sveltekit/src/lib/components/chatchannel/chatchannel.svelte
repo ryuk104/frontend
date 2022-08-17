@@ -2,7 +2,6 @@
 import { bookData } from '../../../testdb/user.js';		 
 import Userprofile from '../searchbar/userprofile.svelte';
 import NoResults from '../searchbar/userprofile.svelte';
-import ModalOne from "../ModalOne.svelte";
 import Textchannelprofile from './textchannelprofile.svelte'
 import Postbuttonpopup from './textchannelprofile.svelte'
 import Minimusicplayer from '../musicplayer/minimusicplayer.svelte';
@@ -11,117 +10,10 @@ import Player from '../Player/Player.svelte';
 
 
 
-
-
-export let searchTerm = "";
-export let filteredBooks = [];
-
-
-const searchBooks = () => {	
-		return filteredBooks = bookData.filter(Userprofile => {
-			let username = Userprofile.username.toLowerCase();
-			return username.includes(searchTerm.toLowerCase())
-		});
-}
-
-// search bar
-let searchbar = "";
-
-function sendData(e){
-  let searchResults = ("searchResults");
-  let searchmatch = e.value.match(/^[a-zA-Z ]*/);
-  let searchmatch2 = e.value.match(/\s*/);
-
-  if (match2[0] === e.value){
-    searchResults.innerHTML = "";
-    return;
-  }
-  if (match[0] === e.value){
-    fetch('getSearch', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({name: e.target.value})
-  }).then(res => res.json()).then(data => {
-    let payload = data.payload;
-    searchResults.innerHTML = "";
-    if(payload.length < 1){
-      searchResults.innerHTML = "No results found";
-      return;
-    }
-    payload.forEach((item, index) => {
-      if(index > 0) searchResults.innerHTML += "<hr>";
-      searchResults.innerHTML += `<a href="/profile/${item.id}">${item.name}</a>`;
-    })
-  });
-  return;
-  }
-  searchResults.innerHTML = '';
-}
-
-
-//usermetadata
-/*
-const fetchusers = async () => {
-        const login = await fetch("http://localhost:8080/api/user/getusers", {
-            method: "GET",
-            mode: 'cors',
-            cache: "default",
-            credentials: "same-origin",
-            referrerPolicy: 'no-referrer', 
-            headers: {
-                "Content-Type": "application/x-www-form-urlencoded",
-                "Access-Control-Allow-Origin": "*"
-            },
-        });
-}
-*/
-
-function openbookshelf() {
-    const bookshelfs = document.querySelector('bookshelf');
-		bookshelfs.classList.toggle("show");
-};
-
-let active = false;
-
 </script>
 
 <nav class="chatchaneel">
-    <div>
-      <section id="query-section">
-        <div id="search-input-cont">
-        <input type="text" 
-               id="search-field" 
-               placeholder="Search"
-               autocomplete="off"
-               bind:value={searchTerm}
-               on:click={() => (active = true)}
-               on:input={searchBooks} />
-        </div> 
-      </section>
-
-      <button on:click={openbookshelf}>
-        dasds
-      </button>
-
-<div id="bookshelf">
-        {#if searchTerm && filteredBooks.length === 0}
-          <NoResults />		
-        {:else if filteredBooks.length > 0}
-          {#each filteredBooks as {username, profilepicture, desc}}
-            <Userprofile {username} 
-                  {profilepicture} 
-                  {desc}
-                  />
-          {/each}	
-        {:else}
-          {#each bookData as {username, profilepicture, desc}}
-                  <Userprofile {username} 
-                  {profilepicture} 
-                  {desc}
-                   />
-          {/each}	
-        {/if}
-</div>	
+    
       
 
 <hr>
@@ -171,8 +63,8 @@ let active = false;
 
 
 
-    <Minimusicplayer></Minimusicplayer>
-    <Player></Player>
+    <!--<Minimusicplayer></Minimusicplayer>-->
+    <!--<Player></Player>-->
       
 
 

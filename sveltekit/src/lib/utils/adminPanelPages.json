@@ -1,0 +1,8 @@
+{
+  "overview":{
+    "name": "Overview",
+    "id": "overview",
+    "icon": "settings",
+    "component": "Overview"
+  }
+}
