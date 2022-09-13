@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { ServersModule } from "$lib/store/modules/servers";
-  import { UsersModule } from "$lib/store/modules/users";
-  import { MeModule } from "$lib/store/modules/me";
+  import { ServersModule } from "$lib/stores/servers";
+  import { UsersModule } from "$lib/stores/users";
+  import { MeModule } from "$lib/stores/me";
   
   import ConnectionStatus from "$lib/components/server/popouts/ConnectionStatusPopout.svelte";
   import BrowserTitleHandler from "$lib/components/server/renderless/BrowserIcoHandler";
