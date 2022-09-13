@@ -2,10 +2,10 @@
   "name": "sveltekit",
   "version": "0.0.1",
   "scripts": {
-    "dev": "svelte-kit dev",
-    "build": "svelte-kit build",
-    "package": "svelte-kit package",
-    "preview": "svelte-kit preview",
+    "dev": "vite dev",
+    "build": "vite build",
+    "package": "vite package",
+    "preview": "vite preview",
     "lint": "prettier --ignore-path .gitignore --check --plugin-search-dir=. . && eslint --ignore-path .gitignore .",
     "format": "prettier --ignore-path .gitignore --write --plugin-search-dir=. .",
     "stripe:init": "node scripts/createProductsOnStripe.js"
@@ -24,7 +24,7 @@
     "peerjs": "^1.4.1",
     "postcss": "^8.4.13",
     "postcss-load-config": "^3.1.4",
-    "postcss-uncss": "^0.17.0",
+    "postcss-uncss": "^0.14.0",
     "prettier": "^2.6.2",
     "prettier-plugin-svelte": "^2.7.0",
     "sass": "^1.51.0",
@@ -83,7 +83,9 @@
     "sveltekit-i18n": "^2.2.2",
     "sveltestrap": "^5.9.0",
     "tweetnacl-util": "^0.15.1",
-    "uncss": "^0.17.3"
+    "uncss": "^0.14.1",
+    "vite": "^3.0.0",
+		"vite-plugin-comlink": "^3.0.4"  
   },
   "proxy": "http://localhost:8080"
 }

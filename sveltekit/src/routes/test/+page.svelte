@@ -1,23 +1,4 @@
-<script context="module">
-	export async function load({ fetch }) {
-	  const res = await fetch('https://run.mocky.io/v3/d1a39d21-9f98-4719-94de-84cc746e265d')
-	  const textchannelprofile = await res.json()
-	
-  
-	if (res.ok) {
-	  return {
-		props: {
-		  textchannelprofile
-		}
-	  }
-	}
-  
-	return {
-	  status: res.status,
-	  error: new Error('fetch failed')
-	}
-  }
-  </script>
+
   
 
 
@@ -29,6 +10,8 @@
 
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 
 
 	export let textchannelprofile

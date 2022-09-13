@@ -1,31 +1,35 @@
 <script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-	let path;
+	// import type { Load } from "@sveltejs/kit";
 
-	export const load: Load = async ({ fetch, stuff }) => {
-		const response = await fetch("/music/trending.json?q=browse");
-		const data = await response.json();
-		if (!response.ok) {
-			return {
-				status: response.status,
-				error: Error(`Error: ${response.statusText}`)
-			};
-		}
-		const { carouselItems, data: _data } = data;
-		path = stuff.page;
-		return {
-			props: {
-				carouselItems,
-				_data
-			},
-			cache: 3600,
-			status: 200
-		};
-	};
+	// let path;
+
+	// export const load: Load = async ({ fetch, stuff }) => {
+	// 	const response = await fetch("/music/trending.json?q=browse");
+	// 	const data = await response.json();
+	// 	if (!response.ok) {
+	// 		return {
+	// 			status: response.status,
+	// 			error: Error(`Error: ${response.statusText}`)
+	// 		};
+	// 	}
+	// 	const { carouselItems, data: _data } = data;
+	// 	path = stuff.page;
+	// 	return {
+	// 		props: {
+	// 			carouselItems,
+	// 			_data
+	// 		},
+	// 		cache: 3600,
+	// 		status: 200
+	// 	};
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	export let carouselItems: ICarousel;
 	export let _data;
 	import Carousel from "$components/Carousel/Carousel.svelte";

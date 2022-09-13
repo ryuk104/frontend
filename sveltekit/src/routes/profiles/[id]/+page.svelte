@@ -1,26 +1,8 @@
-<script context="module">
-    export async function load({ params, fetch, url }) {
-    const id = url.params
-    const res = await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-    const userprofile = await res.json()
-  
 
-  if (res.ok) {
-    return {
-      props: {
-        userprofile
-      }
-    }
-  }
-
-  return {
-    status: res.status,
-    error: new Error('fetch failed')
-  }
-}
-</script>
 
 <script>
+    throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
     export let userprofile
 </script>
 

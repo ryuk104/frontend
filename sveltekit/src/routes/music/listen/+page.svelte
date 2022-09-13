@@ -1,50 +1,6 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	export const load: Load = async ({ url, params, fetch }) => {
-		const id = url.searchParams.get('id');
-		const playlist = url.searchParams.get('list') || undefined;
-		// const meta = await get('player', { videoId: id })
-		// const data = await meta.body
-
-		if (!id) {
-			return { redirect: '/trending', status: 301 };
-		}
-		const metadata = await fetch(
-			`/api/player.json?videoId=${id ? id : ''}${
-				playlist ? `&playlistId=${playlist}` : ''
-			}`
-		);
-		const list = await fetch(
-			`/api/next.json?videoId=${id ? id : ''}${
-				playlist ? `&playlistId=${playlist}` : ''
-			}`
-		);
-		const listData = await list.json();
-
-		const data = await metadata.json();
-		const {
-			videoDetails: {
-				title = '',
-				videoId = '',
-				thumbnail: { thumbnails = [] } = {}
-			} = {}
-		} = data;
-
-		return {
-			props: {
-				title,
-				thumbnails,
-				videoId,
-				playlist,
-				related: listData
-				// data: listData
-			},
-			status: 200
-		};
-	};
-</script>
-
 <script>
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	export let videoId;
 	export let playlist;
 	export let thumbnails = [];

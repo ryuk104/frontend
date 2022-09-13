@@ -1,4 +1,6 @@
-export async function post() {
+
+// @migration task: Check imports
+export async function POST() {
 	/**
 	 * Note: You must at your Daily API key to an .env file
 	 * for this request to work. Refer to the README for
@@ -24,28 +26,19 @@ export async function post() {
 		});
 		if (res.ok) {
 			const room = await res.json();
-			return {
-				status: 200,
-				body: JSON.stringify({
-					success: true,
-					room
-				})
-			};
+			return new Response(JSON.stringify({
+				success: true,
+				room
+			}));
 		} else {
-			return {
-				status: res.status,
-				body: JSON.stringify({
-					success: false
-				})
-			};
+			return new Response(JSON.stringify({
+				success: false
+			}), { status: res.status });
 		}
 	} catch (error) {
-		return {
-			status: 500,
-			body: JSON.stringify({
-				success: false,
-				message: 'something went wrong with the room submit!'
-			})
-		};
+		return new Response(JSON.stringify({
+			success: false,
+			message: 'something went wrong with the room submit!'
+		}), { status: 500 });
 	}
 }

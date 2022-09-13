@@ -1,10 +1,12 @@
 
 
 <script>
-  import Bank from './Bank.svelte';
-  import Team from './Team.svelte';
-  import Question from './Question.svelte';
-  import Answer from './Answer.svelte';
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
+  import Bank from '../Bank.svelte';
+  import Team from '../Team.svelte';
+  import Question from '../Question.svelte';
+  import Answer from '../Answer.svelte';
 
   export let qa;
   export let bankMoney = 0;

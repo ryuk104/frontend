@@ -1,5 +1,7 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
 import type { Request, Response } from '@sveltejs/kit';
-import stripe from './_stripe';
+import stripe from '../_stripe';
 
 export async function post(req: Request<any, { priceId: string }>): Promise<Response> {
 	if (typeof req.body.priceId !== 'string') {

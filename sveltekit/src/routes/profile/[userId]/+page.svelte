@@ -1,31 +1,35 @@
 <script context="module">
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
 
-  export async function load({ params, fetch }) {
-    try {
-      const { userId } = params;
-      const res = await fetch(`${BASE_URL}/api/user/${userId}`);
 
-      const data = await res.json();
+  // export async function load({ params, fetch }) {
+  //   try {
+  //     const { userId } = params;
+  //     const res = await fetch(`${BASE_URL}/api/user/${userId}`);
 
-      return {
-        props: {
-          user: data.data.user,
-          posts: data.data.posts,
-        },
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
+  //     const data = await res.json();
 
-  import { bookData } from '../../testdb/user.js';
+  //     return {
+  //       props: {
+  //         user: data.data.user,
+  //         posts: data.data.posts,
+  //       },
+  //     };
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // }
+
+  // import { bookData } from '../../../testdb/user.js';
 </script>
 
     	 
 
   
   <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { onMount } from "svelte";
   import UserPosts from "$lib/components/UserPosts.svelte";
   import { BASE_URL } from "$lib/config";

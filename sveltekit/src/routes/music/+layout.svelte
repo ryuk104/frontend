@@ -1,16 +1,8 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	export const load: Load = async ({ url }) => {
-		return {
-			props: {
-				key: url.pathname
-			},
-			stuff: { page: url.pathname }
-		};
-	};
-</script>
+
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import Nav from '$components/Nav/Nav.svelte';
 	import Leftnav from '$components/Nav/leftnav.svelte';
 

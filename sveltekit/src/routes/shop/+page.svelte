@@ -1,18 +1,8 @@
-<script context="module" lang="ts">
 
-	export async function load({ fetch }) {
-		const res = await fetch('/shop/plans.json');
-		const plans = await res.json();
-		return {
-			status: 200,
-			props: {
-				plans
-			}
-		};
-	}
-</script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import Pricing from '$lib/components/Pricing/index.svelte';
 	import StripeProvider from '$lib/components/stripe/StripeProvider.svelte';
 

@@ -1,18 +1,22 @@
 <script context="module">
-  import { BASE_URL } from "$lib/config";
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export async function load({ fetch }) {
-    const res = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
+  // import { BASE_URL } from "$lib/config";
 
-    return {
-      props: {
-        users: await res.json(),
-      },
-    };
-  }
+  // export async function load({ fetch }) {
+  //   const res = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
+
+  //   return {
+  //     props: {
+  //       users: await res.json(),
+  //     },
+  //   };
+  // }
 </script>
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { onMount } from "svelte";
   import Users from "$lib/components/Users.svelte";
   import { Button, Card, Col, Icon, Row, TextField } from "svelte-materialify";

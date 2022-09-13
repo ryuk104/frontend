@@ -1,32 +1,36 @@
 <script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-	import { api } from "$lib/api";
-	export const load: Load = async ({ params, fetch }) => {
-		const response = await api(fetch, {
-			browseId: params.slug,
-			endpoint: "browse",
-			path: "artist",
-			type: "artist"
-		});
-		let { header, body, visitorData } = (await response.body) as ArtistPage;
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-		if (response.ok) {
-			return {
-				props: {
-					carousels: body?.carousels,
-					visitorData,
+	// import type { Load } from "@sveltejs/kit";
+	// import { api } from "$lib/api";
+	// export const load: Load = async ({ params, fetch }) => {
+	// 	const response = await api(fetch, {
+	// 		browseId: params.slug,
+	// 		endpoint: "browse",
+	// 		path: "artist",
+	// 		type: "artist"
+	// 	});
+	// 	let { header, body, visitorData } = (await response.body) as ArtistPage;
 
-					header,
-					songs: body?.songs,
-					id: params.slug
-				},
-				status: 200
-			};
-		}
-	};
+	// 	if (response.ok) {
+	// 		return {
+	// 			props: {
+	// 				carousels: body?.carousels,
+	// 				visitorData,
+
+	// 				header,
+	// 				songs: body?.songs,
+	// 				id: params.slug
+	// 			},
+	// 			status: 200
+	// 		};
+	// 	}
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import Carousel from "$lib/components/Carousel/Carousel.svelte";
 	import ArtistPageHeader from "$lib/components/Music/ArtistPageHeader/ArtistPageHeader.svelte";
 	import { page } from "$app/stores";
