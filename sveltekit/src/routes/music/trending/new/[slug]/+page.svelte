@@ -1,40 +1,8 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	export const load: Load = async ({ params, fetch, url }) => {
-		// const params = url.searchParams.get('params')
-		const response = await fetch(
-			`/trending/new/${params.slug}.json` +
-				`${
-					url.searchParams.get('params')
-						? `?params=${url.searchParams.get('params')}`
-						: ''
-				}` +
-				`${
-					url.searchParams.get('itct')
-						? `&itct=${encodeURIComponent(url.searchParams.get('itct'))}`
-						: ''
-				}`
-		);
-		const {
-			sections = [],
-			header = '',
-			title = [] || ''
-		} = await response.json();
-		// console.log(sections, header, title)
-		if (response.ok) {
-			return {
-				props: {
-					sections,
-					header,
-					title
-				},
-				status: 200
-			};
-		}
-	};
-</script>
+
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import type { sections } from '$lib/types/components/sections';
 	export let sections: sections;
 

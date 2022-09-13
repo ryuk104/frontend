@@ -1,31 +1,35 @@
 <script context="module" lang="ts">
-  export const prerender = false
-  export const ssr = false
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  import {
-    getDefaultTimeLimit,
-  } from "$lib/components/minigame/wordgame/localstorage"
+  // export const prerender = false
+  // export const ssr = false
 
-  export async function load( { page } ) {
-    const response = await fetch( "https://hex-spell.com/data/wordlist.txt" )
-    const wordlist = await response.text()
-    const word_set = new Set( wordlist.split( "\n" ) )
-    const dictionary = {
-      isWord: ( text ) => {
-        return word_set.has( text )
-      }
-    }
+  // import {
+  //   getDefaultTimeLimit,
+  // } from "$lib/components/minigame/wordgame/localstorage"
 
-    return {
-      props: {
-        dictionary,
-        time_limit: parseInt( page.query.get( "time" ), 10 ) || getDefaultTimeLimit(),
-      }
-    }
-  }
+  // export async function load( { page } ) {
+  //   const response = await fetch( "https://hex-spell.com/data/wordlist.txt" )
+  //   const wordlist = await response.text()
+  //   const word_set = new Set( wordlist.split( "\n" ) )
+  //   const dictionary = {
+  //     isWord: ( text ) => {
+  //       return word_set.has( text )
+  //     }
+  //   }
+
+  //   return {
+  //     props: {
+  //       dictionary,
+  //       time_limit: parseInt( page.query.get( "time" ), 10 ) || getDefaultTimeLimit(),
+  //     }
+  //   }
+  // }
 </script>
 
 <script lang="ts">
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   export let time_limit: number
   export let dictionary
 

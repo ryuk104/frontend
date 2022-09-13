@@ -1,36 +1,40 @@
 <script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-	let path;
-	export const load: Load = async ({ fetch, stuff }) => {
-		const response = await fetch("/music/home.json");
-		const data = await response.json();
-		if (!response.ok) {
-			return {
-				status: response.status,
-				error: new Error(`Error: ${response.statusText}`)
-			};
-		}
-		const {
-			carousels,
-			headerThumbnail = undefined,
-			continuations,
-			visitorData
-		} = await data;
-		path = stuff.page;
-		return {
-			props: {
-				carousels,
-				headerThumbnail,
-				continuations,
-				visitorData
-			},
-			cache: 3600,
-			status: 200
-		};
-	};
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+
+	// import type { Load } from "@sveltejs/kit";
+	// let path;
+	// export const load: Load = async ({ fetch, stuff }) => {
+	// 	const response = await fetch("/music/home.json");
+	// 	const data = await response.json();
+	// 	if (!response.ok) {
+	// 		return {
+	// 			status: response.status,
+	// 			error: new Error(`Error: ${response.statusText}`)
+	// 		};
+	// 	}
+	// 	const {
+	// 		carousels,
+	// 		headerThumbnail = undefined,
+	// 		continuations,
+	// 		visitorData
+	// 	} = await data;
+	// 	path = stuff.page;
+	// 	return {
+	// 		props: {
+	// 			carousels,
+	// 			headerThumbnail,
+	// 			continuations,
+	// 			visitorData
+	// 		},
+	// 		cache: 3600,
+	// 		status: 200
+	// 	};
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import viewport from "$lib/actions/viewport";
 	import Carousel from "$lib/components/Carousel/Carousel.svelte";
 	import Header from "$lib/components/Layouts/Header.svelte";

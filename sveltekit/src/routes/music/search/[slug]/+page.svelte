@@ -1,35 +1,39 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-	let path;
-	export const load: Load = async ({ url, params, fetch, stuff }) => {
-		const slug = params.slug;
-		const filter = url.searchParams.get('filter') || '';
-		path = stuff.page;
-		// console.log(filter, page, slug)
-		const apiUrl = `/api/search.json?q=${encodeURIComponent(slug)}${
-			filter !== '' ? `&filter=${encodeURIComponent(filter)}` : ''
-		}`;
-		const response = await fetch(apiUrl);
-		const data = await response.json();
-		const { contents = {}, continuation = {}, didYouMean, error } = await data;
+	// import type { Load } from '@sveltejs/kit';
 
-		if (response.ok) {
-			return {
-				props: {
-					filter: filter,
-					contents: contents,
-					continuation: continuation,
-					didYouMean: didYouMean,
-					error
-				},
-				status: 200
-			};
-		}
-	};
+	// let path;
+	// export const load: Load = async ({ url, params, fetch, stuff }) => {
+	// 	const slug = params.slug;
+	// 	const filter = url.searchParams.get('filter') || '';
+	// 	path = stuff.page;
+	// 	// console.log(filter, page, slug)
+	// 	const apiUrl = `/api/search.json?q=${encodeURIComponent(slug)}${
+	// 		filter !== '' ? `&filter=${encodeURIComponent(filter)}` : ''
+	// 	}`;
+	// 	const response = await fetch(apiUrl);
+	// 	const data = await response.json();
+	// 	const { contents = {}, continuation = {}, didYouMean, error } = await data;
+
+	// 	if (response.ok) {
+	// 		return {
+	// 			props: {
+	// 				filter: filter,
+	// 				contents: contents,
+	// 				continuation: continuation,
+	// 				didYouMean: didYouMean,
+	// 				error
+	// 			},
+	// 			status: 200
+	// 		};
+	// 	}
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	export let continuation: NextContinuationData;
 	export let contents;
 	export let didYouMean;

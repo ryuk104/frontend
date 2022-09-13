@@ -1,22 +1,26 @@
 <script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-	import { onMount, setContext, tick } from "svelte";
-	export const load: Load = async ({ params }) => {
-		const playlistName = params.slug;
-		return {
-			props: {
-				playlistName
-			},
-			status: 200
-		};
-	};
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
+
+	// import type { Load } from "@sveltejs/kit";
+	// import { onMount, setContext, tick } from "svelte";
+	// export const load: Load = async ({ params }) => {
+	// 	const playlistName = params.slug;
+	// 	return {
+	// 		props: {
+	// 			playlistName
+	// 		},
+	// 		status: 200
+	// 	};
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import InfoBox from "$lib/components/Layouts/InfoBox.svelte";
 	import db from "$lib/db";
-	import List from "./_List.svelte";
-	import ListItem from "./_ListItem.svelte";
+	import List from "../_List.svelte";
+	import ListItem from "../_ListItem.svelte";
 	import { isPagePlaying, key } from "$lib/stores/stores";
 	import list from "$lib/stores/list";
 	import { getSrc, seededShuffle } from "$lib/utils";

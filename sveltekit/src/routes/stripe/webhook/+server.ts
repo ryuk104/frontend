@@ -1,5 +1,7 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
 import type { Request, Response } from '@sveltejs/kit';
-import stripe from './_stripe';
+import stripe from '../_stripe';
 
 const WEBHOOK_SECRET = process.env['STRIPE_WEBHOOK_SECRET'];
 

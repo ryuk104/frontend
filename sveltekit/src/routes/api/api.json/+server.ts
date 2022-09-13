@@ -1,8 +1,10 @@
-import Context from "./_modules/context";
-import { parseArtist } from "./_modules/parsers/artist";
-import { parseNextTrack } from "./_modules/parsers/next";
-import { parsePlaylist } from "./_modules/parsers/playlist";
-import { sendRequest } from "./_modules/request";
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
+import Context from "../_modules/context";
+import { parseArtist } from "../_modules/parsers/artist";
+import { parseNextTrack } from "../_modules/parsers/next";
+import { parsePlaylist } from "../_modules/parsers/playlist";
+import { sendRequest } from "../_modules/request";
 
 import type { Request, RequestHandler } from "@sveltejs/kit";
 

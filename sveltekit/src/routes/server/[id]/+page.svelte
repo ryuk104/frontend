@@ -1,26 +1,8 @@
-<script context="module" lang="ts">
-  import type { Load } from '@sveltejs/kit';
 
-  export async function load ({ url, fetch, params, stuff }) {
-    try {
-      const { serverId } = params;
-      const res = await fetch(`http://localhost:4000/api/server/${serverId}`);
-
-      const data = await res.json();
-
-      return {
-        props: {
-          user: data.data.user,
-          posts: data.data.posts,
-        },
-      };
-    } catch (error) {
-      console.log(error);
-    }
-  }
-</script>
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { onMount } from "svelte";
   import UserPosts from "$lib/components/UserPosts.svelte";
   import { BASE_URL } from "$lib/config";

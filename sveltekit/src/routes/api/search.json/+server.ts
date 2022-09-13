@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
 /* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 // import BaseContext from '$api/_modules/contexts/context'
 import { MusicResponsiveListItemRenderer } from "$lib/parsers";

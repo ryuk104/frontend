@@ -35,6 +35,8 @@
   </div>
 
 <script lang="ts">
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 import Header from "@/components/home-page/Header.vue";
 import LoadingScreen from "@/components/LoadingScreen.vue";
 import CustomButton from "@/components/CustomButton.vue";

@@ -1,24 +1,8 @@
-<script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
 
-	export const load: Load = async ({ url, params, fetch, stuff }) => {
-		const response = await fetch(`/explore/${params.slug}.json`);
-		const { sections, header, type } = await response.json();
-
-		let path = url.pathname;
-		return {
-			props: {
-				sections,
-				header,
-				type,
-				path
-			},
-			status: 200
-		};
-	};
-</script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import Carousel from '$lib/components/Carousel/Carousel.svelte';
 	import { Grid, GridItem } from '$lib/components/Grid';
 	import Header from '$lib/components/Layouts/Header.svelte';

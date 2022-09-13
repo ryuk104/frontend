@@ -1,21 +1,25 @@
 <script context="module">
-  import { BASE_URL } from "$lib/config";
+  throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-  export async function load({ fetch }) {
-    const posts = await fetch(`${BASE_URL}/api/post?page=0&limit=3`);
-    const users = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
-    const res = await Promise.all([posts, users]);
+  // import { BASE_URL } from "$lib/config";
 
-    return {
-      props: {
-        posts: await res[0].json(),
-        users: await res[1].json(),
-      },
-    };
-  }
+  // export async function load({ fetch }) {
+  //   const posts = await fetch(`${BASE_URL}/api/post?page=0&limit=3`);
+  //   const users = await fetch(`${BASE_URL}/api/user?page=0&limit=5`);
+  //   const res = await Promise.all([posts, users]);
+
+  //   return {
+  //     props: {
+  //       posts: await res[0].json(),
+  //       users: await res[1].json(),
+  //     },
+  //   };
+  // }
 </script>
 
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import PostCard from "$lib/components/insta/post/PostCard.svelte";
   import UserSideProfile from "$lib/components/insta/UserSideProfile.svelte";
   import UserSuggestions from "$lib/components/insta/UserSuggestions.svelte";
@@ -84,7 +88,7 @@
     
     import Postbuttonpopup from '$lib/components/postbuttonpopup.svelte'
 
-    import "../app.css";
+    import "../../app.css";
 
     
     

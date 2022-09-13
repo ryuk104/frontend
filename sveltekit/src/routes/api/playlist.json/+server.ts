@@ -1,3 +1,5 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
 import {
 	MusicResponsiveListItemRenderer,
 	MusicTwoRowItemRenderer
@@ -8,11 +10,11 @@ import type { NextContinuationData } from "$lib/types";
 import type { IListItemRenderer } from "$lib/types/musicListItemRenderer";
 import { map } from "$lib/utils/collections";
 import type { RequestHandler } from "@sveltejs/kit";
-import { buildRequest } from "./_api/request";
+import { buildRequest } from "../_api/request";
 import type {
 	PlaylistEndpointContinuation,
 	PlaylistEndpointParams
-} from "./_api/_base";
+} from "../_api/_base";
 export const get: RequestHandler = async ({ url }) => {
 	console.time("playlist");
 	const query = url.searchParams;

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./VideoSidebar.css";
+import "../VideoSidebar.css";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import MessageIcon from "@material-ui/icons/Message";
 import ShareIcon from "@material-ui/icons/Share";

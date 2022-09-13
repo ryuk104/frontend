@@ -1,3 +1,7 @@
+throw new Error("@migration task: Update +server.js (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292701)");
+
+
+// @migration task: Check imports
 import { MusicTwoRowItemRenderer } from "$lib/parsers";
 import { iter } from "$lib/utils/collections";
 import type { RequestHandler } from "@sveltejs/kit";

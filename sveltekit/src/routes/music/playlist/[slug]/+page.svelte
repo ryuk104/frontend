@@ -1,46 +1,10 @@
-<script context="module" lang="ts">
-	import type { Load } from "@sveltejs/kit";
-	export const load: Load = async ({ params, fetch, url }) => {
-		const { slug } = params;
-		const response = await fetch(`/api/playlist.json?list=${params.slug}`);
-		const data = await response.json();
 
-		// console.log(data);
-		const {
-			tracks = [],
-			header = {},
-			continuations = {},
-			carouselContinuations,
-			visitorData
-		} = await data;
-		if (!response.ok) {
-			return {
-				error: Error(response.statusText),
-				status: response.status
-			};
-		}
-		return {
-			props: {
-				tracks: tracks,
-				visitorData,
-				continuations: continuations,
-				carouselContinuations,
-				header: header,
-				id: slug,
-				key: url.pathname
-			},
-			stuff: {
-				path: url.pathname
-			},
-			cache: 3600,
-			status: 200
-		};
-	};
-</script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import ListItem from "$components/ListItem/ListItem.svelte";
-	import List from "./_List.svelte";
+	import List from "../_List.svelte";
 	import list from "$lib/stores/list";
 	import { isPagePlaying, showAddToPlaylistPopper } from "$lib/stores/stores";
 	import { setContext } from "svelte";

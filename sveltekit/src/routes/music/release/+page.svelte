@@ -1,37 +1,41 @@
 <script context="module" lang="ts">
-	import type { Load } from '@sveltejs/kit';
-	let path;
-	export const load: Load = async ({ stuff, url, fetch }) => {
-		path = stuff.page;
-		const browseId = url.searchParams.get('id') || '';
-		const pt = url.searchParams.get('type') || '';
-		const response = await fetch(
-			`/api/main.json?q=&endpoint=browse${
-				browseId ? `&browseId=${browseId}` : ''
-			}${pt ? `&pt=${pt}` : ''}`
-		);
-		const data = await response.json();
-		if (!response.ok) {
-			return {
-				props: {
-					status: response.status,
-					msg: response.body
-				}
-			};
-		}
+	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-		return {
-			props: {
-				data: data,
-				id: browseId
-			},
-			cache: 3600,
-			status: 200
-		};
-	};
+	// import type { Load } from '@sveltejs/kit';
+	// let path;
+	// export const load: Load = async ({ stuff, url, fetch }) => {
+	// 	path = stuff.page;
+	// 	const browseId = url.searchParams.get('id') || '';
+	// 	const pt = url.searchParams.get('type') || '';
+	// 	const response = await fetch(
+	// 		`/api/main.json?q=&endpoint=browse${
+	// 			browseId ? `&browseId=${browseId}` : ''
+	// 		}${pt ? `&pt=${pt}` : ''}`
+	// 	);
+	// 	const data = await response.json();
+	// 	if (!response.ok) {
+	// 		return {
+	// 			props: {
+	// 				status: response.status,
+	// 				msg: response.body
+	// 			}
+	// 		};
+	// 	}
+
+	// 	return {
+	// 		props: {
+	// 			data: data,
+	// 			id: browseId
+	// 		},
+	// 		cache: 3600,
+	// 		status: 200
+	// 	};
+	// };
 </script>
 
 <script lang="ts">
+	throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
 	import ListItem from '$components/ListItem/ListItem.svelte';
 	import { currentTitle, key } from '$stores/stores';
 	import { parsePageContents } from '$lib/js/releaseUtils';

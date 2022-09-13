@@ -1,4 +1,6 @@
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { onMount, onDestroy } from 'svelte';
   import { quintOut } from 'svelte/easing';
   import { crossfade, fade, fly } from 'svelte/transition';
