@@ -1,4 +1,5 @@
-  <div class="server-invite-page">
+  <!--
+    <div class="server-invite-page">
     <Header />
     <div class="error" v-if="error">
       Invalid ID or you are banned from the server.
@@ -34,7 +35,10 @@
     </div>
   </div>
 
+-->
+
 <script lang="ts">
+  /*
   throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 import Header from "@/components/home-page/Header.vue";
@@ -113,6 +117,7 @@ export default defineComponent({
     },
   },
 });
+*/
 </script>
 
 <style scoped lang="scss">

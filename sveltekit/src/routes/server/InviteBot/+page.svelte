@@ -1,3 +1,4 @@
+  <!--
   <div class="invite-bot-page">
     <Header />
     <LoadingScreen v-if="!bot" />
@@ -43,8 +44,9 @@
       </div>
     </div>
   </div>
-
+  -->
 <script lang="ts">
+  /*
   throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
 
 import Header from "@/components/home-page/Header.vue";
@@ -151,6 +153,7 @@ export default defineComponent({
     },
   },
 });
+*/
 </script>
 
 <style scoped lang="scss">

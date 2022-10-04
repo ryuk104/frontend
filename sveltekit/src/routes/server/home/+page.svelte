@@ -1,4 +1,5 @@
 <script lang="ts">
+  /*
   import { ServersModule } from "$lib/stores/servers";
   import { UsersModule } from "$lib/stores/users";
   import { MeModule } from "$lib/stores/me";
@@ -165,8 +166,10 @@
       },
     },
   });
+  */
 </script>
 
+<!-- 
 <div class="app">
   <BrowserTitleHandler />
   <ElectronBadgeHandler v-if="$isElectron" />
@@ -194,6 +197,8 @@
     </div>
   </Drawers>
 </div>
+-->
+
 
 <style lang="scss" scoped>
   .fade-enter-active,
