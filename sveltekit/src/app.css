@@ -66,6 +66,7 @@ input:focus-visible {
 }
 
 @layer utilities {
+	/*
 	.immich-form-input {
 		@apply bg-slate-100 p-2 rounded-md focus:border-immich-primary text-sm;
 	}
@@ -81,6 +82,7 @@ input:focus-visible {
 	.immich-text-button {
 		@apply flex place-items-center place-content-center gap-2 hover:bg-immich-primary/5 p-2 rounded-lg font-medium;
 	}
+*/
 
 	/* width */
 	.immich-scrollbar::-webkit-scrollbar {

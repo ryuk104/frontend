@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import Topnavbutton from "$lib/components/Topnavbutton.svelte";
     import Leftnavbar from "$lib/components/leftnavbar.svelte";
     import Chatchannel from "$lib/components/chatchannel/chatchannel.svelte";

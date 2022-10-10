@@ -14,7 +14,7 @@
 		getRandomWord,
 	} from '$lib/components/minigame/wordle/data-model'
 	import * as store from '$lib/components/minigame/wordle/store'
-	import { browser } from '$app/env'
+	import { browser } from '$app/environment'
 	import { page } from '$app/stores'
 	import Footer from '$lib/components/minigame/wordle/Footer.svelte'
 	import Header from '$lib/components/minigame/wordle/Header.svelte'

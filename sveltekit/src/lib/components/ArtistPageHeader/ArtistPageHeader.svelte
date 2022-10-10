@@ -3,7 +3,7 @@
 	import Icon from '$lib/components/Icon/Icon.svelte';
 	import { theme } from '$lib/stores/stores';
 	import { onMount } from 'svelte';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import { shuffle } from '$lib/utils';
 
 	export let header;

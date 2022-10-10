@@ -1,7 +1,7 @@
 <script>
   import StickyNote from "../StickyNote/StickyNote.svelte";
   import Recorder from "../Recorder/Recorder.svelte";
-  import {browser} from '$app/env'
+  import {browser} from '$app/environment'
   import { onMount } from "svelte"; 
 
   let support = true;

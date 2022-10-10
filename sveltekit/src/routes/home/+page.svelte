@@ -81,7 +81,7 @@
     import Friendsactivity from "$lib/components/friendsactivity/friendsactivity.svelte";
     import Stories from "$lib/components/stories/stories.svelte";
     import Modal from '$lib/components/Modal.svelte'
-    import {browser} from '$app/env'
+    import {browser} from '$app/environment'
     import {goto} from '$app/navigation'
 
 

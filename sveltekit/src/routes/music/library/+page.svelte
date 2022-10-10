@@ -1,7 +1,7 @@
 
 
 <script lang="ts">
-	import { browser } from "$app/env";
+	import { browser } from "$app/environment";
 	import Icon from "$lib/components/Icon/Icon.svelte";
 
 	import Listing from "$lib/components/Item/Listing.svelte";

@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import { goto } from '$app/navigation';
 	import camOnIcon from './assets/vid_on.svg';
 	import camOffIcon from './assets/vid_off.svg';

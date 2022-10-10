@@ -1,7 +1,7 @@
 <script context="module" lang="ts">
 	throw new Error("@migration task: Check code was safely removed (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292722)");
 
-	// import { browser, dev } from '$app/env';
+	// import { browser, dev } from '$app/environment';
 
 	// // we don't need any JS on this page, though we'll load
 	// // it in dev so that we get hot module replacement...

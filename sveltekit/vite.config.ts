@@ -21,11 +21,20 @@ const config: UserConfig = {
 		cssTarget: ["chrome58", "edge16", "firefox57", "safari11"],
 		dynamicImportVarsOptions: {},
 		target: '',
+		rollupOptions: {},
 	},
 	esbuild: { treeShaking: true, minifyWhitespace: true, minifyIdentifiers: true, minifySyntax: true },
-	css: {}, worker: {
+	css: {}, 
+	worker: {
 		plugins: [], format: 'es', rollupOptions: { treeshake: {}, output: {} }
-	}
+	},
+
+	/*
+	define: {
+		"process.env.APP_VERSION": JSON.stringify(version_fmt),
+	},
+	*/
+	experimental: {},
 };
 
 export default config;

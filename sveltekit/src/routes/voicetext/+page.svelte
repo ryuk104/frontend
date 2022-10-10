@@ -1,5 +1,5 @@
 <script>
-    import {browser} from '$app/env'
+    import {browser} from '$app/environment'
 
     import VoiceRecogination from "$lib/Components/voicetext/VoiceRecogination/VoiceRecogination.svelte";
     console.clear();

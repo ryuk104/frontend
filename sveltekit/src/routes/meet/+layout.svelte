@@ -14,7 +14,7 @@
     isSender,
   } from "$lib/utils/store";
   import { server } from "$lib/utils/config";
-  import { dev } from "$app/env";
+  import { dev } from "$app/environment";
   import { goto } from "$app/navigation";
 
   onMount(async () => {

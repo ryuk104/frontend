@@ -3,18 +3,26 @@ import { v4 as uuid } from '@lukeed/uuid';
 import MongoStore from 'connect-mongo'
 import express from 'express'
 import session from 'express-session';
-import { dev } from '$app/env';
+import { dev } from '$app/environment';
 import type { GetSession, Handle, } from '@sveltejs/kit';
 
 const rootDomain = "http://127.0.0.1:4000"; // or your server IP for dev
 const originURL = "http://127.0.0.1:4000"; // or your server IP for dev
 
+
+
+/*
 export const ssr = false;
+*/
 
 /** @type {import('@sveltejs/kit').Handle} */
+
+/*
 export async function handle({ event, resolve }) {
     return resolve(event, { ssr: false });
 }
+
+*/
 
 
 

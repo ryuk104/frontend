@@ -7,7 +7,7 @@
 	import { trackEvent } from './plausible'
 	import { animationSupported } from './transitions'
 	import { ROWS, WORD_LENGTH } from './data-model'
-	import { browser } from '$app/env'
+	import { browser } from '$app/environment'
 
 	const { boardContent, currentRow, currentTile, gameFinished, showAllHints, newUser } = store
 

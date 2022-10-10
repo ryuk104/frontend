@@ -28,7 +28,8 @@
     })
 */
 import { goto } from '$app/navigation';
-	import type { PageData } from './$types';
+/*
+import type { PageData } from './$types';
 
 	export let data: PageData;
 
@@ -36,7 +37,7 @@ import { goto } from '$app/navigation';
 		data.isAdminUserExist ? await goto('/auth/login') : await goto('/auth/register');
 	}
 
-
+*/
 </script>
 
 <svelte:head>
@@ -51,7 +52,6 @@ import { goto } from '$app/navigation';
 		<h1 class="text-4xl text-immich-primary font-bold font-immich-title">Welcome to IMMICH Web</h1>
 		<button
 			class="border px-4 py-2 rounded-md bg-immich-primary hover:bg-immich-primary/75 text-white font-bold w-[200px]"
-			on:click={onGettingStartedClicked}
 			>Getting Started
 		</button>
 	</div>

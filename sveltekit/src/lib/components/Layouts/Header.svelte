@@ -5,7 +5,7 @@
 	export let title
 	export let desc = ''
 	export let url
-	export let image = '/favicon.png'
+	export let image = ''
 	// $: slug = slug
 	// $: console.log(name)
 	tagStore.init(title, url, desc, image)

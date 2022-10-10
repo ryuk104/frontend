@@ -4,7 +4,7 @@ import { locales, loadTranslations, getNavigatorLanguage } from '$lib/components
 import { storedLocale } from '$lib/components/minigame/wordle/store'
 import type { LayoutLoad } from '@sveltejs/kit'
 import { get } from 'svelte/store'
-import { browser } from '$app/env'
+import { browser } from '$app/environment'
 export const load: LayoutLoad = async () => {
 	if (!browser) {
 		await loadTranslations('en')

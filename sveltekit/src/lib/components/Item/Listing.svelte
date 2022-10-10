@@ -16,7 +16,7 @@
 	import type { Item } from '$lib/types';
 	import longpress from '$lib/actions/longpress';
 	import db from '$lib/db';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import { createEventDispatcher } from 'svelte';
 	import { PopperButton, PopperStore } from '../Popper';
 	import { notify } from '$lib/utils';

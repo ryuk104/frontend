@@ -2,7 +2,7 @@
 	import { onDestroy, onMount } from 'svelte';
 	import { page } from '$app/stores';
 	import { goto } from '$app/navigation';
-	import { browser } from '$app/env';
+	import { browser } from '$app/environment';
 	import VideoTile from '$lib/components/room/call/VideoTile.svelte';
 	import WaitingForOthersTile from '$lib/components/room/call/WaitingForOthersTile.svelte';
 	import Chat from '$lib/components/room/call/Chat.svelte';

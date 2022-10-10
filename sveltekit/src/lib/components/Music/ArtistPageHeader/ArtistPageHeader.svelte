@@ -2,7 +2,7 @@
 	import list from "$lib/stores/list";
 	import Icon from "$lib/components/Icon/Icon.svelte";
 	import { onMount } from "svelte";
-	import { browser } from "$app/env";
+	import { browser } from "$app/environment";
 
 	export let header;
 	export let thumbnail = [];

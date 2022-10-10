@@ -1,8 +1,12 @@
-import { serverApi } from '@api';
+//import { serverApi } from '@api';
 import * as cookieParser from 'cookie';
+
+export const csr = false;
+export const prerender = true;
 
 import type { LayoutServerLoad } from './$types';
 
+/*
 export const load: LayoutServerLoad = async ({ request }) => {
 	try {
 		const cookies = cookieParser.parse(request.headers.get('cookie') || '');
@@ -27,3 +31,4 @@ export const load: LayoutServerLoad = async ({ request }) => {
 		};
 	}
 };
+*/

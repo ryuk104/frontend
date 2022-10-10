@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { browser } from "$app/env";
+import { browser } from '$app/environment';
 import { sort } from "./endpoints/playerUtils";
 import {
 	alertHandler,
