@@ -62,7 +62,7 @@
     "int-to-rgb": "^1.0.0",
     "moment": "^2.29.3",
     "node-fetch": "^3.2.4",
-    "node-sass": "^7.0.1",
+    "node-sass": "^7.0.2",
     "p-queue": "^7.2.0",
     "plausible-tracker": "^0.3.5",
     "postcss-uncss": "^0.17.0",
