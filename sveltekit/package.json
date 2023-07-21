@@ -43,7 +43,7 @@
     "@signalapp/libsignal-client": "^0.17.0",
     "@stripe/stripe-js": "^1.29.0",
     "@sveltejs/adapter-node": "^1.0.0-next.73",
-    "@zerodevx/svelte-toast": "^0.7.2",
+    "@zerodevx/svelte-toast": "^0.9.4",
     "animal-avatars.js": "^0.0.2",
     "axios": "^0.26.1",
     "clipboard": "^2.0.11",
